@@ -37,6 +37,7 @@ admin.initializeApp({
 // globalオブジェクトに設定 外部ファイルから実行するため
 global.db = admin.database()// RealTimeDatabaseのオブジェクト
 global.bucket = admin.storage().bucket()// CloudStorageのオブジェクト
+global.status = { success: 200, error: 400, notFound: 404 } // HTTPStatusの定義
 
 //////////////////////////////////////////////
 app.use('/Tree', TreeRouter)

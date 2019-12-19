@@ -97,9 +97,9 @@ router.route('/')
             result.then(() => {
                 const json = JSON.stringify(objects)
                 res.header('Content-Type', 'application/json; charset=utf-8')
-                res.send(json)
+                res.status(status.success).send(json)
             })
-        } catch (error) { res.end("error") }
+        } catch (error) { res.status(status.error).end("error") }
     })
 
     // TreePotを作成
@@ -123,10 +123,10 @@ router.route('/')
                 TreeKey: TreeKey
             }, (error) => {
                 if (error) res.send("error")
-                else res.send("success")
+                else res.status(status.success).send("success")
             })
         } catch (error) {
-            res.send("error")
+            res.status(status.error).send("error")
         }
 
     })
@@ -147,11 +147,11 @@ router.route('/')
                 if (snapshot.val().TreeKey == TreeKey) {
                     //TreePotのデータを削除
                     ref.remove()
-                    res.send("success")
+                    res.status(status.success).send("success")
                 }
             })
         } catch (error) {
-            res.send("error")
+            res.status(status.error).send("error")
         }
     })
 
@@ -194,10 +194,10 @@ router.route('/View')
             result.then(() => {
                 const json = JSON.stringify(objects)
                 res.header('Content-Type', 'application/json; charset=utf-8')
-                res.send(json)
+                res.status(status.success).send(json)
                 //console.log("responce")
             })
-        } catch (error) { res.end("error") }
+        } catch (error) { res.status(status.error).end("error") }
     })
 
 module.exports = router

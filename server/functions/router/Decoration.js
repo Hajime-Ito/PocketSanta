@@ -72,10 +72,10 @@ router.route('/')
             result.then(() => {
                 const json = JSON.stringify(object)
                 res.header('Content-Type', 'application/json; charset=utf-8')
-                res.send(json)
+                res.status(status.success).send(json)
             })
 
-        } catch (error) { res.send("error") }
+        } catch (error) { res.status(status.error).send("error") }
     })
 
     .post((req, res) => {
@@ -117,9 +117,9 @@ router.route('/')
             })
 
             result.then(() => {
-                res.send("success")
+                res.status(status.success).send("success")
             })
-        } catch (error) { res.send("error") }
+        } catch (error) { res.status(status.error).send("error") }
     })
 
 module.exports = router

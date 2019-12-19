@@ -52,23 +52,25 @@ router.route('/')
         const ref = db.ref("/Account")
         let locations = []
 
-        const result = new Promise((resolve) => {
-            ref.on('child_added', (snapshot) => {
-                const location = {
-                    x: snapshot.val().locationX,
-                    y: snapshot.val().locationY
-                }
-                locations.push(location)
-                resolve()
+        try {
+            const result = new Promise((resolve) => {
+                ref.on('child_added', (snapshot) => {
+                    const location = {
+                        x: snapshot.val().locationX,
+                        y: snapshot.val().locationY
+                    }
+                    locations.push(location)
+                    resolve()
+                })
             })
-        })
 
-        result.then(() => {
-            const obj = hotspot.gethotspot(locationX, locationY, distance, locations)
-            const json = JSON.stringify(obj)
-            res.header('Content-Type', 'application/json; charset=utf-8')
-            res.send(json)
-        })
+            result.then(() => {
+                const obj = hotspot.gethotspot(locationX, locationY, distance, locations)
+                const json = JSON.stringify(obj)
+                res.header('Content-Type', 'application/json; charset=utf-8')
+                res.status(status.success).send(json)
+            })
+        } catch (error) { res.status(status.error).send("error") }
     })
 
 module.exports = router

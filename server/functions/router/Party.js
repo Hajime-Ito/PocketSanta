@@ -88,10 +88,10 @@ router.route('/')
             result.then(() => {
                 const json = JSON.stringify(objects)
                 res.header('Content-Type', 'application/json; charset=utf-8')
-                res.send(json)
+                res.status(status.success).send(json)
             })
 
-        } catch (error) { res.send("error") }
+        } catch (error) { res.status(status.error).send("error") }
     })
 
     // Partyを生成する
@@ -136,10 +136,10 @@ router.route('/')
                 PartyKey: PartyKey,
                 title: title
             }, (error) => {
-                if (error) res.send("error")
-                else res.send("success")
+                if (error) res.status(status.error).send("error")
+                else res.status(status.success).send("success")
             })
-        } catch (error) { res.send("error") }
+        } catch (error) { res.status(status.error).send("error") }
     })
 
     .delete((req, res) => {
@@ -171,8 +171,8 @@ router.route('/')
                     }
                 })
             })
-            result.then(() => res.send("success"))
-        } catch (error) { res.send("error") }
+            result.then(() => res.status(status.success).send("success"))
+        } catch (error) { res.status(status.error).send("error") }
     })
 
 module.exports = router

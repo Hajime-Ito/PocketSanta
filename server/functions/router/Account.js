@@ -56,10 +56,10 @@ router.route('/')
                     const obj = { "pid": pid }
                     const json = JSON.stringify(obj)
                     res.header('Content-Type', 'application/json; charset=utf-8')
-                    res.send(json)
+                    res.status(status.success).send(json)
                 }
             })
-        } catch (error) { res.send("error") }
+        } catch (error) { res.status(status.error).send("error") }
     })
 
     // 自分の位置を書き込む
@@ -83,10 +83,10 @@ router.route('/')
                 locationX: locationX,
                 locationY: locationY
             }, (error) => {
-                if (error) res.send("error")
-                else res.send("success")
+                if (error) res.status(status.error).send("error")
+                else res.status(status.success).send("success")
             })
-        } catch (error) { res.send("error") }
+        } catch (error) { res.status(status.error).send("error") }
     })
 
 module.exports = router
