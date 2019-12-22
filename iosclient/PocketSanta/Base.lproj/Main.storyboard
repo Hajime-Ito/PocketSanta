@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="TYB-Cn-107">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--クリスマスマップ-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="MapViewController" customModule="PocketSanta" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" scrollEnabled="NO" showsUserLocation="YES" showsCompass="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XfQ-c4-IGs">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="XfQ-c4-IGs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="3xB-eI-cev"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="XfQ-c4-IGs" secondAttribute="trailing" id="40a-42-Y6f"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="XfQ-c4-IGs" secondAttribute="bottom" id="Unb-m5-WSm"/>
+                            <constraint firstItem="XfQ-c4-IGs" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="mos-3n-42a"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="クリスマスマップ" image="map.fill" catalog="system" id="eqA-Z7-d87"/>
+                    <connections>
+                        <outlet property="mapView" destination="XfQ-c4-IGs" id="ffK-8k-AaY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1144" y="138"/>
+        </scene>
+        <!--フライヤー-->
+        <scene sceneID="cv7-YP-rl5">
+            <objects>
+                <viewController id="gYw-l0-Uso" customClass="FlyerViewController" customModule="PocketSanta" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="o6S-3H-r09">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ppf-7y-73w">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FlyerCell" rowHeight="195" id="r3C-cd-YWF" customClass="FlyerCellTableViewCell" customModule="PocketSanta" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="195"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="r3C-cd-YWF" id="D08-Dd-PRW">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="195"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="タイトル" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mjE-Ec-j3M">
+                                                    <rect key="frame" x="15" y="11" width="290" height="24"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="test" translatesAutoresizingMaskIntoConstraints="NO" id="rpn-x6-dNA">
+                                                    <rect key="frame" x="15" y="43" width="290" height="150"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="150" id="nXX-tf-Pu9"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="mjE-Ec-j3M" firstAttribute="leading" secondItem="D08-Dd-PRW" secondAttribute="leadingMargin" id="1T0-E1-qtY"/>
+                                                <constraint firstItem="mjE-Ec-j3M" firstAttribute="trailing" secondItem="D08-Dd-PRW" secondAttribute="trailingMargin" id="5l8-wa-HU7"/>
+                                                <constraint firstItem="rpn-x6-dNA" firstAttribute="leading" secondItem="D08-Dd-PRW" secondAttribute="leading" constant="15" id="ALB-bd-fFJ"/>
+                                                <constraint firstItem="mjE-Ec-j3M" firstAttribute="top" secondItem="D08-Dd-PRW" secondAttribute="topMargin" id="RU9-1L-Pmo"/>
+                                                <constraint firstItem="rpn-x6-dNA" firstAttribute="top" secondItem="mjE-Ec-j3M" secondAttribute="bottom" constant="8" id="dgK-7p-Su1"/>
+                                                <constraint firstItem="rpn-x6-dNA" firstAttribute="top" secondItem="mjE-Ec-j3M" secondAttribute="bottom" constant="8" id="eIT-Pg-fax"/>
+                                                <constraint firstAttribute="trailing" secondItem="rpn-x6-dNA" secondAttribute="trailing" constant="15" id="paO-Xd-hzK"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="myImageView" destination="rpn-x6-dNA" id="rwk-7R-Bpd"/>
+                                            <outlet property="myTextLabel" destination="mjE-Ec-j3M" id="lbj-rR-nqM"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Ppf-7y-73w" firstAttribute="leading" secondItem="cBx-qF-OhM" secondAttribute="leading" id="2ro-Lb-uWw"/>
+                            <constraint firstItem="Ppf-7y-73w" firstAttribute="top" secondItem="cBx-qF-OhM" secondAttribute="top" id="gSM-Jc-zEQ"/>
+                            <constraint firstItem="cBx-qF-OhM" firstAttribute="bottom" secondItem="Ppf-7y-73w" secondAttribute="bottom" id="qeZ-oF-ado"/>
+                            <constraint firstItem="cBx-qF-OhM" firstAttribute="trailing" secondItem="Ppf-7y-73w" secondAttribute="trailing" id="t3Z-LL-zm0"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="cBx-qF-OhM"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="フライヤー" image="gift.fill" catalog="system" id="N6J-yX-cio"/>
+                    <connections>
+                        <outlet property="myTableview" destination="Ppf-7y-73w" id="arS-ck-UU4"/>
+                        <segue destination="LwW-xT-cHs" kind="presentation" identifier="ToFlyerDetailView" id="6vG-2s-0Gk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lNK-zL-jDo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1134.375" y="932.74647887323943"/>
+        </scene>
+        <!--Flyer Detail View Controller-->
+        <scene sceneID="2e1-jW-zUR">
+            <objects>
+                <viewController id="LwW-xT-cHs" customClass="FlyerDetailViewController" customModule="PocketSanta" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2Jl-uG-fqh">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="タイトル" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y6l-ag-Ivd">
+                                <rect key="frame" x="40" y="20" width="240" height="24"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="日程" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cHX-nw-XDI">
+                                <rect key="frame" x="40" y="68" width="35" height="20.5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="820-iC-Jtz">
+                                <rect key="frame" x="83" y="68" width="42" height="20.5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Y6l-ag-Ivd" firstAttribute="top" secondItem="EBp-mg-aRH" secondAttribute="top" constant="20" id="SPc-FF-cV1"/>
+                            <constraint firstItem="Y6l-ag-Ivd" firstAttribute="leading" secondItem="EBp-mg-aRH" secondAttribute="leading" constant="40" id="bS8-QL-brb"/>
+                            <constraint firstItem="EBp-mg-aRH" firstAttribute="trailing" secondItem="Y6l-ag-Ivd" secondAttribute="trailing" constant="40" id="mHU-6N-DQB"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="EBp-mg-aRH"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="uJ3-8P-vab"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TNa-bW-rh9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2139.375" y="931.69014084507046"/>
+        </scene>
+        <!--ツリーポット-->
+        <scene sceneID="eQo-HU-Uyf">
+            <objects>
+                <viewController id="xYZ-Q3-jKG" customClass="TreePotViewController" customModule="PocketSanta" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="F7C-Pt-gLY">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="6Kk-9a-9kq"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="ツリーポット" image="tray.fill" catalog="system" id="aDt-bg-9aK"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Uyd-cU-5Z8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1144" y="1686"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="RB9-c4-zjw">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="TYB-Cn-107" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="uvV-5c-BPh">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="Yla-Ws-HF0"/>
+                        <segue destination="gYw-l0-Uso" kind="relationship" relationship="viewControllers" id="vsf-0n-fr1"/>
+                        <segue destination="xYZ-Q3-jKG" kind="relationship" relationship="viewControllers" id="oHk-Bt-ema"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fQ5-du-yQZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="138.75" y="138.38028169014083"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="gift.fill" catalog="system" width="64" height="64"/>
+        <image name="map.fill" catalog="system" width="64" height="56"/>
+        <image name="test" width="1472" height="828"/>
+        <image name="tray.fill" catalog="system" width="64" height="44"/>
+    </resources>
+</document>
