@@ -20,10 +20,14 @@ class FlyerDetailPageViewController: UIPageViewController {
     }
     
     func getFirst() -> FlyerDetailViewController {
-        return storyboard!.instantiateViewController(withIdentifier: "FlyerDetailInfoView") as!FlyerDetailViewController
+        let next = storyboard!.instantiateViewController(withIdentifier: "FlyerDetailInfoView") as!FlyerDetailViewController
+        next.flyerdata = self.flyerdata
+        return next
     }
     func getSecond() -> FlyerDetailMapViewController {
-        return storyboard!.instantiateViewController(withIdentifier: "FlyerDetailMapView") as! FlyerDetailMapViewController
+        let next = storyboard!.instantiateViewController(withIdentifier: "FlyerDetailMapView") as! FlyerDetailMapViewController
+        next.flyerdata = self.flyerdata
+        return next
     }
     
 }

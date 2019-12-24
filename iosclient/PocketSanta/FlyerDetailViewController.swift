@@ -10,10 +10,19 @@ import UIKit
 
 class FlyerDetailViewController: UIViewController {
     
-     var flyerdata: FlyerData!
+    var flyerdata: FlyerData!
+    @IBOutlet weak var titlelabel: UILabel!
+    @IBOutlet weak var datelabel: UILabel!
+    @IBOutlet weak var timelabel: UILabel!
+    @IBOutlet weak var locationlabel: UILabel!
+    @IBOutlet weak var messagelabel: UITextView!
     
     override func viewDidLoad() {
-           super.viewDidLoad()
-           // Do any additional setup after loading the view.
-       }
+        super.viewDidLoad()
+        titlelabel?.text = flyerdata.title
+        datelabel?.text = "\(flyerdata.year)年\(flyerdata.month)月\(flyerdata.date)日"
+        timelabel?.text = flyerdata.time
+        locationlabel?.text = flyerdata.locationInfo
+        messagelabel?.text = flyerdata.message
+    }
 }

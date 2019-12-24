@@ -82,7 +82,6 @@
                                         <connections>
                                             <outlet property="myImageView" destination="rpn-x6-dNA" id="rwk-7R-Bpd"/>
                                             <outlet property="myTextLabel" destination="mjE-Ec-j3M" id="lbj-rR-nqM"/>
-                                            <segue destination="0Fu-fP-fa2" kind="showDetail" identifier="ToFlyerDetailView" id="Xdh-Z8-Tz6"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -100,11 +99,12 @@
                     <tabBarItem key="tabBarItem" title="フライヤー" image="gift.fill" catalog="system" id="N6J-yX-cio"/>
                     <connections>
                         <outlet property="myTableview" destination="Ppf-7y-73w" id="arS-ck-UU4"/>
+                        <segue destination="0Fu-fP-fa2" kind="showDetail" identifier="ToFlyerDetailView" id="43x-hv-r9G"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lNK-zL-jDo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1134.375" y="932.74647887323943"/>
+            <point key="canvasLocation" x="1144" y="933"/>
         </scene>
         <!--Flyer Detail View Controller-->
         <scene sceneID="2e1-jW-zUR">
@@ -125,7 +125,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="Edl-9C-0OO"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -134,7 +134,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="vcV-yQ-HgZ"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -143,7 +143,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="dob-eS-LCx"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -174,12 +174,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Egr-yN-clV">
-                                <rect key="frame" x="40" y="207" width="240" height="304"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Egr-yN-clV">
+                                <rect key="frame" x="20" y="207" width="280" height="304"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <pageControl opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="2" translatesAutoresizingMaskIntoConstraints="NO" id="xgH-3Y-ABL">
@@ -197,7 +197,7 @@
                             <constraint firstItem="mcS-Qc-KbQ" firstAttribute="top" secondItem="5Zg-H6-tfr" secondAttribute="bottom" constant="8" id="Bzu-Je-PxC"/>
                             <constraint firstItem="Y6l-ag-Ivd" firstAttribute="top" secondItem="EBp-mg-aRH" secondAttribute="top" constant="11" id="Dsd-na-AM3"/>
                             <constraint firstItem="16s-NP-J5Z" firstAttribute="leading" secondItem="K6A-rq-JAo" secondAttribute="leading" id="EGx-iE-1KT"/>
-                            <constraint firstItem="EBp-mg-aRH" firstAttribute="trailing" secondItem="Egr-yN-clV" secondAttribute="trailing" constant="40" id="EIk-uw-t5H"/>
+                            <constraint firstItem="EBp-mg-aRH" firstAttribute="trailing" secondItem="Egr-yN-clV" secondAttribute="trailing" constant="20" id="EIk-uw-t5H"/>
                             <constraint firstItem="xgH-3Y-ABL" firstAttribute="top" secondItem="Egr-yN-clV" secondAttribute="bottom" id="EWb-lp-hbH"/>
                             <constraint firstItem="Egr-yN-clV" firstAttribute="top" secondItem="S5n-wU-QJ7" secondAttribute="bottom" id="Geo-gh-m73"/>
                             <constraint firstItem="820-iC-Jtz" firstAttribute="leading" secondItem="K6A-rq-JAo" secondAttribute="trailing" constant="11" id="H40-DH-VdD"/>
@@ -211,7 +211,7 @@
                             <constraint firstItem="K6A-rq-JAo" firstAttribute="leading" secondItem="EBp-mg-aRH" secondAttribute="leading" constant="40" id="aby-km-XND"/>
                             <constraint firstItem="S5n-wU-QJ7" firstAttribute="centerX" secondItem="Egr-yN-clV" secondAttribute="centerX" id="b6b-Eg-VBc"/>
                             <constraint firstItem="EBp-mg-aRH" firstAttribute="trailing" secondItem="5Zg-H6-tfr" secondAttribute="trailing" constant="40" id="cSZ-T6-S1g"/>
-                            <constraint firstItem="Egr-yN-clV" firstAttribute="leading" secondItem="EBp-mg-aRH" secondAttribute="leading" constant="40" id="dvY-ji-Ccu"/>
+                            <constraint firstItem="Egr-yN-clV" firstAttribute="leading" secondItem="EBp-mg-aRH" secondAttribute="leading" constant="20" id="dvY-ji-Ccu"/>
                             <constraint firstItem="xgH-3Y-ABL" firstAttribute="top" secondItem="Egr-yN-clV" secondAttribute="bottom" id="hZM-P1-Svd"/>
                             <constraint firstItem="Y6l-ag-Ivd" firstAttribute="leading" secondItem="EBp-mg-aRH" secondAttribute="leading" constant="40" id="hod-eY-udO"/>
                             <constraint firstItem="EBp-mg-aRH" firstAttribute="trailing" secondItem="820-iC-Jtz" secondAttribute="trailing" constant="40" id="j1z-td-OrO"/>
@@ -227,6 +227,13 @@
                         <viewLayoutGuide key="safeArea" id="EBp-mg-aRH"/>
                     </view>
                     <navigationItem key="navigationItem" id="uJ3-8P-vab"/>
+                    <connections>
+                        <outlet property="datelabel" destination="820-iC-Jtz" id="CNj-Gs-SuF"/>
+                        <outlet property="locationlabel" destination="mcS-Qc-KbQ" id="3mN-Ju-N0t"/>
+                        <outlet property="messagelabel" destination="Egr-yN-clV" id="6pC-bN-0Kl"/>
+                        <outlet property="timelabel" destination="5Zg-H6-tfr" id="1sV-hf-2H5"/>
+                        <outlet property="titlelabel" destination="Y6l-ag-Ivd" id="qYz-JR-gO7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TNa-bW-rh9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -244,15 +251,15 @@
                                 <rect key="frame" x="40" y="511" width="240" height="37"/>
                                 <color key="currentPageIndicatorTintColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </pageControl>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" scrollEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BaT-jd-kdp">
-                                <rect key="frame" x="40" y="10" width="240" height="451"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BaT-jd-kdp">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="381"/>
                             </mapView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1日前にアラームを設定" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ssX-H8-dBT">
-                                <rect key="frame" x="40" y="471" width="139" height="32"/>
+                                <rect key="frame" x="40" y="471" width="160" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="3RS-cH-WaM"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -270,16 +277,19 @@
                             <constraint firstItem="vux-Bx-jp0" firstAttribute="trailing" secondItem="SQB-nm-NHE" secondAttribute="trailing" constant="40" id="9Pv-PZ-NNo"/>
                             <constraint firstItem="5Uz-1M-FlU" firstAttribute="top" secondItem="ssX-H8-dBT" secondAttribute="bottom" constant="8" id="Ac4-tn-AbG"/>
                             <constraint firstItem="5Uz-1M-FlU" firstAttribute="leading" secondItem="vux-Bx-jp0" secondAttribute="leading" constant="40" id="HTJ-uT-Zqd"/>
-                            <constraint firstItem="vux-Bx-jp0" firstAttribute="trailing" secondItem="BaT-jd-kdp" secondAttribute="trailing" constant="40" id="NbU-DA-LvO"/>
+                            <constraint firstItem="vux-Bx-jp0" firstAttribute="trailing" secondItem="BaT-jd-kdp" secondAttribute="trailing" id="NbU-DA-LvO"/>
                             <constraint firstItem="ssX-H8-dBT" firstAttribute="leading" secondItem="vux-Bx-jp0" secondAttribute="leading" constant="40" id="Oox-Fv-jcq"/>
-                            <constraint firstItem="ssX-H8-dBT" firstAttribute="top" secondItem="BaT-jd-kdp" secondAttribute="bottom" constant="10" id="Qmj-g0-oUp"/>
+                            <constraint firstItem="ssX-H8-dBT" firstAttribute="top" secondItem="BaT-jd-kdp" secondAttribute="bottom" constant="90" id="Qmj-g0-oUp"/>
                             <constraint firstItem="SQB-nm-NHE" firstAttribute="centerY" secondItem="ssX-H8-dBT" secondAttribute="centerY" id="aFb-I8-Nj7"/>
-                            <constraint firstItem="BaT-jd-kdp" firstAttribute="top" secondItem="vux-Bx-jp0" secondAttribute="top" constant="10" id="dGW-Pv-enR"/>
-                            <constraint firstItem="BaT-jd-kdp" firstAttribute="leading" secondItem="vux-Bx-jp0" secondAttribute="leading" constant="40" id="ncb-SY-RCN"/>
+                            <constraint firstItem="BaT-jd-kdp" firstAttribute="top" secondItem="vux-Bx-jp0" secondAttribute="top" id="dGW-Pv-enR"/>
+                            <constraint firstItem="BaT-jd-kdp" firstAttribute="leading" secondItem="vux-Bx-jp0" secondAttribute="leading" id="ncb-SY-RCN"/>
                             <constraint firstItem="vux-Bx-jp0" firstAttribute="bottom" secondItem="5Uz-1M-FlU" secondAttribute="bottom" constant="20" id="oBH-cE-3GL"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vux-Bx-jp0"/>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="BaT-jd-kdp" id="42W-U2-ENS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cbh-Ql-nxi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
