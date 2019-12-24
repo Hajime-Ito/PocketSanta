@@ -26,6 +26,8 @@
 		EF0A4EBC23AFC9E100EE167C /* FlyerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0A4EBA23AFC9E100EE167C /* FlyerDetailViewController.swift */; };
 		EF0A4EBE23AFF24800EE167C /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0A4EBD23AFF24800EE167C /* Data.swift */; };
 		EF0A4EBF23AFF24800EE167C /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0A4EBD23AFF24800EE167C /* Data.swift */; };
+		EF50CD1723B28BC500A73225 /* FlyerDetailPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF50CD1623B28BC500A73225 /* FlyerDetailPageViewController.swift */; };
+		EF50CD1923B28DEF00A73225 /* FlyerDetailMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF50CD1823B28DEF00A73225 /* FlyerDetailMapViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,8 @@
 		EF0A4EB023AECD7D00EE167C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		EF0A4EBA23AFC9E100EE167C /* FlyerDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlyerDetailViewController.swift; sourceTree = "<group>"; };
 		EF0A4EBD23AFF24800EE167C /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		EF50CD1623B28BC500A73225 /* FlyerDetailPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlyerDetailPageViewController.swift; sourceTree = "<group>"; };
+		EF50CD1823B28DEF00A73225 /* FlyerDetailMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlyerDetailMapViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +109,8 @@
 				EF0A4E8423AABD2300EE167C /* SceneDelegate.swift */,
 				EF0A4E8623AABD2300EE167C /* MapViewController.swift */,
 				EF0A4E8823AABD2300EE167C /* Main.storyboard */,
+				EF50CD1823B28DEF00A73225 /* FlyerDetailMapViewController.swift */,
+				EF50CD1623B28BC500A73225 /* FlyerDetailPageViewController.swift */,
 				EF0A4EAA23ABBA4A00EE167C /* TreePotViewController.swift */,
 				EF0A4EA723ABB9D300EE167C /* FlyerViewController.swift */,
 				EF0A4EBA23AFC9E100EE167C /* FlyerDetailViewController.swift */,
@@ -243,7 +249,9 @@
 				EF0A4EBB23AFC9E100EE167C /* FlyerDetailViewController.swift in Sources */,
 				EF0A4E8523AABD2300EE167C /* SceneDelegate.swift in Sources */,
 				EF0A4EA523AABF0100EE167C /* WebAPI.swift in Sources */,
+				EF50CD1723B28BC500A73225 /* FlyerDetailPageViewController.swift in Sources */,
 				EF0A4EBE23AFF24800EE167C /* Data.swift in Sources */,
+				EF50CD1923B28DEF00A73225 /* FlyerDetailMapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

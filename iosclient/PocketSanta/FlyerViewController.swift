@@ -68,7 +68,7 @@ class FlyerViewController: UIViewController, UITableViewDelegate, UITableViewDat
         if segue.identifier == "ToFlyerDetailView" {
             // ToFlyerDetailViewセグエの時
             // 遷移先のViewControllerを取得
-            let secondViewController = segue.destination as! FlyerDetailViewController
+            let secondViewController = segue.destination as! FlyerDetailPageViewController
             // 遷移先のflyerdataプロパティに引数sender(FlyerData型)を渡す
             secondViewController.flyerdata = sender as? FlyerData
         }
