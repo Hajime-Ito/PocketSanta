@@ -10,6 +10,7 @@ import UIKit
 import MapKit
 
 class FlyerDetailMapViewController: UIViewController, MKMapViewDelegate  {
+    
     var flyerdata: FlyerData!
     @IBOutlet weak var mapView: MKMapView!
     
@@ -80,7 +81,7 @@ class FlyerDetailMapViewController: UIViewController, MKMapViewDelegate  {
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         let renderer = MKPolylineRenderer(overlay: overlay)
         renderer.strokeColor = UIColor.blue
-        renderer.lineWidth = 4.0
+        renderer.lineWidth = 3.0
         return renderer
     }
 }

@@ -10,11 +10,6 @@ import UIKit
 import MapKit
 import CoreLocation
 
-struct Annotation {
-    let address: String
-    let title: String?
-    let subtitle: String?
-}
 
 class MapViewController: UIViewController {
     @IBOutlet var mapView: MKMapView!
@@ -31,40 +26,46 @@ class MapViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        navigateLocationNotice()
+    }
+    
+    
+    
+    private func navigateLocationNotice() {
         if(CLLocationManager.locationServicesEnabled() == true){
-            switch CLLocationManager.authorizationStatus() {
-                
-            //未設定の場合
-            case CLAuthorizationStatus.notDetermined:
-                testManager.requestWhenInUseAuthorization()
-                
-            //機能制限されている場合
-            case CLAuthorizationStatus.restricted:
-                alertMessage(message: "位置情報サービスの利用が制限されている利用できません。「設定」⇒「一般」⇒「機能制限」")
-                
-            //「許可しない」に設定されている場合
-            case CLAuthorizationStatus.denied:
-                alertMessage(message: "位置情報の利用が許可されていないため利用できません。「設定」⇒「プライバシー」⇒「位置情報サービス」⇒「アプリ名」")
-                
-            //「このAppの使用中のみ許可」に設定されている場合
-            case CLAuthorizationStatus.authorizedWhenInUse:
-                //位置情報の取得を開始する。
-                //testManager.startUpdatingLocation()
-                break
-                
-            //「常に許可」に設定されている場合
-            case CLAuthorizationStatus.authorizedAlways:
-                //位置情報の取得を開始する。
-                //testManager.startUpdatingLocation()
-                break
-            @unknown default:
-                fatalError()
-            }
-            
-        } else {
-            //位置情報サービスがOFFの場合
-            alertMessage(message: "位置情報サービスがONになっていないため利用できません。「設定」⇒「プライバシー」⇒「位置情報サービス」")
-        }
+                   switch CLLocationManager.authorizationStatus() {
+                       
+                   //未設定の場合
+                   case CLAuthorizationStatus.notDetermined:
+                       testManager.requestWhenInUseAuthorization()
+                       
+                   //機能制限されている場合
+                   case CLAuthorizationStatus.restricted:
+                       alertMessage(message: "位置情報サービスの利用が制限されている利用できません。「設定」⇒「一般」⇒「機能制限」")
+                       
+                   //「許可しない」に設定されている場合
+                   case CLAuthorizationStatus.denied:
+                       alertMessage(message: "位置情報の利用が許可されていないため利用できません。「設定」⇒「プライバシー」⇒「位置情報サービス」⇒「アプリ名」")
+                       
+                   //「このAppの使用中のみ許可」に設定されている場合
+                   case CLAuthorizationStatus.authorizedWhenInUse:
+                       //位置情報の取得を開始する。
+                       //testManager.startUpdatingLocation()
+                       break
+                       
+                   //「常に許可」に設定されている場合
+                   case CLAuthorizationStatus.authorizedAlways:
+                       //位置情報の取得を開始する。
+                       //testManager.startUpdatingLocation()
+                       break
+                   @unknown default:
+                       fatalError()
+                   }
+                   
+               } else {
+                   //位置情報サービスがOFFの場合
+                   alertMessage(message: "位置情報サービスがONになっていないため利用できません。「設定」⇒「プライバシー」⇒「位置情報サービス」")
+               }
     }
     
     //メッセージ出力メソッド
@@ -77,7 +78,7 @@ class MapViewController: UIViewController {
         
     }
     
-    private func add(with annotation: Annotation) {
+    /*private func add(with annotation: Annotation) {
         CLGeocoder().geocodeAddressString(annotation.address) { [weak self] (placeMarks, error) in
             guard let placeMark = placeMarks?.first,
                 let latitude = placeMark.location?.coordinate.latitude,
@@ -90,7 +91,7 @@ class MapViewController: UIViewController {
             self?.mapView.addAnnotation(point)
         }
         
-    }
+    }*/
     
 }
 

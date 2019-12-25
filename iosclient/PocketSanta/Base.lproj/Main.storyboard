@@ -46,7 +46,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ppf-7y-73w">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                                <rect key="frame" x="0.0" y="44" width="320" height="475"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FlyerCell" rowHeight="195" id="r3C-cd-YWF" customClass="FlyerCellTableViewCell" customModule="PocketSanta" customModuleProvider="target">
@@ -86,11 +86,21 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bGZ-fJ-30z">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <items>
+                                    <barButtonItem width="321" style="plain" systemItem="fixedSpace" id="YQ9-8s-9P6"/>
+                                    <barButtonItem title="Item" image="pencil.and.ellipsis.rectangle" catalog="system" width="280.5" id="rmW-3T-iN4"/>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="Ppf-7y-73w" firstAttribute="leading" secondItem="cBx-qF-OhM" secondAttribute="leading" id="2ro-Lb-uWw"/>
-                            <constraint firstItem="Ppf-7y-73w" firstAttribute="top" secondItem="cBx-qF-OhM" secondAttribute="top" id="gSM-Jc-zEQ"/>
+                            <constraint firstItem="Ppf-7y-73w" firstAttribute="top" secondItem="bGZ-fJ-30z" secondAttribute="bottom" id="Cug-06-LbN"/>
+                            <constraint firstItem="bGZ-fJ-30z" firstAttribute="leading" secondItem="cBx-qF-OhM" secondAttribute="leading" id="YmB-eF-gWs"/>
+                            <constraint firstItem="bGZ-fJ-30z" firstAttribute="top" secondItem="cBx-qF-OhM" secondAttribute="top" id="aGY-KD-5Ci"/>
+                            <constraint firstItem="bGZ-fJ-30z" firstAttribute="trailing" secondItem="cBx-qF-OhM" secondAttribute="trailing" id="aGu-0j-Qgh"/>
                             <constraint firstItem="cBx-qF-OhM" firstAttribute="bottom" secondItem="Ppf-7y-73w" secondAttribute="bottom" id="qeZ-oF-ado"/>
                             <constraint firstItem="cBx-qF-OhM" firstAttribute="trailing" secondItem="Ppf-7y-73w" secondAttribute="trailing" id="t3Z-LL-zm0"/>
                         </constraints>
@@ -104,7 +114,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lNK-zL-jDo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1144" y="933"/>
+            <point key="canvasLocation" x="1143.75" y="932.74647887323943"/>
         </scene>
         <!--Flyer Detail View Controller-->
         <scene sceneID="2e1-jW-zUR">
@@ -295,6 +305,38 @@
             </objects>
             <point key="canvasLocation" x="4342.5" y="932.74647887323943"/>
         </scene>
+        <!--Item 2-->
+        <scene sceneID="BDI-Gg-UgY">
+            <objects>
+                <viewController id="qQ9-yE-1zD" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="At5-Bk-Szr">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="Tlc-0D-DNv"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 2" id="Mkg-xB-Veg"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8z2-Lf-4bz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2775" y="266"/>
+        </scene>
+        <!--Item 1-->
+        <scene sceneID="DR3-v5-QKJ">
+            <objects>
+                <viewController id="ji4-qQ-d3F" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jfB-cC-Wln">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="YNN-aV-9W1"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 1" id="LCJ-fJ-mQc"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wxM-ER-eoz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2775" y="-410"/>
+        </scene>
         <!--Flyer Detail Page View Controller-->
         <scene sceneID="UqH-Z8-hDI">
             <objects>
@@ -346,6 +388,7 @@
         <image name="gift.fill" catalog="system" width="64" height="64"/>
         <image name="location" catalog="system" width="64" height="56"/>
         <image name="map.fill" catalog="system" width="64" height="56"/>
+        <image name="pencil.and.ellipsis.rectangle" catalog="system" width="64" height="40"/>
         <image name="test" width="1472" height="828"/>
         <image name="tray.fill" catalog="system" width="64" height="44"/>
     </resources>
