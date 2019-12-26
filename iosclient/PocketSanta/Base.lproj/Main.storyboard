@@ -35,7 +35,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1144" y="138"/>
+            <point key="canvasLocation" x="1144" y="-701"/>
         </scene>
         <!--フライヤー-->
         <scene sceneID="cv7-YP-rl5">
@@ -128,7 +128,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lNK-zL-jDo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1143.75" y="932.74647887323943"/>
+            <point key="canvasLocation" x="1144" y="397"/>
         </scene>
         <!--Flyer Detail View Controller-->
         <scene sceneID="2e1-jW-zUR">
@@ -164,12 +164,16 @@
                             </label>
                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="mcS-Qc-KbQ">
                                 <rect key="frame" x="76" y="150" width="204" height="25"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="dob-eS-LCx"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="3pt-hK-vFt" appends="YES" id="d0z-QK-VVN"/>
+                                </connections>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="K6A-rq-JAo">
                                 <rect key="frame" x="40" y="85" width="25" height="22.5"/>
@@ -187,10 +191,14 @@
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="5EX-eQ-NtG">
                                 <rect key="frame" x="40" y="150.5" width="25" height="24"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="25" id="Az2-2Q-krp"/>
                                     <constraint firstAttribute="height" constant="25" id="ZqD-dd-QGT"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="KZe-sa-bbn" appends="YES" id="hS9-3R-Cdx"/>
+                                </connections>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="メッセージ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S5n-wU-QJ7">
                                 <rect key="frame" x="116.5" y="186" width="87" height="21"/>
@@ -260,6 +268,16 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TNa-bW-rh9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="3pt-hK-vFt" userLabel="locationlabelTGR">
+                    <connections>
+                        <action selector="Taplocationlabel:" destination="LwW-xT-cHs" id="ElZ-LG-GIQ"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="KZe-sa-bbn" userLabel="locationMarkTGR">
+                    <connections>
+                        <action selector="TaplocationMark:" destination="LwW-xT-cHs" id="IZc-01-iYQ"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="3631.875" y="932.74647887323943"/>
         </scene>
@@ -319,37 +337,35 @@
             </objects>
             <point key="canvasLocation" x="4342.5" y="932.74647887323943"/>
         </scene>
-        <!--Item 2-->
-        <scene sceneID="BDI-Gg-UgY">
+        <!--View Controller-->
+        <scene sceneID="lSu-0D-jZU">
             <objects>
-                <viewController id="qQ9-yE-1zD" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="At5-Bk-Szr">
+                <viewController id="iuA-ak-ywF" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UW0-5m-Kky">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="Tlc-0D-DNv"/>
+                        <viewLayoutGuide key="safeArea" id="MXR-kM-Got"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="Mkg-xB-Veg"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8z2-Lf-4bz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iSI-MT-a1G" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2775" y="266"/>
+            <point key="canvasLocation" x="2771" y="167"/>
         </scene>
-        <!--Item 1-->
-        <scene sceneID="DR3-v5-QKJ">
+        <!--View Controller-->
+        <scene sceneID="ROg-IC-kTS">
             <objects>
-                <viewController id="ji4-qQ-d3F" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="jfB-cC-Wln">
+                <viewController id="no1-bW-XJ5" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0R2-kn-wEq">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="YNN-aV-9W1"/>
+                        <viewLayoutGuide key="safeArea" id="Kve-0f-8qe"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="LCJ-fJ-mQc"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wxM-ER-eoz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d8i-Nj-6wf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2775" y="-410"/>
+            <point key="canvasLocation" x="3645" y="167"/>
         </scene>
         <!--Flyer Detail Page View Controller-->
         <scene sceneID="UqH-Z8-hDI">

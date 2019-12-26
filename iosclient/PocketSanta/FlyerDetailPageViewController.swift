@@ -11,12 +11,12 @@ import UIKit
 class FlyerDetailPageViewController: UIPageViewController {
     
     var flyerdata: FlyerData!
-    
+    var  FlyerDetailPageViewDataSource =  FlyerDetailPageViewDataSourceController()
     override func viewDidLoad() {
         super.viewDidLoad()
+        FlyerDetailPageViewDataSource.FlyerDetailPageView = self
         self.setViewControllers([getFirst()], direction: .forward, animated: true, completion: nil)
-        self.dataSource = self
-        
+        self.dataSource =  FlyerDetailPageViewDataSource
     }
     
     func getFirst() -> FlyerDetailViewController {
@@ -32,12 +32,15 @@ class FlyerDetailPageViewController: UIPageViewController {
     
 }
 
-extension FlyerDetailPageViewController : UIPageViewControllerDataSource {
+class FlyerDetailPageViewDataSourceController : NSObject, UIPageViewControllerDataSource {
+    
+    var FlyerDetailPageView: FlyerDetailPageViewController!
+    var FlyerDetailView: FlyerDetailViewController!
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         if viewController.isKind(of: FlyerDetailMapViewController.self) {
             // 2 -> 1
-            return getFirst()
+            return FlyerDetailPageView.getFirst()
         }else{
             // 1 -> end of the road
             return nil
@@ -47,7 +50,7 @@ extension FlyerDetailPageViewController : UIPageViewControllerDataSource {
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         if viewController.isKind(of: FlyerDetailViewController.self) {
             // 1 -> 2
-            return getSecond()
+            return FlyerDetailPageView.getSecond()
         }else{
             // 2 -> end of the road
             return nil
