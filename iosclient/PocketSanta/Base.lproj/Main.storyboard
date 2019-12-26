@@ -40,7 +40,7 @@
         <!--フライヤー-->
         <scene sceneID="cv7-YP-rl5">
             <objects>
-                <viewController id="gYw-l0-Uso" customClass="FlyerViewController" customModule="PocketSanta" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FlyerViewController" id="gYw-l0-Uso" customClass="FlyerViewController" customModule="PocketSanta" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="o6S-3H-r09">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -91,12 +91,15 @@
                                 <items>
                                     <barButtonItem style="plain" id="MZB-z8-bxi">
                                         <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="6n5-LJ-Mrk">
-                                            <rect key="frame" x="16" y="6" width="259" height="32"/>
+                                            <rect key="frame" x="16" y="5.5" width="259" height="33"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <segments>
-                                                <segment title="First"/>
-                                                <segment title="Second"/>
+                                                <segment title="" image="icloud.and.arrow.down" catalog="system"/>
+                                                <segment title="" image="icloud.and.arrow.up" catalog="system"/>
                                             </segments>
+                                            <connections>
+                                                <action selector="FlyerDataSegmentedControlWithSender:" destination="gYw-l0-Uso" eventType="valueChanged" id="HwF-Sr-Zyj"/>
+                                            </connections>
                                         </segmentedControl>
                                     </barButtonItem>
                                     <barButtonItem image="square.and.pencil" catalog="system" width="75" springLoaded="YES" style="plain" id="3hN-N6-U21"/>
@@ -397,6 +400,8 @@
         <image name="app.gift.fill" catalog="system" width="64" height="56"/>
         <image name="calendar" catalog="system" width="64" height="52"/>
         <image name="clock" catalog="system" width="64" height="60"/>
+        <image name="icloud.and.arrow.down" catalog="system" width="64" height="56"/>
+        <image name="icloud.and.arrow.up" catalog="system" width="64" height="52"/>
         <image name="location" catalog="system" width="64" height="56"/>
         <image name="map.fill" catalog="system" width="64" height="56"/>
         <image name="square.and.pencil" catalog="system" width="64" height="58"/>

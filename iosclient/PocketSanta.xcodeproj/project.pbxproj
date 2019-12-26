@@ -28,6 +28,7 @@
 		EF0A4EBF23AFF24800EE167C /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0A4EBD23AFF24800EE167C /* Data.swift */; };
 		EF50CD1723B28BC500A73225 /* FlyerDetailPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF50CD1623B28BC500A73225 /* FlyerDetailPageViewController.swift */; };
 		EF50CD1923B28DEF00A73225 /* FlyerDetailMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF50CD1823B28DEF00A73225 /* FlyerDetailMapViewController.swift */; };
+		EF50CD1B23B45EBD00A73225 /* FlyerViewDatasourceDelegateControroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF50CD1A23B45EBD00A73225 /* FlyerViewDatasourceDelegateControroller.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		EF0A4EBD23AFF24800EE167C /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		EF50CD1623B28BC500A73225 /* FlyerDetailPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlyerDetailPageViewController.swift; sourceTree = "<group>"; };
 		EF50CD1823B28DEF00A73225 /* FlyerDetailMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlyerDetailMapViewController.swift; sourceTree = "<group>"; };
+		EF50CD1A23B45EBD00A73225 /* FlyerViewDatasourceDelegateControroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlyerViewDatasourceDelegateControroller.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 				EF0A4E8623AABD2300EE167C /* MapViewController.swift */,
 				EF0A4E8823AABD2300EE167C /* Main.storyboard */,
 				EF0A4EA723ABB9D300EE167C /* FlyerViewController.swift */,
+				EF50CD1A23B45EBD00A73225 /* FlyerViewDatasourceDelegateControroller.swift */,
 				EF50CD1623B28BC500A73225 /* FlyerDetailPageViewController.swift */,
 				EF0A4EBA23AFC9E100EE167C /* FlyerDetailViewController.swift */,
 				EF50CD1823B28DEF00A73225 /* FlyerDetailMapViewController.swift */,
@@ -243,6 +246,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF0A4EAB23ABBA4A00EE167C /* TreePotViewController.swift in Sources */,
+				EF50CD1B23B45EBD00A73225 /* FlyerViewDatasourceDelegateControroller.swift in Sources */,
 				EF0A4EA823ABB9D300EE167C /* FlyerViewController.swift in Sources */,
 				EF0A4E8723AABD2300EE167C /* MapViewController.swift in Sources */,
 				EF0A4E8323AABD2300EE167C /* AppDelegate.swift in Sources */,

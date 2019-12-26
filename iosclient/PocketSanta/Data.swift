@@ -21,5 +21,6 @@ struct FlyerData {
     let message: String
     let locationX: Double
     let locationY: Double
+    let isMine: Bool
 }
 
