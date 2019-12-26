@@ -89,9 +89,9 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="62C-pS-RFU">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <items>
-                                    <barButtonItem style="plain" id="MZB-z8-bxi">
+                                    <barButtonItem id="MZB-z8-bxi">
                                         <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="6n5-LJ-Mrk">
-                                            <rect key="frame" x="16" y="5.5" width="259" height="33"/>
+                                            <rect key="frame" x="16" y="5.5" width="246" height="33"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <segments>
                                                 <segment title="" image="icloud.and.arrow.down" catalog="system"/>
@@ -102,7 +102,7 @@
                                             </connections>
                                         </segmentedControl>
                                     </barButtonItem>
-                                    <barButtonItem image="square.and.pencil" catalog="system" width="75" springLoaded="YES" style="plain" id="3hN-N6-U21"/>
+                                    <barButtonItem image="square.and.pencil" catalog="system" width="137" springLoaded="YES" style="plain" id="3hN-N6-U21"/>
                                 </items>
                             </toolbar>
                         </subviews>
