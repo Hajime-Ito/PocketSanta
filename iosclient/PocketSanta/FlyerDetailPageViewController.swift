@@ -24,9 +24,16 @@ class FlyerDetailPageViewController: UIPageViewController {
         next.flyerdata = self.flyerdata
         return next
     }
+    
     func getSecond() -> FlyerDetailMapViewController {
         let next = storyboard!.instantiateViewController(withIdentifier: "FlyerDetailMapView") as! FlyerDetailMapViewController
         next.flyerdata = self.flyerdata
+        return next
+    }
+    
+    func getThird() -> FlyerDetailImageViewController {
+        let next = storyboard!.instantiateViewController(withIdentifier: "FlyerDetailImageView") as! FlyerDetailImageViewController
+        next.image = self.flyerdata.image
         return next
     }
     
@@ -38,10 +45,13 @@ class FlyerDetailPageViewDataSourceController : NSObject, UIPageViewControllerDa
     var FlyerDetailPageView: FlyerDetailPageViewController!
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        if viewController.isKind(of: FlyerDetailMapViewController.self) {
+        if viewController.isKind(of: FlyerDetailImageViewController.self) {
+            // 3 -> 2
+            return FlyerDetailPageView.getSecond()
+        }else if viewController.isKind(of: FlyerDetailMapViewController.self) {
             // 2 -> 1
             return FlyerDetailPageView.getFirst()
-        }else{
+        }else {
             // 1 -> end of the road
             return nil
         }
@@ -51,8 +61,11 @@ class FlyerDetailPageViewDataSourceController : NSObject, UIPageViewControllerDa
         if viewController.isKind(of: FlyerDetailViewController.self) {
             // 1 -> 2
             return FlyerDetailPageView.getSecond()
-        }else{
-            // 2 -> end of the road
+        }else if  viewController.isKind(of: FlyerDetailMapViewController.self){
+            // 2 -> 3
+            return FlyerDetailPageView.getThird()
+        } else {
+            // 3 -> end of the road
             return nil
         }
     }

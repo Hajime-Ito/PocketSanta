@@ -13,7 +13,7 @@ struct FlyerData {
     let year: Int
     let month: Int
     let date: Int
-    let time: String
+    let timeInfo: String
     let locationInfo: String
     // Firebase CloudStorage メモリに画像を直接ダウンロードするのでUIImage型
     // 参考：https://firebase.google.com/docs/storage/ios/download-files?hl=ja

@@ -12,6 +12,22 @@ class FlyerCreateTableViewController: UITableViewController {
     
     var flyerdata: FlyerData?
     
+    // year, month, date
+    // time
+    // locationmessage
+    // locationX, locationY
+    // message
+    
+    @IBOutlet weak var ImageCell: UITableViewCell!
+    @IBOutlet weak var TitleCell: UITableViewCell!
+    @IBOutlet weak var DateCell: UITableViewCell!
+    @IBOutlet weak var TimeInfoCell: UITableViewCell!
+    @IBOutlet weak var LocationMapCell: UITableViewCell!
+    @IBOutlet weak var LocationInfoCell: UITableViewCell!
+    @IBOutlet weak var MessageCell: UITableViewCell!
+    @IBOutlet weak var CreateCell: UITableViewCell!
+    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.tableFooterView = UIView()
@@ -21,7 +37,15 @@ class FlyerCreateTableViewController: UITableViewController {
         let year = calendar.component(.year, from: Todate)
         let month = calendar.component(.month, from: Todate)
         let date = calendar.component(.day, from: Todate)
-        flyerdata = FlyerData(title:"", year: year, month: month, date: date, time: "", locationInfo: "", image: UIImage(named:"test")!, message: "", locationX: 0, locationY: 0, isMine: true)
+        flyerdata = FlyerData(title:"", year: year, month: month, date: date, timeInfo: "", locationInfo: "", image: UIImage(named:"test")!, message: "", locationX: 0, locationY: 0, isMine: true)
+        ImageCell.textLabel?.text = "フライヤー画像"
+        TitleCell.textLabel?.text = "タイトル"
+        DateCell.textLabel?.text = "開催日"
+        TimeInfoCell.textLabel?.text = "開催時間"
+        LocationMapCell.textLabel?.text = "開催位置"
+        LocationInfoCell.textLabel?.text = "詳細位置情報"
+        MessageCell.textLabel?.text = "メッセージ"
+        CreateCell.textLabel?.text = "フライヤーを配る"
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -33,7 +57,7 @@ class FlyerCreateTableViewController: UITableViewController {
         // それぞれのセクション毎に何行のセルがあるかを返します
         switch section {
         case 0: // 「設定」のセクション
-            return 5
+            return 6
         case 1 :
             return 1
         default: // ここが実行されることはないはず

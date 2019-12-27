@@ -21,7 +21,7 @@ class FlyerDetailViewController: UIViewController {
         super.viewDidLoad()
         titlelabel?.text = flyerdata.title
         datelabel?.text = "\(flyerdata.year)年\(flyerdata.month)月\(flyerdata.date)日"
-        timelabel?.text = flyerdata.time
+        timelabel?.text = flyerdata.timeInfo
         locationlabel?.text = flyerdata.locationInfo
         messagelabel?.text = flyerdata.message
     }

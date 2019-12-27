@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E1F2118823B5159600BDFA7F /* FlyerCreateTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F2118723B5159600BDFA7F /* FlyerCreateTableViewController.swift */; };
+		E1F2118C23B69C0F00BDFA7F /* FlyerDetailImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F2118B23B69C0F00BDFA7F /* FlyerDetailImageViewController.swift */; };
 		EF0A4E8323AABD2300EE167C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0A4E8223AABD2300EE167C /* AppDelegate.swift */; };
 		EF0A4E8523AABD2300EE167C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0A4E8423AABD2300EE167C /* SceneDelegate.swift */; };
 		EF0A4E8723AABD2300EE167C /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0A4E8623AABD2300EE167C /* MapViewController.swift */; };
@@ -44,6 +45,7 @@
 
 /* Begin PBXFileReference section */
 		E1F2118723B5159600BDFA7F /* FlyerCreateTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlyerCreateTableViewController.swift; sourceTree = "<group>"; };
+		E1F2118B23B69C0F00BDFA7F /* FlyerDetailImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlyerDetailImageViewController.swift; sourceTree = "<group>"; };
 		EF0A4E7F23AABD2300EE167C /* PocketSanta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PocketSanta.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF0A4E8223AABD2300EE167C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EF0A4E8423AABD2300EE167C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				EF50CD1623B28BC500A73225 /* FlyerDetailPageViewController.swift */,
 				EF0A4EBA23AFC9E100EE167C /* FlyerDetailViewController.swift */,
 				EF50CD1823B28DEF00A73225 /* FlyerDetailMapViewController.swift */,
+				E1F2118B23B69C0F00BDFA7F /* FlyerDetailImageViewController.swift */,
 				EF0A4EAA23ABBA4A00EE167C /* TreePotViewController.swift */,
 				EF0A4EBD23AFF24800EE167C /* Data.swift */,
 				EF0A4EA423AABF0100EE167C /* WebAPI.swift */,
@@ -248,6 +251,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1F2118C23B69C0F00BDFA7F /* FlyerDetailImageViewController.swift in Sources */,
 				EF0A4EAB23ABBA4A00EE167C /* TreePotViewController.swift in Sources */,
 				EF50CD1B23B45EBD00A73225 /* FlyerViewDatasourceDelegateControroller.swift in Sources */,
 				EF0A4EA823ABB9D300EE167C /* FlyerViewController.swift in Sources */,
