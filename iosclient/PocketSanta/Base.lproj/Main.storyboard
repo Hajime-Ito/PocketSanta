@@ -283,7 +283,7 @@
                                 <color key="currentPageIndicatorTintColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </pageControl>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BaT-jd-kdp">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="361"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="351"/>
                             </mapView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1日前にアラームを設定" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ssX-H8-dBT">
                                 <rect key="frame" x="40" y="451" width="160" height="32"/>
@@ -310,7 +310,7 @@
                             <constraint firstItem="5Uz-1M-FlU" firstAttribute="leading" secondItem="vux-Bx-jp0" secondAttribute="leading" constant="40" id="HTJ-uT-Zqd"/>
                             <constraint firstItem="vux-Bx-jp0" firstAttribute="trailing" secondItem="BaT-jd-kdp" secondAttribute="trailing" id="NbU-DA-LvO"/>
                             <constraint firstItem="ssX-H8-dBT" firstAttribute="leading" secondItem="vux-Bx-jp0" secondAttribute="leading" constant="40" id="Oox-Fv-jcq"/>
-                            <constraint firstItem="ssX-H8-dBT" firstAttribute="top" secondItem="BaT-jd-kdp" secondAttribute="bottom" constant="90" id="Qmj-g0-oUp"/>
+                            <constraint firstItem="ssX-H8-dBT" firstAttribute="top" secondItem="BaT-jd-kdp" secondAttribute="bottom" constant="100" id="Qmj-g0-oUp"/>
                             <constraint firstItem="SQB-nm-NHE" firstAttribute="centerY" secondItem="ssX-H8-dBT" secondAttribute="centerY" id="aFb-I8-Nj7"/>
                             <constraint firstItem="BaT-jd-kdp" firstAttribute="top" secondItem="vux-Bx-jp0" secondAttribute="top" id="dGW-Pv-enR"/>
                             <constraint firstItem="BaT-jd-kdp" firstAttribute="leading" secondItem="vux-Bx-jp0" secondAttribute="leading" id="ncb-SY-RCN"/>
@@ -336,7 +336,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7PC-Da-ZFX">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="491"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="503"/>
                             </imageView>
                             <pageControl opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" currentPage="2" translatesAutoresizingMaskIntoConstraints="NO" id="meX-DE-Nqp">
                                 <rect key="frame" x="40" y="511" width="240" height="37"/>
@@ -347,11 +347,10 @@
                         <constraints>
                             <constraint firstItem="VDS-ak-s2X" firstAttribute="trailing" secondItem="meX-DE-Nqp" secondAttribute="trailing" constant="40" id="3uh-fk-0z0"/>
                             <constraint firstItem="7PC-Da-ZFX" firstAttribute="top" secondItem="VDS-ak-s2X" secondAttribute="top" id="Juv-oJ-q54"/>
-                            <constraint firstItem="meX-DE-Nqp" firstAttribute="top" secondItem="7PC-Da-ZFX" secondAttribute="bottom" constant="20" id="Wg2-tM-s40"/>
+                            <constraint firstItem="meX-DE-Nqp" firstAttribute="top" secondItem="7PC-Da-ZFX" secondAttribute="bottom" constant="8" id="Wg2-tM-s40"/>
                             <constraint firstItem="VDS-ak-s2X" firstAttribute="bottom" secondItem="meX-DE-Nqp" secondAttribute="bottom" constant="20" id="aJu-gf-hBh"/>
                             <constraint firstItem="VDS-ak-s2X" firstAttribute="trailing" secondItem="7PC-Da-ZFX" secondAttribute="trailing" id="di6-6n-1Td"/>
                             <constraint firstItem="meX-DE-Nqp" firstAttribute="leading" secondItem="Gol-fr-M2H" secondAttribute="leading" constant="40" id="rD2-ql-lFy"/>
-                            <constraint firstItem="meX-DE-Nqp" firstAttribute="top" secondItem="VDS-ak-s2X" secondAttribute="top" constant="511" id="rkF-O5-gYU"/>
                             <constraint firstItem="7PC-Da-ZFX" firstAttribute="leading" secondItem="VDS-ak-s2X" secondAttribute="leading" id="s84-Oz-rJI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VDS-ak-s2X"/>
