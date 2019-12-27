@@ -32,10 +32,10 @@ class FlyerDetailPageViewController: UIPageViewController {
     
 }
 
+
 class FlyerDetailPageViewDataSourceController : NSObject, UIPageViewControllerDataSource {
     
     var FlyerDetailPageView: FlyerDetailPageViewController!
-    var FlyerDetailView: FlyerDetailViewController!
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         if viewController.isKind(of: FlyerDetailMapViewController.self) {

@@ -11,7 +11,6 @@ import UIKit
 class FlyerDetailViewController: UIViewController {
     
     var flyerdata: FlyerData!
-    var  FlyerDetailPageViewDataSource =  FlyerDetailPageViewDataSourceController()
     @IBOutlet weak var titlelabel: UILabel!
     @IBOutlet weak var datelabel: UILabel!
     @IBOutlet weak var timelabel: UILabel!
@@ -20,7 +19,6 @@ class FlyerDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        FlyerDetailPageViewDataSource.FlyerDetailView = self
         titlelabel?.text = flyerdata.title
         datelabel?.text = "\(flyerdata.year)年\(flyerdata.month)月\(flyerdata.date)日"
         timelabel?.text = flyerdata.time
@@ -29,10 +27,15 @@ class FlyerDetailViewController: UIViewController {
     }
     
     @IBAction func Taplocationlabel(_ sender: Any) {
-        
+        performSegue(withIdentifier: "ToFlyerDetailMapView", sender: flyerdata)
     }
     
-    @IBAction func TaplocationMark(_ sender: Any) {
-        print("good")
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ToFlyerDetailMapView" {
+            // ToFlyerDetailMapViewセグエの時
+            // 遷移先のViewControllerを取得
+            let FlyerDetailMapView = segue.destination as! FlyerDetailMapViewController
+            FlyerDetailMapView.flyerdata = sender as? FlyerData
+        }
     }
 }
