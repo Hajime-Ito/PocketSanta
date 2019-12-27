@@ -9,18 +9,18 @@
 import UIKit
 
 struct FlyerData {
-    let title: String
-    let year: Int
-    let month: Int
-    let date: Int
-    let timeInfo: String
-    let locationInfo: String
+    var title: String
+    var year: Int
+    var month: Int
+    var date: Int
+    var timeInfo: String
+    var locationInfo: String
     // Firebase CloudStorage メモリに画像を直接ダウンロードするのでUIImage型
     // 参考：https://firebase.google.com/docs/storage/ios/download-files?hl=ja
-    let image: UIImage
-    let message: String
-    let locationX: Double
-    let locationY: Double
-    let isMine: Bool
+    var image: UIImage
+    var message: String
+    var locationX: Double
+    var locationY: Double
+    var isMine: Bool
 }
 

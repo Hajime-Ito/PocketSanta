@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import Photos
 
-class FlyerCreateTableViewController: UITableViewController {
+// UIImagePickerについての参考：https://swiswiswift.com/2019-01-11/
+
+class FlyerCreateTableViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     var flyerdata: FlyerData?
     
@@ -18,7 +21,7 @@ class FlyerCreateTableViewController: UITableViewController {
     // locationX, locationY
     // message
     
-    @IBOutlet weak var ImageCell: UITableViewCell!
+    @IBOutlet weak var ImageCell: FlyerCreateImageCell!
     @IBOutlet weak var TitleCell: UITableViewCell!
     @IBOutlet weak var DateCell: UITableViewCell!
     @IBOutlet weak var TimeInfoCell: UITableViewCell!
@@ -27,9 +30,11 @@ class FlyerCreateTableViewController: UITableViewController {
     @IBOutlet weak var MessageCell: UITableViewCell!
     @IBOutlet weak var CreateCell: UITableViewCell!
     
-
+    var picker: UIImagePickerController!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        //　空のセルを非表示
         tableView.tableFooterView = UIView()
         setSwipeBack()
         let Todate = Date()
@@ -38,7 +43,8 @@ class FlyerCreateTableViewController: UITableViewController {
         let month = calendar.component(.month, from: Todate)
         let date = calendar.component(.day, from: Todate)
         flyerdata = FlyerData(title:"", year: year, month: month, date: date, timeInfo: "", locationInfo: "", image: UIImage(named:"test")!, message: "", locationX: 0, locationY: 0, isMine: true)
-        ImageCell.textLabel?.text = "フライヤー画像"
+        ImageCell.title.text = "フライヤー画像"
+        ImageCell.Flyerimage.image = flyerdata?.image
         TitleCell.textLabel?.text = "タイトル"
         DateCell.textLabel?.text = "開催日"
         TimeInfoCell.textLabel?.text = "開催時間"
@@ -46,6 +52,12 @@ class FlyerCreateTableViewController: UITableViewController {
         LocationInfoCell.textLabel?.text = "詳細位置情報"
         MessageCell.textLabel?.text = "メッセージ"
         CreateCell.textLabel?.text = "フライヤーを配る"
+        
+        picker = UIImagePickerController()
+        picker.delegate = self
+        picker.sourceType = UIImagePickerController.SourceType.photoLibrary
+        picker.allowsEditing = false // Whether to make it possible to edit the size etc after selecting the image
+        // set picker's navigationBar appearance
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -64,7 +76,103 @@ class FlyerCreateTableViewController: UITableViewController {
             return 0
         }
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.section {
+        case 0:
+            switch indexPath.row {
+            case 0:
+                checkPermission()
+                present(picker, animated: true, completion: nil)
+            case 1:
+                break
+            case 2:
+                break
+            case 3:
+                break
+            case 4:
+                break
+            case 5:
+                break
+            case 6:
+                break
+            default:
+                break
+            }
+        case 1:
+            switch indexPath.row {
+            case 0:
+                break
+            default:
+                break
+            }
+            break
+        default:
+            break
+        }
+    }
+    
+    // アルバム(Photo liblary)の閲覧権限の確認をするメソッド
+    // 参考：https://qiita.com/Ren-Toyokawa/items/1b2e0b9893c7ea925057
+    private func checkPermission(){
+        let photoAuthorizationStatus = PHPhotoLibrary.authorizationStatus()
+        
+        switch photoAuthorizationStatus {
+        case .authorized:
+            print("auth")
+        case .notDetermined:
+            PHPhotoLibrary.requestAuthorization({
+                (newStatus) in
+                print("status is \(newStatus)")
+                if newStatus ==  PHAuthorizationStatus.authorized {
+                    /* do stuff here */
+                    print("success")
+                }
+            })
+            print("not Determined")
+        case .restricted:
+            print("restricted")
+        case .denied:
+            print("denied")
+        @unknown default:
+            fatalError()
+        }
+    }
+    
+    // MARK: ImageVicker Delegate Methods
+    // called when image picked
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+        let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
+        guard let Image = image else {
+            return
+        }
+        flyerdata?.image = Image
+        ImageCell.Flyerimage.image = flyerdata?.image
+        
+        dismiss(animated: true, completion: nil)
+    }
+    // called when cancel select image
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        // close picker modal
+        dismiss(animated: true, completion: nil)
+    }
 }
+
+class FlyerCreateImageCell: UITableViewCell {
+    @IBOutlet weak var Flyerimage: UIImageView!
+    @IBOutlet weak var title : UILabel!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+    }
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        // Configure the view for the selected state
+    }
+}
+
 
 extension UIViewController {
     // 参考：https://qiita.com/son_s/items/cb35bcff9d133cfa1f5d

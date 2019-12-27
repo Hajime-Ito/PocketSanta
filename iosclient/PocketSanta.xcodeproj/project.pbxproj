@@ -113,8 +113,8 @@
 			children = (
 				EF0A4E8223AABD2300EE167C /* AppDelegate.swift */,
 				EF0A4E8423AABD2300EE167C /* SceneDelegate.swift */,
-				EF0A4E8623AABD2300EE167C /* MapViewController.swift */,
 				EF0A4E8823AABD2300EE167C /* Main.storyboard */,
+				EF0A4E8623AABD2300EE167C /* MapViewController.swift */,
 				EF0A4EA723ABB9D300EE167C /* FlyerViewController.swift */,
 				EF50CD1A23B45EBD00A73225 /* FlyerViewDatasourceDelegateControroller.swift */,
 				E1F2118723B5159600BDFA7F /* FlyerCreateTableViewController.swift */,
