@@ -36,7 +36,7 @@ class FlyerCreateTableViewController: UITableViewController, UIImagePickerContro
         super.viewDidLoad()
         //　空のセルを非表示
         tableView.tableFooterView = UIView()
-        setSwipeBack()
+        //setSwipeBack()
         let Todate = Date()
         let calendar = Calendar.current
         let year = calendar.component(.year, from: Todate)
@@ -69,8 +69,8 @@ class FlyerCreateTableViewController: UITableViewController, UIImagePickerContro
         // それぞれのセクション毎に何行のセルがあるかを返します
         switch section {
         case 0: // 「設定」のセクション
-            return 6
-        case 1 :
+            return 7
+        case 1:
             return 1
         default: // ここが実行されることはないはず
             return 0
