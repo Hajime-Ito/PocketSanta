@@ -3,12 +3,16 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1CCFFB87F98B64D18E683ADE /* Pods_PocketSanta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE5421BC60A3036F21672D75 /* Pods_PocketSanta.framework */; };
+		8454DD10752F1D8E445AB68A /* Pods_PocketSantaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61299E95EB18541346DDF3A1 /* Pods_PocketSantaTests.framework */; };
 		E1F2118823B5159600BDFA7F /* FlyerCreateTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F2118723B5159600BDFA7F /* FlyerCreateTableViewController.swift */; };
 		E1F2118C23B69C0F00BDFA7F /* FlyerDetailImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F2118B23B69C0F00BDFA7F /* FlyerDetailImageViewController.swift */; };
+		E1F2119623B6CC6000BDFA7F /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F2119523B6CC6000BDFA7F /* LaunchViewController.swift */; };
+		E1F2119823B6D05C00BDFA7F /* santa_walk.gif in Resources */ = {isa = PBXBuildFile; fileRef = E1F2119723B6D05C00BDFA7F /* santa_walk.gif */; };
 		EF0A4E8323AABD2300EE167C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0A4E8223AABD2300EE167C /* AppDelegate.swift */; };
 		EF0A4E8523AABD2300EE167C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0A4E8423AABD2300EE167C /* SceneDelegate.swift */; };
 		EF0A4E8723AABD2300EE167C /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0A4E8623AABD2300EE167C /* MapViewController.swift */; };
@@ -44,8 +48,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3800B279AA7E206D03F107D8 /* Pods-PocketSanta.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PocketSanta.release.xcconfig"; path = "Target Support Files/Pods-PocketSanta/Pods-PocketSanta.release.xcconfig"; sourceTree = "<group>"; };
+		387021E31FD76B47F191C737 /* Pods-PocketSantaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PocketSantaTests.debug.xcconfig"; path = "Target Support Files/Pods-PocketSantaTests/Pods-PocketSantaTests.debug.xcconfig"; sourceTree = "<group>"; };
+		61299E95EB18541346DDF3A1 /* Pods_PocketSantaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PocketSantaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		97091D540F557F9336D2A7BE /* Pods-PocketSantaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PocketSantaTests.release.xcconfig"; path = "Target Support Files/Pods-PocketSantaTests/Pods-PocketSantaTests.release.xcconfig"; sourceTree = "<group>"; };
+		AFBD0293A86FFE4E4C2DF3BE /* Pods-PocketSanta.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PocketSanta.debug.xcconfig"; path = "Target Support Files/Pods-PocketSanta/Pods-PocketSanta.debug.xcconfig"; sourceTree = "<group>"; };
 		E1F2118723B5159600BDFA7F /* FlyerCreateTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlyerCreateTableViewController.swift; sourceTree = "<group>"; };
 		E1F2118B23B69C0F00BDFA7F /* FlyerDetailImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlyerDetailImageViewController.swift; sourceTree = "<group>"; };
+		E1F2119523B6CC6000BDFA7F /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
+		E1F2119723B6D05C00BDFA7F /* santa_walk.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = santa_walk.gif; sourceTree = "<group>"; };
 		EF0A4E7F23AABD2300EE167C /* PocketSanta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PocketSanta.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF0A4E8223AABD2300EE167C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EF0A4E8423AABD2300EE167C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -67,6 +78,7 @@
 		EF50CD1623B28BC500A73225 /* FlyerDetailPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlyerDetailPageViewController.swift; sourceTree = "<group>"; };
 		EF50CD1823B28DEF00A73225 /* FlyerDetailMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlyerDetailMapViewController.swift; sourceTree = "<group>"; };
 		EF50CD1A23B45EBD00A73225 /* FlyerViewDatasourceDelegateControroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlyerViewDatasourceDelegateControroller.swift; sourceTree = "<group>"; };
+		FE5421BC60A3036F21672D75 /* Pods_PocketSanta.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PocketSanta.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +88,7 @@
 			files = (
 				EF0A4EB723AED51800EE167C /* CoreLocation.framework in Frameworks */,
 				EF0A4EB523AECEB400EE167C /* MapKit.framework in Frameworks */,
+				1CCFFB87F98B64D18E683ADE /* Pods_PocketSanta.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,12 +96,24 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8454DD10752F1D8E445AB68A /* Pods_PocketSantaTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9B9C804D5944A9C7DD04351B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AFBD0293A86FFE4E4C2DF3BE /* Pods-PocketSanta.debug.xcconfig */,
+				3800B279AA7E206D03F107D8 /* Pods-PocketSanta.release.xcconfig */,
+				387021E31FD76B47F191C737 /* Pods-PocketSantaTests.debug.xcconfig */,
+				97091D540F557F9336D2A7BE /* Pods-PocketSantaTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		EF0A4E7623AABD2300EE167C = {
 			isa = PBXGroup;
 			children = (
@@ -96,6 +121,7 @@
 				EF0A4E9823AABD3600EE167C /* PocketSantaTests */,
 				EF0A4E8023AABD2300EE167C /* Products */,
 				EF0A4EAD23AEC5B600EE167C /* Frameworks */,
+				9B9C804D5944A9C7DD04351B /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -114,6 +140,8 @@
 				EF0A4E8223AABD2300EE167C /* AppDelegate.swift */,
 				EF0A4E8423AABD2300EE167C /* SceneDelegate.swift */,
 				EF0A4E8823AABD2300EE167C /* Main.storyboard */,
+				E1F2119523B6CC6000BDFA7F /* LaunchViewController.swift */,
+				E1F2119723B6D05C00BDFA7F /* santa_walk.gif */,
 				EF0A4E8623AABD2300EE167C /* MapViewController.swift */,
 				EF0A4EA723ABB9D300EE167C /* FlyerViewController.swift */,
 				EF50CD1A23B45EBD00A73225 /* FlyerViewDatasourceDelegateControroller.swift */,
@@ -146,6 +174,8 @@
 			children = (
 				EF0A4EB023AECD7D00EE167C /* CoreLocation.framework */,
 				EF0A4EAE23AEC5B600EE167C /* MapKit.framework */,
+				FE5421BC60A3036F21672D75 /* Pods_PocketSanta.framework */,
+				61299E95EB18541346DDF3A1 /* Pods_PocketSantaTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -157,9 +187,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EF0A4E9E23AABD3600EE167C /* Build configuration list for PBXNativeTarget "PocketSanta" */;
 			buildPhases = (
+				2A986BD7998C11CEC35D0997 /* [CP] Check Pods Manifest.lock */,
 				EF0A4E7B23AABD2300EE167C /* Sources */,
 				EF0A4E7C23AABD2300EE167C /* Frameworks */,
 				EF0A4E7D23AABD2300EE167C /* Resources */,
+				020543720BFBCADCC0DBE1D3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -174,6 +206,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EF0A4EA123AABD3600EE167C /* Build configuration list for PBXNativeTarget "PocketSantaTests" */;
 			buildPhases = (
+				98CB9E5D84DF11D4E0304537 /* [CP] Check Pods Manifest.lock */,
 				EF0A4E9123AABD3600EE167C /* Sources */,
 				EF0A4E9223AABD3600EE167C /* Frameworks */,
 				EF0A4E9323AABD3600EE167C /* Resources */,
@@ -232,6 +265,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF0A4E8F23AABD3600EE167C /* LaunchScreen.storyboard in Resources */,
+				E1F2119823B6D05C00BDFA7F /* santa_walk.gif in Resources */,
 				EF0A4E8C23AABD3600EE167C /* Assets.xcassets in Resources */,
 				EF0A4E8A23AABD2300EE167C /* Main.storyboard in Resources */,
 			);
@@ -246,6 +280,70 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		020543720BFBCADCC0DBE1D3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PocketSanta/Pods-PocketSanta-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PocketSanta/Pods-PocketSanta-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PocketSanta/Pods-PocketSanta-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2A986BD7998C11CEC35D0997 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PocketSanta-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		98CB9E5D84DF11D4E0304537 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PocketSantaTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		EF0A4E7B23AABD2300EE167C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -256,6 +354,7 @@
 				EF50CD1B23B45EBD00A73225 /* FlyerViewDatasourceDelegateControroller.swift in Sources */,
 				EF0A4EA823ABB9D300EE167C /* FlyerViewController.swift in Sources */,
 				EF0A4E8723AABD2300EE167C /* MapViewController.swift in Sources */,
+				E1F2119623B6CC6000BDFA7F /* LaunchViewController.swift in Sources */,
 				EF0A4E8323AABD2300EE167C /* AppDelegate.swift in Sources */,
 				EF0A4EBB23AFC9E100EE167C /* FlyerDetailViewController.swift in Sources */,
 				EF0A4E8523AABD2300EE167C /* SceneDelegate.swift in Sources */,
@@ -426,6 +525,7 @@
 		};
 		EF0A4E9F23AABD3600EE167C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AFBD0293A86FFE4E4C2DF3BE /* Pods-PocketSanta.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -445,6 +545,7 @@
 		};
 		EF0A4EA023AABD3600EE167C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3800B279AA7E206D03F107D8 /* Pods-PocketSanta.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -464,6 +565,7 @@
 		};
 		EF0A4EA223AABD3600EE167C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 387021E31FD76B47F191C737 /* Pods-PocketSantaTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -486,6 +588,7 @@
 		};
 		EF0A4EA323AABD3600EE167C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 97091D540F557F9336D2A7BE /* Pods-PocketSantaTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";

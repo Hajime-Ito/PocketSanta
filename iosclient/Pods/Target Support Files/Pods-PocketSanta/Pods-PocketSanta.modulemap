@@ -1,0 +1,6 @@
+framework module Pods_PocketSanta {
+  umbrella header "Pods-PocketSanta-umbrella.h"
+
+  export *
+  module * { export * }
+}

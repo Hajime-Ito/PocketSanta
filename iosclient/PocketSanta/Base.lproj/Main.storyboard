@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="TYB-Cn-107">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4aH-LQ-nJI">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
@@ -35,7 +35,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1144" y="-701"/>
+            <point key="canvasLocation" x="930" y="-711"/>
         </scene>
         <!--Flyer View Controller-->
         <scene sceneID="cv7-YP-rl5">
@@ -337,7 +337,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7PC-Da-ZFX">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7PC-Da-ZFX">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="503"/>
                             </imageView>
                             <pageControl opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" currentPage="2" translatesAutoresizingMaskIntoConstraints="NO" id="meX-DE-Nqp">
@@ -350,7 +350,7 @@
                         <constraints>
                             <constraint firstItem="VDS-ak-s2X" firstAttribute="trailing" secondItem="meX-DE-Nqp" secondAttribute="trailing" constant="40" id="3uh-fk-0z0"/>
                             <constraint firstItem="7PC-Da-ZFX" firstAttribute="top" secondItem="VDS-ak-s2X" secondAttribute="top" id="Juv-oJ-q54"/>
-                            <constraint firstItem="meX-DE-Nqp" firstAttribute="top" secondItem="7PC-Da-ZFX" secondAttribute="bottom" constant="8" id="Wg2-tM-s40"/>
+                            <constraint firstItem="meX-DE-Nqp" firstAttribute="top" secondItem="7PC-Da-ZFX" secondAttribute="bottom" constant="8" id="Ycv-AF-hdN"/>
                             <constraint firstItem="VDS-ak-s2X" firstAttribute="bottom" secondItem="meX-DE-Nqp" secondAttribute="bottom" constant="20" id="aJu-gf-hBh"/>
                             <constraint firstItem="VDS-ak-s2X" firstAttribute="trailing" secondItem="7PC-Da-ZFX" secondAttribute="trailing" id="di6-6n-1Td"/>
                             <constraint firstItem="meX-DE-Nqp" firstAttribute="leading" secondItem="Gol-fr-M2H" secondAttribute="leading" constant="40" id="rD2-ql-lFy"/>
@@ -630,10 +630,49 @@
             </objects>
             <point key="canvasLocation" x="1144" y="1686"/>
         </scene>
+        <!--Launch View Controller-->
+        <scene sceneID="CNB-0C-bFy">
+            <objects>
+                <viewController storyboardIdentifier="LaunchView" id="4aH-LQ-nJI" customClass="LaunchViewController" customModule="PocketSanta" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4kb-7O-hjT">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1VA-C9-nZA">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="519.5"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="©︎Ito Hajime" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iAh-mi-PWG">
+                                <rect key="frame" x="16" y="527.5" width="288" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="iAh-mi-PWG" firstAttribute="leading" secondItem="VPg-s9-IxN" secondAttribute="leading" constant="16" id="Csx-nf-8Lm"/>
+                            <constraint firstItem="1VA-C9-nZA" firstAttribute="top" secondItem="VPg-s9-IxN" secondAttribute="top" id="NMz-K0-k4G"/>
+                            <constraint firstItem="1VA-C9-nZA" firstAttribute="leading" secondItem="VPg-s9-IxN" secondAttribute="leading" id="Q8q-Ye-OVi"/>
+                            <constraint firstItem="iAh-mi-PWG" firstAttribute="top" secondItem="1VA-C9-nZA" secondAttribute="bottom" constant="8" symbolic="YES" id="WrA-Sm-8YD"/>
+                            <constraint firstItem="VPg-s9-IxN" firstAttribute="bottom" secondItem="iAh-mi-PWG" secondAttribute="bottom" constant="20" id="iOH-Qd-o1B"/>
+                            <constraint firstItem="VPg-s9-IxN" firstAttribute="trailing" secondItem="iAh-mi-PWG" secondAttribute="trailing" constant="16" id="jUF-mS-eq8"/>
+                            <constraint firstItem="VPg-s9-IxN" firstAttribute="trailing" secondItem="1VA-C9-nZA" secondAttribute="trailing" id="ucr-dT-tc7"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="VPg-s9-IxN"/>
+                    </view>
+                    <connections>
+                        <outlet property="santaimage" destination="1VA-C9-nZA" id="WIq-tb-CgS"/>
+                        <segue destination="TYB-Cn-107" kind="presentation" identifier="FromLaunch" modalPresentationStyle="fullScreen" id="Q8j-Hi-Jfx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7cG-id-Uaq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-795" y="138"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="RB9-c4-zjw">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="TYB-Cn-107" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="RootView" automaticallyAdjustsScrollViewInsets="NO" id="TYB-Cn-107" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="uvV-5c-BPh">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
