@@ -20,6 +20,9 @@ class FlyerViewController: UIViewController {
         FlyerTableDatasourceDelegate.FlyerViewController = self
         myTableview.dataSource = FlyerTableDatasourceDelegate
         myTableview.delegate = FlyerTableDatasourceDelegate
+        // 次のページのBackボタンの文字だけ削除
+        // 参考：https://mt312.com/643
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     
     @IBAction func FlyerDataSegmentedControl(sender: UISegmentedControl) {

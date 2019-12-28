@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1CCFFB87F98B64D18E683ADE /* Pods_PocketSanta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE5421BC60A3036F21672D75 /* Pods_PocketSanta.framework */; };
 		8454DD10752F1D8E445AB68A /* Pods_PocketSantaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61299E95EB18541346DDF3A1 /* Pods_PocketSantaTests.framework */; };
+		E1B4C2A523B79CAF00EB1782 /* FlyerCreateTitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B4C2A423B79CAF00EB1782 /* FlyerCreateTitleViewController.swift */; };
 		E1F2118823B5159600BDFA7F /* FlyerCreateTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F2118723B5159600BDFA7F /* FlyerCreateTableViewController.swift */; };
 		E1F2118C23B69C0F00BDFA7F /* FlyerDetailImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F2118B23B69C0F00BDFA7F /* FlyerDetailImageViewController.swift */; };
 		E1F2119623B6CC6000BDFA7F /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F2119523B6CC6000BDFA7F /* LaunchViewController.swift */; };
@@ -53,6 +54,7 @@
 		61299E95EB18541346DDF3A1 /* Pods_PocketSantaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PocketSantaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		97091D540F557F9336D2A7BE /* Pods-PocketSantaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PocketSantaTests.release.xcconfig"; path = "Target Support Files/Pods-PocketSantaTests/Pods-PocketSantaTests.release.xcconfig"; sourceTree = "<group>"; };
 		AFBD0293A86FFE4E4C2DF3BE /* Pods-PocketSanta.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PocketSanta.debug.xcconfig"; path = "Target Support Files/Pods-PocketSanta/Pods-PocketSanta.debug.xcconfig"; sourceTree = "<group>"; };
+		E1B4C2A423B79CAF00EB1782 /* FlyerCreateTitleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlyerCreateTitleViewController.swift; sourceTree = "<group>"; };
 		E1F2118723B5159600BDFA7F /* FlyerCreateTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlyerCreateTableViewController.swift; sourceTree = "<group>"; };
 		E1F2118B23B69C0F00BDFA7F /* FlyerDetailImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlyerDetailImageViewController.swift; sourceTree = "<group>"; };
 		E1F2119523B6CC6000BDFA7F /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 				EF0A4EA723ABB9D300EE167C /* FlyerViewController.swift */,
 				EF50CD1A23B45EBD00A73225 /* FlyerViewDatasourceDelegateControroller.swift */,
 				E1F2118723B5159600BDFA7F /* FlyerCreateTableViewController.swift */,
+				E1B4C2A423B79CAF00EB1782 /* FlyerCreateTitleViewController.swift */,
 				EF50CD1623B28BC500A73225 /* FlyerDetailPageViewController.swift */,
 				EF0A4EBA23AFC9E100EE167C /* FlyerDetailViewController.swift */,
 				EF50CD1823B28DEF00A73225 /* FlyerDetailMapViewController.swift */,
@@ -349,6 +352,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1B4C2A523B79CAF00EB1782 /* FlyerCreateTitleViewController.swift in Sources */,
 				E1F2118C23B69C0F00BDFA7F /* FlyerDetailImageViewController.swift in Sources */,
 				EF0A4EAB23ABBA4A00EE167C /* TreePotViewController.swift in Sources */,
 				EF50CD1B23B45EBD00A73225 /* FlyerViewDatasourceDelegateControroller.swift in Sources */,

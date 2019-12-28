@@ -21,7 +21,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" image="santawalk0" translatesAutoresizingMaskIntoConstraints="NO" id="qhZ-j2-CaC">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" image="logo1" translatesAutoresizingMaskIntoConstraints="NO" id="qhZ-j2-CaC">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="527.5"/>
                             </imageView>
                         </subviews>
@@ -44,6 +44,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="santawalk0" width="400" height="400"/>
+        <image name="logo1" width="553" height="85"/>
     </resources>
 </document>

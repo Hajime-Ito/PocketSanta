@@ -34,6 +34,9 @@ class FlyerCreateTableViewController: UITableViewController, UIImagePickerContro
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // 次のページのBackボタンの文字だけ削除
+        // 参考：https://mt312.com/643
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         //　空のセルを非表示
         tableView.tableFooterView = UIView()
         //setSwipeBack()
@@ -44,7 +47,6 @@ class FlyerCreateTableViewController: UITableViewController, UIImagePickerContro
         let date = calendar.component(.day, from: Todate)
         flyerdata = FlyerData(title:"", year: year, month: month, date: date, timeInfo: "", locationInfo: "", image: UIImage(named:"test")!, message: "", locationX: 0, locationY: 0, isMine: true)
         ImageCell.title.text = "フライヤー画像"
-        ImageCell.Flyerimage.image = flyerdata?.image
         TitleCell.textLabel?.text = "タイトル"
         DateCell.textLabel?.text = "開催日"
         TimeInfoCell.textLabel?.text = "開催時間"
@@ -52,12 +54,18 @@ class FlyerCreateTableViewController: UITableViewController, UIImagePickerContro
         LocationInfoCell.textLabel?.text = "詳細位置情報"
         MessageCell.textLabel?.text = "メッセージ"
         CreateCell.textLabel?.text = "フライヤーを配る"
-        
+        flyerdataSettingCell()
         picker = UIImagePickerController()
         picker.delegate = self
         picker.sourceType = UIImagePickerController.SourceType.photoLibrary
         picker.allowsEditing = false // Whether to make it possible to edit the size etc after selecting the image
         // set picker's navigationBar appearance
+    }
+    
+    // Backしてきた時に再読み込み
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        flyerdataSettingCell()
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -112,6 +120,37 @@ class FlyerCreateTableViewController: UITableViewController, UIImagePickerContro
         }
     }
     
+    private func flyerdataSettingCell() {
+        if let _ = flyerdata?.image {
+            ImageCell.Flyerimage.image = flyerdata!.image
+        }
+        
+        if let _ = flyerdata?.date, let _ = flyerdata?.month, let _ = flyerdata?.year {
+            DateCell.detailTextLabel?.text = "\(flyerdata!.year)年\(flyerdata!.month)月\(flyerdata!.date)日"
+        }
+        
+        if let _ = flyerdata?.title {
+            TitleCell.detailTextLabel?.text = flyerdata!.title
+        }
+        
+        if let _ = flyerdata?.timeInfo {
+            TimeInfoCell.detailTextLabel?.text = flyerdata!.timeInfo
+        }
+        
+        if let _ = flyerdata?.locationX, let _ = flyerdata?.locationY {
+            LocationMapCell.detailTextLabel?.text = "\(flyerdata!.locationX)"
+        }
+        
+        if let _ = flyerdata?.locationInfo {
+            LocationInfoCell.detailTextLabel?.text = flyerdata!.locationInfo
+        }
+        
+        if let _ = flyerdata?.message {
+            MessageCell.detailTextLabel?.text = flyerdata!.message
+        }
+        
+    }
+    
     // アルバム(Photo liblary)の閲覧権限の確認をするメソッド
     // 参考：https://qiita.com/Ren-Toyokawa/items/1b2e0b9893c7ea925057
     private func checkPermission(){
@@ -155,6 +194,13 @@ class FlyerCreateTableViewController: UITableViewController, UIImagePickerContro
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         // close picker modal
         dismiss(animated: true, completion: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ToFlyerCreateTitleView" {
+            let FlyerCreateTitleViewController = segue.destination as! FlyerCreateTitleViewController
+            FlyerCreateTitleViewController.flyerTitle = flyerdata?.title
+        }
     }
 }
 
