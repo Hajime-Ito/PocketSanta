@@ -338,7 +338,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7PC-Da-ZFX">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="503"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="491"/>
                             </imageView>
                             <pageControl opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" currentPage="2" translatesAutoresizingMaskIntoConstraints="NO" id="meX-DE-Nqp">
                                 <rect key="frame" x="40" y="511" width="240" height="37"/>
@@ -350,8 +350,9 @@
                         <constraints>
                             <constraint firstItem="VDS-ak-s2X" firstAttribute="trailing" secondItem="meX-DE-Nqp" secondAttribute="trailing" constant="40" id="3uh-fk-0z0"/>
                             <constraint firstItem="7PC-Da-ZFX" firstAttribute="top" secondItem="VDS-ak-s2X" secondAttribute="top" id="Juv-oJ-q54"/>
-                            <constraint firstItem="meX-DE-Nqp" firstAttribute="top" secondItem="7PC-Da-ZFX" secondAttribute="bottom" constant="8" id="Ycv-AF-hdN"/>
+                            <constraint firstItem="meX-DE-Nqp" firstAttribute="top" secondItem="7PC-Da-ZFX" secondAttribute="bottom" constant="20" id="WjT-vU-7fp"/>
                             <constraint firstItem="VDS-ak-s2X" firstAttribute="bottom" secondItem="meX-DE-Nqp" secondAttribute="bottom" constant="20" id="aJu-gf-hBh"/>
+                            <constraint firstItem="VDS-ak-s2X" firstAttribute="bottom" secondItem="7PC-Da-ZFX" secondAttribute="bottom" constant="77" id="dNB-fJ-MB3"/>
                             <constraint firstItem="VDS-ak-s2X" firstAttribute="trailing" secondItem="7PC-Da-ZFX" secondAttribute="trailing" id="di6-6n-1Td"/>
                             <constraint firstItem="meX-DE-Nqp" firstAttribute="leading" secondItem="Gol-fr-M2H" secondAttribute="leading" constant="40" id="rD2-ql-lFy"/>
                             <constraint firstItem="7PC-Da-ZFX" firstAttribute="leading" secondItem="VDS-ak-s2X" secondAttribute="leading" id="s84-Oz-rJI"/>
