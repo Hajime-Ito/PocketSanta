@@ -452,6 +452,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="LGT-7w-zci" kind="show" identifier="ToFlyerCreateDateView" id="eiC-xF-eXj"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="lKn-0B-xa8" detailTextLabel="Wyt-g1-Jxn" style="IBUITableViewCellStyleValue1" id="dIf-A8-5Dv">
                                         <rect key="frame" x="0.0" y="217.5" width="320" height="44"/>
@@ -635,7 +638,77 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="geW-GC-ZF3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4612.5" y="212.32394366197184"/>
+            <point key="canvasLocation" x="4543" y="213"/>
+        </scene>
+        <!--Flyer Create Date View Controller-->
+        <scene sceneID="Yqh-1U-oYo">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gb8-Zn-j9M" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewController id="LGT-7w-zci" customClass="FlyerCreateDateViewController" customModule="PocketSanta" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="EV0-0k-yJd">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="mXf-aa-FMP">
+                                <rect key="frame" x="0.0" y="319" width="320" height="229"/>
+                                <locale key="locale" localeIdentifier="ja_JP"/>
+                                <connections>
+                                    <action selector="didValueChangedDatePicker:" destination="LGT-7w-zci" eventType="valueChanged" id="R1O-P2-961"/>
+                                </connections>
+                            </datePicker>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" sectionIndexMinimumDisplayRowCount="1" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9fJ-ct-eAC">
+                                <rect key="frame" x="0.0" y="44" width="320" height="267"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FlyerCreateDateCell" textLabel="iQQ-2i-UZR" detailTextLabel="Buw-37-xVa" style="IBUITableViewCellStyleValue1" id="I3t-mg-BR9">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="I3t-mg-BR9" id="BjM-5j-13V">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="開催日" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="iQQ-2i-UZR">
+                                                    <rect key="frame" x="15" y="12" width="52" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Buw-37-xVa">
+                                                    <rect key="frame" x="261" y="12" width="44" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="9fJ-ct-eAC" firstAttribute="top" secondItem="irR-P3-SSr" secondAttribute="top" id="00C-ld-MLU"/>
+                            <constraint firstItem="mXf-aa-FMP" firstAttribute="top" secondItem="irR-P3-SSr" secondAttribute="top" constant="275" id="Bx4-Eh-YVZ"/>
+                            <constraint firstItem="mXf-aa-FMP" firstAttribute="leading" secondItem="irR-P3-SSr" secondAttribute="leading" id="WlF-V3-yuU"/>
+                            <constraint firstItem="9fJ-ct-eAC" firstAttribute="leading" secondItem="irR-P3-SSr" secondAttribute="leading" id="Y59-uH-2Xr"/>
+                            <constraint firstItem="mXf-aa-FMP" firstAttribute="trailing" secondItem="irR-P3-SSr" secondAttribute="trailing" id="dj4-aB-SLl"/>
+                            <constraint firstItem="9fJ-ct-eAC" firstAttribute="trailing" secondItem="irR-P3-SSr" secondAttribute="trailing" id="g1Z-2p-zzl"/>
+                            <constraint firstItem="mXf-aa-FMP" firstAttribute="top" secondItem="9fJ-ct-eAC" secondAttribute="bottom" constant="8" symbolic="YES" id="gpE-Sa-R8d"/>
+                            <constraint firstAttribute="bottom" secondItem="mXf-aa-FMP" secondAttribute="bottom" constant="20" symbolic="YES" id="tbg-7k-UZV"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="irR-P3-SSr"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="vmd-ce-eFw"/>
+                    <connections>
+                        <outlet property="dataPicker" destination="mXf-aa-FMP" id="J9p-Bb-RaP"/>
+                        <outlet property="tableView" destination="9fJ-ct-eAC" id="TV5-Ok-pWU"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="5340" y="211.26760563380282"/>
         </scene>
         <!--Flyer Detail Page View Controller-->
         <scene sceneID="UqH-Z8-hDI">

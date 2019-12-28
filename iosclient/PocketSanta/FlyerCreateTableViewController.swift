@@ -201,6 +201,12 @@ class FlyerCreateTableViewController: UITableViewController, UIImagePickerContro
             let FlyerCreateTitleViewController = segue.destination as! FlyerCreateTitleViewController
             FlyerCreateTitleViewController.flyerTitle = flyerdata?.title
         }
+        else if segue.identifier == "ToFlyerCreateDateView" {
+            let FlyerCreateDateViewController = segue.destination as! FlyerCreateDateViewController
+            if let _ = flyerdata?.date, let _ = flyerdata?.month, let _ = flyerdata?.year {
+                FlyerCreateDateViewController.flyerdate  = "\(flyerdata!.year)年\(flyerdata!.month)月\(flyerdata!.date)日"
+            }
+        }
     }
 }
 

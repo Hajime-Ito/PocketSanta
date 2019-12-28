@@ -10,6 +10,7 @@
 		1CCFFB87F98B64D18E683ADE /* Pods_PocketSanta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE5421BC60A3036F21672D75 /* Pods_PocketSanta.framework */; };
 		8454DD10752F1D8E445AB68A /* Pods_PocketSantaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61299E95EB18541346DDF3A1 /* Pods_PocketSantaTests.framework */; };
 		E1B4C2A523B79CAF00EB1782 /* FlyerCreateTitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B4C2A423B79CAF00EB1782 /* FlyerCreateTitleViewController.swift */; };
+		E1B4C2A723B7B53400EB1782 /* FlyerCreateDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B4C2A623B7B53400EB1782 /* FlyerCreateDateViewController.swift */; };
 		E1F2118823B5159600BDFA7F /* FlyerCreateTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F2118723B5159600BDFA7F /* FlyerCreateTableViewController.swift */; };
 		E1F2118C23B69C0F00BDFA7F /* FlyerDetailImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F2118B23B69C0F00BDFA7F /* FlyerDetailImageViewController.swift */; };
 		E1F2119623B6CC6000BDFA7F /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F2119523B6CC6000BDFA7F /* LaunchViewController.swift */; };
@@ -55,6 +56,7 @@
 		97091D540F557F9336D2A7BE /* Pods-PocketSantaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PocketSantaTests.release.xcconfig"; path = "Target Support Files/Pods-PocketSantaTests/Pods-PocketSantaTests.release.xcconfig"; sourceTree = "<group>"; };
 		AFBD0293A86FFE4E4C2DF3BE /* Pods-PocketSanta.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PocketSanta.debug.xcconfig"; path = "Target Support Files/Pods-PocketSanta/Pods-PocketSanta.debug.xcconfig"; sourceTree = "<group>"; };
 		E1B4C2A423B79CAF00EB1782 /* FlyerCreateTitleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlyerCreateTitleViewController.swift; sourceTree = "<group>"; };
+		E1B4C2A623B7B53400EB1782 /* FlyerCreateDateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlyerCreateDateViewController.swift; sourceTree = "<group>"; };
 		E1F2118723B5159600BDFA7F /* FlyerCreateTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlyerCreateTableViewController.swift; sourceTree = "<group>"; };
 		E1F2118B23B69C0F00BDFA7F /* FlyerDetailImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlyerDetailImageViewController.swift; sourceTree = "<group>"; };
 		E1F2119523B6CC6000BDFA7F /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 				EF50CD1A23B45EBD00A73225 /* FlyerViewDatasourceDelegateControroller.swift */,
 				E1F2118723B5159600BDFA7F /* FlyerCreateTableViewController.swift */,
 				E1B4C2A423B79CAF00EB1782 /* FlyerCreateTitleViewController.swift */,
+				E1B4C2A623B7B53400EB1782 /* FlyerCreateDateViewController.swift */,
 				EF50CD1623B28BC500A73225 /* FlyerDetailPageViewController.swift */,
 				EF0A4EBA23AFC9E100EE167C /* FlyerDetailViewController.swift */,
 				EF50CD1823B28DEF00A73225 /* FlyerDetailMapViewController.swift */,
@@ -361,6 +364,7 @@
 				E1F2119623B6CC6000BDFA7F /* LaunchViewController.swift in Sources */,
 				EF0A4E8323AABD2300EE167C /* AppDelegate.swift in Sources */,
 				EF0A4EBB23AFC9E100EE167C /* FlyerDetailViewController.swift in Sources */,
+				E1B4C2A723B7B53400EB1782 /* FlyerCreateDateViewController.swift in Sources */,
 				EF0A4E8523AABD2300EE167C /* SceneDelegate.swift in Sources */,
 				E1F2118823B5159600BDFA7F /* FlyerCreateTableViewController.swift in Sources */,
 				EF0A4EA523AABF0100EE167C /* WebAPI.swift in Sources */,
