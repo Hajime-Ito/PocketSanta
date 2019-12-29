@@ -22,5 +22,7 @@ struct FlyerData {
     var locationX: Double
     var locationY: Double
     var isMine: Bool
+    var FlyerKey: String
+    var favorite: Bool?
 }
 

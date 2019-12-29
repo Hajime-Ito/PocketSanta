@@ -17,11 +17,12 @@ class FlyerTableDatasourceDelegateController: UITableView, FlyerTableViewDD {
     var FlyerViewController: FlyerViewController!
     
     func initflyerdata() {
-        self.flyerdata.append(FlyerData(title:"クリスマスファンタジー", year: 2019, month: 12, date:24, timeInfo: "10時から20時まで", locationInfo: "金森赤煉瓦倉庫", image: UIImage(named:"test1")!, message: "毎年開催している函館クリスマスファンタジーも今年で35回目！今年は歌手のLamdaさんを呼んで、演奏をしてもらいます！クリスマススープも600円で提供。今年もたくさんの種類のスープが出ていますよ〜！", locationX: 41.7661584, locationY: 140.71655989, isMine: false))
-        self.flyerdata.append(FlyerData(title:"JAZZ in Hakodate", year: 2019, month: 12, date:23, timeInfo: "21時から23時まで", locationInfo: "はこだてジャズ会館", image: UIImage(named:"test2")!, message: "JAZZでクリスマスを飾ろう！函館ジャズといえば、JAZZ in Hakodate。明治から続くイカしたジャズライブを今年も盛り上げよう！ご好評につき、今年もジャズコーラを振る舞います。", locationX: 41.79161729, locationY: 140.75155576, isMine: true))
-        self.flyerdata.append(FlyerData(title:"道民コーラス・イン函館", year: 2019, month: 12, date:21, timeInfo: "18時から20時まで", locationInfo: "函館アリーナ３階ホールA", image: UIImage(named:"test3")!, message: "北海道は函館のクリスマス合唱といえば、道民コーラス・イン函館！今年は、はこだて未来大学の合唱サークル「歌とロボと秘密のAI姫」さんをお招きして、独自のパフォーマンスを披露してもらいます。", locationX: 41.78188055, locationY: 140.782793, isMine: false))
-        updateshownflyerdata(isMine: false)
-        self.flyerdata.append(FlyerData(title:"道民コーラス・イン函館", year: 2019, month: 12, date:21, timeInfo: "18時から20時まで", locationInfo: "函館アリーナ３階ホールA", image: UIImage(named:"test3")!, message: "北海道は函館のクリスマス合唱といえば、道民コーラス・イン函館！今年は、はこだて未来大学の合唱サークル「歌とロボと秘密のAI姫」さんをお招きして、独自のパフォーマンスを披露してもらいます。", locationX: 41.78188055, locationY: 140.782793, isMine: true))
+        self.flyerdata.append(FlyerData(title:"クリスマスファンタジー", year: 2019, month: 12, date:24, timeInfo: "10時から20時まで", locationInfo: "金森赤煉瓦倉庫", image: UIImage(named:"test1")!, message: "毎年開催している函館クリスマスファンタジーも今年で35回目！今年は歌手のLamdaさんを呼んで、演奏をしてもらいます！クリスマススープも600円で提供。今年もたくさんの種類のスープが出ていますよ〜！", locationX: 41.7661584, locationY: 140.71655989, isMine: false, FlyerKey: "aaa", favorite: false))
+        self.flyerdata.append(FlyerData(title:"JAZZ in Hakodate", year: 2019, month: 12, date:23, timeInfo: "21時から23時まで", locationInfo: "はこだてジャズ会館", image: UIImage(named:"test2")!, message: "JAZZでクリスマスを飾ろう！函館ジャズといえば、JAZZ in Hakodate。明治から続くイカしたジャズライブを今年も盛り上げよう！ご好評につき、今年もジャズコーラを振る舞います。", locationX: 41.79161729, locationY: 140.75155576, isMine: true, FlyerKey: "aab", favorite: false))
+        for i in 0...7 {
+            self.flyerdata.append(FlyerData(title:"道民コーラス・イン函館", year: 2019, month: 12, date:21, timeInfo: "18時から20時まで", locationInfo: "函館アリーナ３階ホールA", image: UIImage(named:"test3")!, message: "北海道は函館のクリスマス合唱といえば、道民コーラス・イン函館！今年は、はこだて未来大学の合唱サークル「歌とロボと秘密のAI姫」さんをお招きして、独自のパフォーマンスを披露してもらいます。", locationX: 41.78188055, locationY: 140.782793, isMine: false, FlyerKey: "ab\(i)", favorite: false))
+        }
+        
         updateshownflyerdata(isMine: false)
     }
     
@@ -40,66 +41,113 @@ class FlyerTableDatasourceDelegateController: UITableView, FlyerTableViewDD {
         }
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1 // 1つのセクションに1つのセル
+    func updateFavoriteflyerdata() {
+        shownflyerdata = []
+        for data in flyerdata {
+            //guard let _ = data.favorite else{return}
+            if(data.favorite == true) {
+                print(data.title)
+                shownflyerdata.append(data)
+            }
+        }
     }
     
-    func numberOfSections(in tableView: UITableView) -> Int { // sectionの数を決める
-        return shownflyerdata.count
+    func addFavorite(key: String) {
+        for i in 0..<flyerdata.count {
+            if(flyerdata[i].FlyerKey == key) {
+               flyerdata[i].favorite = true
+            }
+        }
     }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell: FlyerCellTableViewCell = tableView.dequeueReusableCell(withIdentifier: "FlyerCell", for: indexPath) as! FlyerCellTableViewCell
-        // セルに表示する値を設定する
-        // 角丸にした
-        // 参考：https://i-app-tec.com/ios/corner-radius.html
-        // 1つのセクションに1つのセルなので、セクション番目にアクセスすれば良い
-        cell.myTextLabel?.text = shownflyerdata[indexPath.section].title
-        cell.myImageView?.image = shownflyerdata[indexPath.section].image
-        cell.myImageView?.layer.cornerRadius = cell.myImageView.frame.size.width * 0.1
-        cell.myImageView?.clipsToBounds = true
-        // ImageViewのContentModeをAspectFillにしたら横も丸くなった
-        // 参考：https://blog.fenrir-inc.com/jp/2011/05/uiviewcontentmode.html
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        // Cellの高さを決める
-        return 200
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // 選択されたセクション番目のflyerdatを渡す
-        let data = shownflyerdata[indexPath.section]
-        // セルの選択を解除
-        tableView.deselectRow(at: indexPath, animated: true)
-        // 別の画面に遷移
-        FlyerViewController.performSegue(withIdentifier: "ToFlyerDetailView", sender: data)
-    }
-    
-    // headerのカスタム
-    // 参考；https://teratail.com/questions/65533
-    // このやり方ではできなかった。
-    /*func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        // HeaderのViewを作成してViewを返す
-        let headerView = UIView()
-        let label = UILabel()
-        label.text = "\(shownflyerdata[section].year)年\(shownflyerdata[section].month)月\(shownflyerdata[section].date)日"
-        //label.textColor = UIColor.white
-        headerView.addSubview(label)
-        return headerView
-    }*/
-    
-    // Sectionheaderカスタム
-    // 参考:https://blog.cheekpouch.com/403/
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "\(shownflyerdata[section].year)年\(shownflyerdata[section].month)月\(shownflyerdata[section].date)日"
-    }
-
-    // Section Header Height
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        // ヘッダーViewの高さを返す
-        return 20
-    }
+        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+            return 1 // 1つのセクションに1つのセル
+        }
+        
+        func numberOfSections(in tableView: UITableView) -> Int { // sectionの数を決める
+            return shownflyerdata.count
+        }
+        
+        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+            
+            let cell: FlyerCellTableViewCell = tableView.dequeueReusableCell(withIdentifier: "FlyerCell", for: indexPath) as! FlyerCellTableViewCell
+            // セルに表示する値を設定する
+            // 角丸にした
+            // 参考：https://i-app-tec.com/ios/corner-radius.html
+            // 1つのセクションに1つのセルなので、セクション番目にアクセスすれば良い
+            cell.myTextLabel?.text = shownflyerdata[indexPath.section].title
+            cell.myImageView?.image = shownflyerdata[indexPath.section].image
+            cell.myImageView?.layer.cornerRadius = cell.myImageView.frame.size.width * 0.1
+            cell.myImageView?.clipsToBounds = true
+            // ImageViewのContentModeをAspectFillにしたら横も丸くなった
+            // 参考：https://blog.fenrir-inc.com/jp/2011/05/uiviewcontentmode.html
+            return cell
+        }
+        
+        func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+            // Cellの高さを決める
+            return 200
+        }
+        
+        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+            // 選択されたセクション番目のflyerdatを渡す
+            let data = shownflyerdata[indexPath.section]
+            // セルの選択を解除
+            tableView.deselectRow(at: indexPath, animated: true)
+            // 別の画面に遷移
+            FlyerViewController.performSegue(withIdentifier: "ToFlyerDetailView", sender: data)
+        }
+        
+        // headerのカスタム
+        // 参考；https://teratail.com/questions/65533
+        // このやり方ではできなかった。
+        /*func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+         // HeaderのViewを作成してViewを返す
+         let headerView = UIView()
+         let label = UILabel()
+         label.text = "\(shownflyerdata[section].year)年\(shownflyerdata[section].month)月\(shownflyerdata[section].date)日"
+         //label.textColor = UIColor.white
+         headerView.addSubview(label)
+         return headerView
+         }*/
+        
+        // Sectionheaderカスタム
+        // 参考:https://blog.cheekpouch.com/403/
+        func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+            return "\(shownflyerdata[section].year)年\(shownflyerdata[section].month)月\(shownflyerdata[section].date)日"
+        }
+        
+        // Section Header Height
+        func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+            // ヘッダーViewの高さを返す
+            return 20
+        }
+        
+        //セルの編集許可
+        func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool
+        {
+            if shownflyerdata[indexPath.section].isMine == true {
+                // 自分が作成したものに関しては削除ボタンは表示しない。
+                return false
+            }else{
+                return true
+            }
+        }
+        
+        //スワイプしたセル(セクション)を削除
+        // 参考：https://kichie-com.hatenablog.com/entry/table-section-delete
+        func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+            if editingStyle == UITableViewCell.EditingStyle.delete {
+                for i in 0..<flyerdata.count {
+                    if(flyerdata[i].FlyerKey == shownflyerdata[indexPath.section].FlyerKey) {
+                        flyerdata.remove(at: i)
+                        break // ここでbreakを呼び出さないと、flyerdataが1つ減った状態で、削除前の数だけアクセスされるのでOut of Indexになってしまう。
+                    }
+                }
+                shownflyerdata.remove(at: indexPath.section)
+                let indexSet = NSMutableIndexSet()
+                indexSet.add(indexPath.section)
+                tableView.deleteSections(indexSet as IndexSet, with: UITableView.RowAnimation.automatic)
+            } else if editingStyle == UITableViewCell.EditingStyle.insert {}
+        }
 }

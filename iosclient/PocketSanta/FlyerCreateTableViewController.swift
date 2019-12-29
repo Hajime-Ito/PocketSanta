@@ -45,7 +45,7 @@ class FlyerCreateTableViewController: UITableViewController, UIImagePickerContro
         let year = calendar.component(.year, from: Todate)
         let month = calendar.component(.month, from: Todate)
         let date = calendar.component(.day, from: Todate)
-        flyerdata = FlyerData(title:"", year: year, month: month, date: date, timeInfo: "", locationInfo: "", image: UIImage(named:"test")!, message: "", locationX: 0, locationY: 0, isMine: true)
+        flyerdata = FlyerData(title:"", year: year, month: month, date: date, timeInfo: "", locationInfo: "", image: UIImage(named:"test")!, message: "", locationX: 0, locationY: 0, isMine: true, FlyerKey: "")
         ImageCell.title.text = "フライヤー画像"
         TitleCell.textLabel?.text = "タイトル"
         DateCell.textLabel?.text = "開催日"

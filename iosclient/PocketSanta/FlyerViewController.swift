@@ -36,6 +36,9 @@ class FlyerViewController: UIViewController {
             // 作成済み(isMine == true)
             FlyerTableDatasourceDelegate.updateshownflyerdata(isMine: true)
             myTableview.reloadData()
+        case 2:
+            FlyerTableDatasourceDelegate.updateFavoriteflyerdata()
+            myTableview.reloadData()
         default:
             FlyerTableDatasourceDelegate.updateshownflyerdata(isMine: false)
             myTableview.reloadData()

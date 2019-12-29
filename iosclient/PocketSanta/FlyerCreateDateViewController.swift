@@ -16,6 +16,8 @@ class FlyerCreateDateViewController: UIViewController, UITableViewDelegate, UITa
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //　空のセルを非表示
+        tableView.tableFooterView = UIView()
         tableView.delegate = self
         tableView.dataSource = self
         let dt : Date = dateFromString(flyerdate, "yyyy年MM月dd日")
