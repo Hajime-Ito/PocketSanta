@@ -11,7 +11,7 @@ import UIKit
 class FlyerDetailViewController: UIViewController {
     
     var flyerdata: FlyerData!
-    let FlyerTableDatasourceDelegate: FlyerTableDatasourceDelegateController = FlyerTableDatasourceDelegateController()
+    var FlyerTableDatasourceDelegate: FlyerTableDatasourceDelegateController = FlyerTableDatasourceDelegateController()
     @IBOutlet weak var titlelabel: UILabel!
     @IBOutlet weak var datelabel: UILabel!
     @IBOutlet weak var timelabel: UILabel!
@@ -26,6 +26,7 @@ class FlyerDetailViewController: UIViewController {
         locationlabel?.text = flyerdata.locationInfo
         messagelabel?.text = flyerdata.message
     }
+    
     
     @IBAction func Taplocationlabel(_ sender: Any) {
         performSegue(withIdentifier: "ToFlyerDetailMapView", sender: flyerdata)

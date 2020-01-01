@@ -13,10 +13,12 @@ class FlyerViewController: UIViewController {
     @IBOutlet weak var myTableview: UITableView!
     
     var FlyerTableDatasourceDelegate: FlyerTableDatasourceDelegateController = FlyerTableDatasourceDelegateController()
+    var FlyerDetailVC = FlyerDetailViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        FlyerTableDatasourceDelegate.initflyerdata()
+        FlyerTableDatasourceDelegate.getflyerdata()
+        FlyerTableDatasourceDelegate.updateshownflyerdata(isMine: false)
         FlyerTableDatasourceDelegate.FlyerViewController = self
         myTableview.dataSource = FlyerTableDatasourceDelegate
         myTableview.delegate = FlyerTableDatasourceDelegate
@@ -37,7 +39,7 @@ class FlyerViewController: UIViewController {
             FlyerTableDatasourceDelegate.updateshownflyerdata(isMine: true)
             myTableview.reloadData()
         case 2:
-            FlyerTableDatasourceDelegate.updateFavoriteflyerdata()
+            FlyerTableDatasourceDelegate.updateshownflyerdata()
             myTableview.reloadData()
         default:
             FlyerTableDatasourceDelegate.updateshownflyerdata(isMine: false)
@@ -56,7 +58,6 @@ class FlyerViewController: UIViewController {
             FlyerDetailPageViewController.flyerdata = sender as? FlyerData
         }
     }
-    
 }
 
 

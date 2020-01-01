@@ -14,12 +14,7 @@ import Photos
 class FlyerCreateTableViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     var flyerdata: FlyerData?
-    
-    // year, month, date
-    // time
-    // locationmessage
-    // locationX, locationY
-    // message
+    private let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate //AppDelegateのインスタンスを取得
     
     @IBOutlet weak var ImageCell: FlyerCreateImageCell!
     @IBOutlet weak var TitleCell: UITableViewCell!
@@ -45,7 +40,7 @@ class FlyerCreateTableViewController: UITableViewController, UIImagePickerContro
         let year = calendar.component(.year, from: Todate)
         let month = calendar.component(.month, from: Todate)
         let date = calendar.component(.day, from: Todate)
-        flyerdata = FlyerData(title:"", year: year, month: month, date: date, timeInfo: "", locationInfo: "", image: UIImage(named:"test")!, message: "", locationX: 0, locationY: 0, isMine: true, FlyerKey: "")
+        flyerdata = FlyerData(title:"", year: year, month: month, date: date, timeInfo: "", locationInfo: "", image: UIImage(named:"test")!, message: "", locationX: 0, locationY: 0, isMine: true, FlyerKey: "", favorite: false)
         ImageCell.title.text = "フライヤー画像"
         TitleCell.textLabel?.text = "タイトル"
         DateCell.textLabel?.text = "開催日"
@@ -110,7 +105,7 @@ class FlyerCreateTableViewController: UITableViewController, UIImagePickerContro
         case 1:
             switch indexPath.row {
             case 0:
-                break
+                appDelegate.flyerManager.addFlyer(flyer: flyerdata!)
             default:
                 break
             }
@@ -121,8 +116,8 @@ class FlyerCreateTableViewController: UITableViewController, UIImagePickerContro
     }
     
     private func flyerdataSettingCell() {
-        if let _ = flyerdata?.image {
-            ImageCell.Flyerimage.image = flyerdata!.image
+        if let _ = flyerdata?.getImage() {
+            ImageCell.Flyerimage.image = flyerdata!.getImage()
         }
         
         if let _ = flyerdata?.date, let _ = flyerdata?.month, let _ = flyerdata?.year {
@@ -185,8 +180,8 @@ class FlyerCreateTableViewController: UITableViewController, UIImagePickerContro
         guard let Image = image else {
             return
         }
-        flyerdata?.image = Image
-        ImageCell.Flyerimage.image = flyerdata?.image
+        flyerdata?.setImage(image: Image)
+        ImageCell.Flyerimage.image = flyerdata?.getImage()
         
         dismiss(animated: true, completion: nil)
     }

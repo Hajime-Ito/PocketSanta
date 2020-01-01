@@ -33,7 +33,7 @@ class FlyerDetailPageViewController: UIPageViewController {
     
     func getThird() -> FlyerDetailImageViewController {
         let next = storyboard!.instantiateViewController(withIdentifier: "FlyerDetailImageView") as! FlyerDetailImageViewController
-        next.image = self.flyerdata.image
+        next.image = self.flyerdata.getImage()
         return next
     }
     
