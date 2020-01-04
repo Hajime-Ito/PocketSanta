@@ -11,6 +11,9 @@
 		8454DD10752F1D8E445AB68A /* Pods_PocketSantaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61299E95EB18541346DDF3A1 /* Pods_PocketSantaTests.framework */; };
 		E1AB41EC23BC2EC400816FEC /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AB41EB23BC2EC400816FEC /* Database.swift */; };
 		E1AB41EE23BC4C3600816FEC /* FlyerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AB41ED23BC4C3600816FEC /* FlyerManager.swift */; };
+		E1AB41EF23BD775000816FEC /* FlyerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AB41ED23BC4C3600816FEC /* FlyerManager.swift */; };
+		E1AB41F023BD775500816FEC /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AB41EB23BC2EC400816FEC /* Database.swift */; };
+		E1AB41F123BD861A00816FEC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF0A4E8B23AABD3600EE167C /* Assets.xcassets */; };
 		E1B4C2A523B79CAF00EB1782 /* FlyerCreateTitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B4C2A423B79CAF00EB1782 /* FlyerCreateTitleViewController.swift */; };
 		E1B4C2A723B7B53400EB1782 /* FlyerCreateDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B4C2A623B7B53400EB1782 /* FlyerCreateDateViewController.swift */; };
 		E1F2118823B5159600BDFA7F /* FlyerCreateTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F2118723B5159600BDFA7F /* FlyerCreateTableViewController.swift */; };
@@ -27,13 +30,11 @@
 		EF0A4EA523AABF0100EE167C /* WebAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0A4EA423AABF0100EE167C /* WebAPI.swift */; };
 		EF0A4EA623AABF0100EE167C /* WebAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0A4EA423AABF0100EE167C /* WebAPI.swift */; };
 		EF0A4EA823ABB9D300EE167C /* FlyerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0A4EA723ABB9D300EE167C /* FlyerViewController.swift */; };
-		EF0A4EA923ABB9D300EE167C /* FlyerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0A4EA723ABB9D300EE167C /* FlyerViewController.swift */; };
 		EF0A4EAB23ABBA4A00EE167C /* TreePotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0A4EAA23ABBA4A00EE167C /* TreePotViewController.swift */; };
 		EF0A4EAC23ABBA4A00EE167C /* TreePotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0A4EAA23ABBA4A00EE167C /* TreePotViewController.swift */; };
 		EF0A4EB523AECEB400EE167C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF0A4EAE23AEC5B600EE167C /* MapKit.framework */; };
 		EF0A4EB723AED51800EE167C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF0A4EB023AECD7D00EE167C /* CoreLocation.framework */; };
 		EF0A4EBB23AFC9E100EE167C /* FlyerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0A4EBA23AFC9E100EE167C /* FlyerDetailViewController.swift */; };
-		EF0A4EBC23AFC9E100EE167C /* FlyerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0A4EBA23AFC9E100EE167C /* FlyerDetailViewController.swift */; };
 		EF0A4EBE23AFF24800EE167C /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0A4EBD23AFF24800EE167C /* Data.swift */; };
 		EF0A4EBF23AFF24800EE167C /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0A4EBD23AFF24800EE167C /* Data.swift */; };
 		EF50CD1723B28BC500A73225 /* FlyerDetailPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF50CD1623B28BC500A73225 /* FlyerDetailPageViewController.swift */; };
@@ -287,6 +288,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1AB41F123BD861A00816FEC /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -386,11 +388,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EF0A4EBC23AFC9E100EE167C /* FlyerDetailViewController.swift in Sources */,
+				E1AB41EF23BD775000816FEC /* FlyerManager.swift in Sources */,
 				EF0A4EBF23AFF24800EE167C /* Data.swift in Sources */,
 				EF0A4EAC23ABBA4A00EE167C /* TreePotViewController.swift in Sources */,
 				EF0A4E9A23AABD3600EE167C /* PocketSantaTests.swift in Sources */,
-				EF0A4EA923ABB9D300EE167C /* FlyerViewController.swift in Sources */,
+				E1AB41F023BD775500816FEC /* Database.swift in Sources */,
 				EF0A4EA623AABF0100EE167C /* WebAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -11,9 +11,11 @@ import UIKit
 class FlyerViewController: UIViewController {
     
     @IBOutlet weak var myTableview: UITableView!
+    @IBOutlet weak var mysegmentControl: UISegmentedControl!
     
     var FlyerTableDatasourceDelegate: FlyerTableDatasourceDelegateController = FlyerTableDatasourceDelegateController()
     var FlyerDetailVC = FlyerDetailViewController()
+    fileprivate let refreshCtl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +27,24 @@ class FlyerViewController: UIViewController {
         // 次のページのBackボタンの文字だけ削除
         // 参考：https://mt312.com/643
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        // 下にスワイプすると更新するリフレッシュを実装
+        // 参考：https://qiita.com/ryo-ta/items/7e2fbedb6e8dc8eb217f
+        myTableview.refreshControl = refreshCtl
+        refreshCtl.addTarget(self, action: #selector(FlyerViewController.refresh(sender:)), for: .valueChanged)
+    }
+    
+    @objc func refresh(sender: UIRefreshControl) {
+        // ここが引っ張られるたびに呼び出される
+        if(mysegmentControl.selectedSegmentIndex == 0) {
+             FlyerTableDatasourceDelegate.updateshownflyerdata(isMine: false)
+        } else if(mysegmentControl.selectedSegmentIndex == 1) {
+             FlyerTableDatasourceDelegate.updateshownflyerdata(isMine: true)
+        } else if(mysegmentControl.selectedSegmentIndex == 2) {
+             FlyerTableDatasourceDelegate.updateshownflyerdata()
+        }
+         myTableview.reloadData()
+        // 通信終了後、endRefreshingを実行することでロードインジケーター（くるくる）が終了
+        sender.endRefreshing()
     }
     
     @IBAction func FlyerDataSegmentedControl(sender: UISegmentedControl) {

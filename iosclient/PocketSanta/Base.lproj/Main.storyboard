@@ -119,6 +119,7 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="myTableview" destination="Ppf-7y-73w" id="arS-ck-UU4"/>
+                        <outlet property="mysegmentControl" destination="6n5-LJ-Mrk" id="Q7G-S2-PJV"/>
                         <segue destination="0Fu-fP-fa2" kind="showDetail" identifier="ToFlyerDetailView" id="43x-hv-r9G"/>
                     </connections>
                 </viewController>
@@ -349,7 +350,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7PC-Da-ZFX">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7PC-Da-ZFX">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="491"/>
                             </imageView>
                             <pageControl opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" currentPage="2" translatesAutoresizingMaskIntoConstraints="NO" id="meX-DE-Nqp">

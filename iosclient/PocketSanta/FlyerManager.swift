@@ -13,8 +13,10 @@ struct FlyerManager {
     var FlyerArray: [FlyerData] = [FlyerData]()
     
     init () {
-        getFlyerFromServer()
-        saveFlyer()
+        //getFlyerFromServer()
+        FlyerArray = UserDefaults.standard.flyerdata(forkey: .flyerdata) ?? []
+        //saveFlyer()
+        //print(UserDefaults.standard.flyerdata(forkey: .flyerdata)!)
     }
     
     func getFlyer() -> [FlyerData]? {
@@ -41,6 +43,24 @@ struct FlyerManager {
         // WEBAPI REMOVE CALL
     }
     
+    mutating func removeFlyer(_ index: Int) {
+          FlyerArray.remove(at: index)
+          saveFlyer()
+      }
+    
+    mutating private func removeFlyerFromArray(_ index: Int) {
+          FlyerArray.remove(at: index)
+      }
+    
+    mutating private func removeFlyerFromArray(_ key: String) {
+           for i in 0..<FlyerArray.count {
+               if(FlyerArray[i].FlyerKey == key) {
+                   FlyerArray.remove(at: i)
+                   break
+               }
+           }
+       }
+    
     func indexOfFlyer(key: String)->Int?{
         for i in 0..<FlyerArray.count {
             if(FlyerArray[i].FlyerKey == key) {
@@ -50,19 +70,14 @@ struct FlyerManager {
         return nil
     }
     
-    mutating func removeFlyer(_ index: Int) {
-        FlyerArray.remove(at: index)
-        saveFlyer()
-    }
-    
     mutating func updateFlyer(_ key: String, flyer: FlyerData) {
-        removeFlyer(key)
+        removeFlyerFromArray(key)
         FlyerArray.append(flyer)
         saveFlyer()
     }
     
     mutating func updateFlyer(_ index: Int, flyer: FlyerData) {
-        removeFlyer(index)
+        removeFlyerFromArray(index)
         FlyerArray.append(flyer)
         saveFlyer()
     }

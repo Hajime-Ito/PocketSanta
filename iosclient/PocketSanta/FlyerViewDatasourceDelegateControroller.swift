@@ -123,28 +123,64 @@ class FlyerTableDatasourceDelegateController: UITableView, FlyerTableViewDD {
     //セルの編集許可
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool
     {
-        if shownflyerdata[indexPath.section].isMine == true {
-            // 自分が作成したものに関しては削除ボタンは表示しない。
-            return false
-        }else{
-            return true
-        }
+        /*if shownflyerdata[indexPath.section].isMine == true {
+         // 自分が作成したものに関しては削除ボタンは表示しない。
+         return false
+         }else{
+         return true
+         }*/
+        return true
     }
     
     //スワイプしたセル(セクション)を削除
     // 参考：https://kichie-com.hatenablog.com/entry/table-section-delete
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCell.EditingStyle.delete {
-            for i in 0..<flyerdata.count {
-                if(flyerdata[i].FlyerKey == shownflyerdata[indexPath.section].FlyerKey) {
-                    flyerdata.remove(at: i)
-                    break // ここでbreakを呼び出さないと、flyerdataが1つ減った状態で、削除前の数だけアクセスされるのでOut of Indexになってしまう。
+            // クロージャ（結構めんどくさい実装だったけど他にも使えそう）
+            alert( Closure: { isOK in
+                if(isOK) {
+                    if(self.FlyerViewController.mysegmentControl.selectedSegmentIndex != 2) {
+                        self.appDelegate.flyerManager.removeFlyer(self.shownflyerdata[indexPath.section].FlyerKey)
+                    }
+                    for i in 0..<self.flyerdata.count {
+                        if(self.flyerdata[i].FlyerKey == self.shownflyerdata[indexPath.section].FlyerKey) {
+                            self.flyerdata.remove(at: i)
+                            break // ここでbreakを呼び出さないと、flyerdataが1つ減った状態で、削除前の数だけアクセスされるのでOut of Indexになってしまう。
+                        }
+                    }
+                    self.shownflyerdata.remove(at: indexPath.section)
+                    let indexSet = NSMutableIndexSet()
+                    indexSet.add(indexPath.section)
+                    tableView.deleteSections(indexSet as IndexSet, with: UITableView.RowAnimation.automatic)
                 }
-            }
-            shownflyerdata.remove(at: indexPath.section)
-            let indexSet = NSMutableIndexSet()
-            indexSet.add(indexPath.section)
-            tableView.deleteSections(indexSet as IndexSet, with: UITableView.RowAnimation.automatic)
+            })
+            
         } else if editingStyle == UITableViewCell.EditingStyle.insert {}
+    }
+    
+    private func alert(Closure: @escaping ((Bool) -> Void)) {
+        var isOK = false
+        let alert: UIAlertController = UIAlertController(title: "本当にフライヤーを削除しますか？", message: "誤操作に注意( ˘ω˘ )", preferredStyle:  UIAlertController.Style.alert)
+        // OKボタン
+        let defaultAction: UIAlertAction = UIAlertAction(title: "します！", style: UIAlertAction.Style.default, handler:{
+            // ボタンが押された時の処理を書く（クロージャ実装）
+            (action: UIAlertAction!) -> Void in
+            isOK = true
+            Closure(isOK)
+        })
+        // キャンセルボタン
+        let cancelAction: UIAlertAction = UIAlertAction(title: "取り消し", style: UIAlertAction.Style.cancel, handler:{
+            // ボタンが押された時の処理を書く（クロージャ実装）
+            (action: UIAlertAction!) -> Void in
+            isOK = false
+            Closure(isOK)
+        })
+        
+        // ③ UIAlertControllerにActionを追加
+        alert.addAction(cancelAction)
+        alert.addAction(defaultAction)
+        
+        // ④ Alertを表示
+        FlyerViewController.present(alert, animated: true, completion: nil)
     }
 }

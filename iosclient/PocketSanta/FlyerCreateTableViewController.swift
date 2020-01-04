@@ -35,12 +35,25 @@ class FlyerCreateTableViewController: UITableViewController, UIImagePickerContro
         //　空のセルを非表示
         tableView.tableFooterView = UIView()
         //setSwipeBack()
+        /*
+         { (引数名:引数の型) -> 戻り値の型 in
+         処理
+         }
+         **/
         let Todate = Date()
         let calendar = Calendar.current
         let year = calendar.component(.year, from: Todate)
         let month = calendar.component(.month, from: Todate)
         let date = calendar.component(.day, from: Todate)
-        flyerdata = FlyerData(title:"", year: year, month: month, date: date, timeInfo: "", locationInfo: "", image: UIImage(named:"test")!, message: "", locationX: 0, locationY: 0, isMine: true, FlyerKey: "", favorite: false)
+        flyerdata = FlyerData(title:"", year: year, month: month, date: date, timeInfo: "", locationInfo: "", image: UIImage(named:"test")!, message: "", locationX: 0, locationY: 0, isMine: true, FlyerKey: {()->String in
+            let base = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+            var randomString: String = ""
+            let characters = base.map { String($0) }
+            for _ in 0..<20 {
+                let rand = Int(arc4random_uniform(UInt32(base.count)))
+                randomString += "\(characters[rand])"
+            }
+            return randomString}(), favorite: false)
         ImageCell.title.text = "フライヤー画像"
         TitleCell.textLabel?.text = "タイトル"
         DateCell.textLabel?.text = "開催日"
@@ -105,7 +118,8 @@ class FlyerCreateTableViewController: UITableViewController, UIImagePickerContro
         case 1:
             switch indexPath.row {
             case 0:
-                appDelegate.flyerManager.addFlyer(flyer: flyerdata!)
+                appDelegate.flyerManager.addFlyer(flyer: flyerdata!)// test用
+                self.navigationController?.popViewController(animated: true)
             default:
                 break
             }
