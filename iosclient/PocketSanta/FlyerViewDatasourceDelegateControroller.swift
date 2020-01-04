@@ -142,6 +142,7 @@ class FlyerTableDatasourceDelegateController: UITableView, FlyerTableViewDD {
                     if(self.FlyerViewController.mysegmentControl.selectedSegmentIndex != 2) {
                         self.appDelegate.flyerManager.removeFlyer(self.shownflyerdata[indexPath.section].FlyerKey)
                     }
+                    
                     for i in 0..<self.flyerdata.count {
                         if(self.flyerdata[i].FlyerKey == self.shownflyerdata[indexPath.section].FlyerKey) {
                             self.flyerdata.remove(at: i)
@@ -160,16 +161,39 @@ class FlyerTableDatasourceDelegateController: UITableView, FlyerTableViewDD {
     
     private func alert(Closure: @escaping ((Bool) -> Void)) {
         var isOK = false
-        let alert: UIAlertController = UIAlertController(title: "本当にフライヤーを削除しますか？", message: "誤操作に注意( ˘ω˘ )", preferredStyle:  UIAlertController.Style.alert)
+        
+        var alerttitle = ""
+        var alertmessage = ""
+        var Oktitle = ""
+        var CancelTitle = ""
+        
+        if(self.FlyerViewController.mysegmentControl.selectedSegmentIndex == 0) {
+            alerttitle = "本当にフライヤーを削除しますか？"
+            alertmessage = "復元はできないぜ(；ω；)"
+            Oktitle = "します！"
+            CancelTitle =  "しません"
+        } else if(self.FlyerViewController.mysegmentControl.selectedSegmentIndex == 1) {
+            alerttitle = "本当にフライヤーを削除しますか？"
+            alertmessage = "今後このフライヤーは配信されなくなるぜ(；ω；)"
+            Oktitle = "します！"
+            CancelTitle =  "しません"
+        } else if(self.FlyerViewController.mysegmentControl.selectedSegmentIndex == 2) {
+            alerttitle = "フライヤーをお気に入りリストから外しますか？"
+            alertmessage = "データは残るから安心しな( ˘ω˘ )"
+            Oktitle = "オーケー！"
+            CancelTitle =  "取り消し"
+        }
+        
+        let alert: UIAlertController = UIAlertController(title: alerttitle, message: alertmessage, preferredStyle:  UIAlertController.Style.alert)
         // OKボタン
-        let defaultAction: UIAlertAction = UIAlertAction(title: "します！", style: UIAlertAction.Style.default, handler:{
+        let defaultAction: UIAlertAction = UIAlertAction(title: Oktitle, style: UIAlertAction.Style.default, handler:{
             // ボタンが押された時の処理を書く（クロージャ実装）
             (action: UIAlertAction!) -> Void in
             isOK = true
             Closure(isOK)
         })
         // キャンセルボタン
-        let cancelAction: UIAlertAction = UIAlertAction(title: "取り消し", style: UIAlertAction.Style.cancel, handler:{
+        let cancelAction: UIAlertAction = UIAlertAction(title: CancelTitle, style: UIAlertAction.Style.cancel, handler:{
             // ボタンが押された時の処理を書く（クロージャ実装）
             (action: UIAlertAction!) -> Void in
             isOK = false
