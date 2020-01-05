@@ -8,7 +8,12 @@
 
 import UIKit
 
-class FlyerDetailViewController: UIViewController {
+protocol FlyerDetailViewControllerDelegate: class {
+    func editViewControllerDidCancel(_ editViewController:FlyerDetailViewController)
+    func editViewControllerDidFinish(_ editViewController:FlyerDetailViewController)
+}
+
+class FlyerDetailViewController: UIViewController,  UIAdaptivePresentationControllerDelegate {
     
     var flyerdata: FlyerData!
     var FlyerTableDatasourceDelegate: FlyerTableDatasourceDelegateController = FlyerTableDatasourceDelegateController()
@@ -26,6 +31,26 @@ class FlyerDetailViewController: UIViewController {
         locationlabel?.text = flyerdata.locationInfo
         messagelabel?.text = flyerdata.message
     }
+    
+    // MARK: - Delegate
+       
+       weak var delegate1: FlyerDetailViewControllerDelegate?
+       
+       func sendDidCancel() {
+           delegate1?.editViewControllerDidCancel(self)
+       }
+       
+       func sendDidFinish() {
+           delegate1?.editViewControllerDidFinish(self)
+       }
+       
+       func presentationControllerDidAttemptToDismiss(_ presentationController: UIPresentationController) {
+           print("HH")
+           // The user pulled down with unsaved changes
+           // Clarify the user's intent by asking whether they intended to cancel or save
+           sendDidFinish()
+       }
+       
     
     
     @IBAction func Taplocationlabel(_ sender: Any) {
@@ -67,6 +92,6 @@ class FlyerDetailViewController: UIViewController {
             // 遷移先のViewControllerを取得
             let FlyerDetailMapView = segue.destination as! FlyerDetailMapViewController
             FlyerDetailMapView.flyerdata = sender as? FlyerData
-        }
+        } else { }
     }
 }

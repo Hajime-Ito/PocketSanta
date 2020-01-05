@@ -130,7 +130,7 @@
         <!--Flyer Detail View Controller-->
         <scene sceneID="2e1-jW-zUR">
             <objects>
-                <viewController storyboardIdentifier="FlyerDetailInfoView" id="LwW-xT-cHs" customClass="FlyerDetailViewController" customModule="PocketSanta" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FlyerDetailInfoView" modalPresentationStyle="pageSheet" id="LwW-xT-cHs" customClass="FlyerDetailViewController" customModule="PocketSanta" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2Jl-uG-fqh">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -282,12 +282,12 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="4518.75" y="932.74647887323943"/>
+            <point key="canvasLocation" x="4528" y="933"/>
         </scene>
         <!--Flyer Detail Map View Controller-->
         <scene sceneID="OF2-uq-lhl">
             <objects>
-                <viewController storyboardIdentifier="FlyerDetailMapView" id="olD-V1-fXW" customClass="FlyerDetailMapViewController" customModule="PocketSanta" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FlyerDetailMapView" modalPresentationStyle="pageSheet" id="olD-V1-fXW" customClass="FlyerDetailMapViewController" customModule="PocketSanta" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2d1-Km-ve0">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -345,7 +345,7 @@
         <!--Flyer Detail Image View Controller-->
         <scene sceneID="vdu-5Z-IhR">
             <objects>
-                <viewController storyboardIdentifier="FlyerDetailImageView" id="qlS-eH-jzO" customClass="FlyerDetailImageViewController" customModule="PocketSanta" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FlyerDetailImageView" modalPresentationStyle="pageSheet" id="qlS-eH-jzO" customClass="FlyerDetailImageViewController" customModule="PocketSanta" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Gol-fr-M2H">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -727,10 +727,10 @@
         <!--Flyer Detail Page View Controller-->
         <scene sceneID="UqH-Z8-hDI">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" pageSpacing="2" navigationOrientation="horizontal" spineLocation="none" id="0Fu-fP-fa2" customClass="FlyerDetailPageViewController" customModule="PocketSanta" customModuleProvider="target" sceneMemberID="viewController"/>
+                <pageViewController storyboardIdentifier="FlyerDetailPageView" autoresizesArchivedViewToFullSize="NO" modalPresentationStyle="pageSheet" transitionStyle="scroll" pageSpacing="2" navigationOrientation="horizontal" spineLocation="none" id="0Fu-fP-fa2" customClass="FlyerDetailPageViewController" customModule="PocketSanta" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lul-Nz-WcH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3780" y="932.74647887323943"/>
+            <point key="canvasLocation" x="3780" y="933"/>
         </scene>
         <!--ツリーポット-->
         <scene sceneID="eQo-HU-Uyf">

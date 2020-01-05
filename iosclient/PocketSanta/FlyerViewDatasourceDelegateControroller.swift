@@ -36,7 +36,7 @@ class FlyerTableDatasourceDelegateController: UITableView, FlyerTableViewDD {
         else{
             shownflyerdata = []
             for data in flyerdata {
-                if(data.isMine == false) {shownflyerdata.append(data)}
+                if(data.isMine == false && data.favorite == false) {shownflyerdata.append(data)}
             }
         }
     }
@@ -55,6 +55,7 @@ class FlyerTableDatasourceDelegateController: UITableView, FlyerTableViewDD {
     
     func addFavorite(key: String) {
         appDelegate.flyerManager.updateFlyer(key, favorite: true)
+        //FlyerViewController.viewLoad()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -141,6 +142,8 @@ class FlyerTableDatasourceDelegateController: UITableView, FlyerTableViewDD {
                 if(isOK) {
                     if(self.FlyerViewController.mysegmentControl.selectedSegmentIndex != 2) {
                         self.appDelegate.flyerManager.removeFlyer(self.shownflyerdata[indexPath.section].FlyerKey)
+                    } else {
+                        self.appDelegate.flyerManager.updateFlyer(self.shownflyerdata[indexPath.section].FlyerKey, favorite: false)
                     }
                     
                     for i in 0..<self.flyerdata.count {

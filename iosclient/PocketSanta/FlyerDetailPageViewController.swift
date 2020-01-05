@@ -8,10 +8,12 @@
 
 import UIKit
 
-class FlyerDetailPageViewController: UIPageViewController {
+class FlyerDetailPageViewController: UIPageViewController  {
     
     var flyerdata: FlyerData!
-    var  FlyerDetailPageViewDataSource =  FlyerDetailPageViewDataSourceController()
+    var FlyerDetailPageViewDataSource =  FlyerDetailPageViewDataSourceController()
+    var FlyerVC: FlyerViewController!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         FlyerDetailPageViewDataSource.FlyerDetailPageView = self
@@ -21,6 +23,7 @@ class FlyerDetailPageViewController: UIPageViewController {
     
     func getFirst() -> FlyerDetailViewController {
         let next = storyboard!.instantiateViewController(withIdentifier: "FlyerDetailInfoView") as!FlyerDetailViewController
+        next.delegate1 = FlyerVC
         next.flyerdata = self.flyerdata
         return next
     }

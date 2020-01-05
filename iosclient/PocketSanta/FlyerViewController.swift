@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FlyerViewController: UIViewController {
+class FlyerViewController: UIViewController, FlyerDetailViewControllerDelegate {
     
     @IBOutlet weak var myTableview: UITableView!
     @IBOutlet weak var mysegmentControl: UISegmentedControl!
@@ -19,6 +19,7 @@ class FlyerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("call View Did Load!")
         FlyerTableDatasourceDelegate.getflyerdata()
         FlyerTableDatasourceDelegate.updateshownflyerdata(isMine: false)
         FlyerTableDatasourceDelegate.FlyerViewController = self
@@ -36,13 +37,13 @@ class FlyerViewController: UIViewController {
     @objc func refresh(sender: UIRefreshControl) {
         // ここが引っ張られるたびに呼び出される
         if(mysegmentControl.selectedSegmentIndex == 0) {
-             FlyerTableDatasourceDelegate.updateshownflyerdata(isMine: false)
+            FlyerTableDatasourceDelegate.updateshownflyerdata(isMine: false)
         } else if(mysegmentControl.selectedSegmentIndex == 1) {
-             FlyerTableDatasourceDelegate.updateshownflyerdata(isMine: true)
+            FlyerTableDatasourceDelegate.updateshownflyerdata(isMine: true)
         } else if(mysegmentControl.selectedSegmentIndex == 2) {
-             FlyerTableDatasourceDelegate.updateshownflyerdata()
+            FlyerTableDatasourceDelegate.updateshownflyerdata()
         }
-         myTableview.reloadData()
+        myTableview.reloadData()
         // 通信終了後、endRefreshingを実行することでロードインジケーター（くるくる）が終了
         sender.endRefreshing()
     }
@@ -76,7 +77,25 @@ class FlyerViewController: UIViewController {
             // 遷移先のViewControllerを取得
             let FlyerDetailPageViewController = segue.destination as! FlyerDetailPageViewController
             FlyerDetailPageViewController.flyerdata = sender as? FlyerData
+            FlyerDetailPageViewController.FlyerVC = self
         }
+    }
+    
+    func editViewControllerDidCancel(_ editViewController: FlyerDetailViewController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func editViewControllerDidFinish(_ editViewController: FlyerDetailViewController) {
+        print("FFFF")
+        if(mysegmentControl.selectedSegmentIndex == 0) {
+            FlyerTableDatasourceDelegate.updateshownflyerdata(isMine: false)
+        } else if(mysegmentControl.selectedSegmentIndex == 1) {
+            FlyerTableDatasourceDelegate.updateshownflyerdata(isMine: true)
+        } else if(mysegmentControl.selectedSegmentIndex == 2) {
+            FlyerTableDatasourceDelegate.updateshownflyerdata()
+        }
+        myTableview.reloadData()
+        dismiss(animated: true, completion: nil)
     }
 }
 
@@ -97,3 +116,5 @@ class FlyerCellTableViewCell: UITableViewCell {
     }
     
 }
+
+
