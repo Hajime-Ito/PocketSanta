@@ -8,6 +8,15 @@
 
 import UIKit
 
+extension UIPageViewController {
+
+    func setSwipeBack1() {
+        let target = self.navigationController?.value(forKey: "_cachedInteractionController")
+        let recognizer = UIPanGestureRecognizer(target: target, action: Selector(("handleNavigationTransition:")))
+        self.view.addGestureRecognizer(recognizer)
+    }
+}
+
 class FlyerDetailPageViewController: UIPageViewController  {
     
     var flyerdata: FlyerData!
@@ -19,11 +28,12 @@ class FlyerDetailPageViewController: UIPageViewController  {
         FlyerDetailPageViewDataSource.FlyerDetailPageView = self
         self.setViewControllers([getFirst()], direction: .forward, animated: true, completion: nil)
         self.dataSource =  FlyerDetailPageViewDataSource
+
     }
     
     func getFirst() -> FlyerDetailViewController {
         let next = storyboard!.instantiateViewController(withIdentifier: "FlyerDetailInfoView") as!FlyerDetailViewController
-        next.delegate1 = FlyerVC
+        //next.delegate1 = FlyerVC
         next.flyerdata = self.flyerdata
         return next
     }

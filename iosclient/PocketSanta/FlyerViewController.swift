@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FlyerViewController: UIViewController, FlyerDetailViewControllerDelegate {
+class FlyerViewController: UIViewController /*FlyerDetailViewControllerDelegate*/ {
     
     @IBOutlet weak var myTableview: UITableView!
     @IBOutlet weak var mysegmentControl: UISegmentedControl!
@@ -81,7 +81,7 @@ class FlyerViewController: UIViewController, FlyerDetailViewControllerDelegate {
         }
     }
     
-    func editViewControllerDidCancel(_ editViewController: FlyerDetailViewController) {
+    /*func editViewControllerDidCancel(_ editViewController: FlyerDetailViewController) {
         dismiss(animated: true, completion: nil)
     }
     
@@ -96,7 +96,7 @@ class FlyerViewController: UIViewController, FlyerDetailViewControllerDelegate {
         }
         myTableview.reloadData()
         dismiss(animated: true, completion: nil)
-    }
+    }*/
 }
 
 

@@ -8,12 +8,12 @@
 
 import UIKit
 
-protocol FlyerDetailViewControllerDelegate: class {
+/*protocol FlyerDetailViewControllerDelegate: class {
     func editViewControllerDidCancel(_ editViewController:FlyerDetailViewController)
     func editViewControllerDidFinish(_ editViewController:FlyerDetailViewController)
-}
+}*/
 
-class FlyerDetailViewController: UIViewController,  UIAdaptivePresentationControllerDelegate {
+class FlyerDetailViewController: UIViewController /*UIAdaptivePresentationControllerDelegate*/ {
     
     var flyerdata: FlyerData!
     var FlyerTableDatasourceDelegate: FlyerTableDatasourceDelegateController = FlyerTableDatasourceDelegateController()
@@ -33,7 +33,7 @@ class FlyerDetailViewController: UIViewController,  UIAdaptivePresentationContro
     }
     
     // MARK: - Delegate
-       
+   /*
        weak var delegate1: FlyerDetailViewControllerDelegate?
        
        func sendDidCancel() {
@@ -50,7 +50,7 @@ class FlyerDetailViewController: UIViewController,  UIAdaptivePresentationContro
            // Clarify the user's intent by asking whether they intended to cancel or save
            sendDidFinish()
        }
-       
+    */
     
     
     @IBAction func Taplocationlabel(_ sender: Any) {
