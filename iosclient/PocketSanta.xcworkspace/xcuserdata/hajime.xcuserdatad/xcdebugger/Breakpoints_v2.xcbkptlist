@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "BE79347D-53AC-4D8A-A452-DDECF2F7A08E"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5127E6B0-58AF-4E2F-B947-585205D162B3"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PocketSantaTests/PocketSantaTests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "PocketSantaTests"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "5127E6B0-58AF-4E2F-B947-585205D162B3 - f2f9d32035fc253f"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PocketSantaTests.PocketSantaTests.flyerManager.getter : Swift.Optional&lt;PocketSantaTests.FlyerManager&gt;"
+                  moduleName = "PocketSantaTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hajime/Desktop/PocketSanta/iosclient/PocketSantaTests/PocketSantaTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "144">
+               </Location>
+               <Location
+                  uuid = "5127E6B0-58AF-4E2F-B947-585205D162B3 - 2be2ccfa5d369ea3"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PocketSantaTests.PocketSantaTests.flyerManager.setter : Swift.Optional&lt;PocketSantaTests.FlyerManager&gt;"
+                  moduleName = "PocketSantaTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hajime/Desktop/PocketSanta/iosclient/PocketSantaTests/PocketSantaTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "196">
+               </Location>
+               <Location
+                  uuid = "5127E6B0-58AF-4E2F-B947-585205D162B3 - bfda755f85b3fed2"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PocketSantaTests.PocketSantaTests.flyerManager.modify : Swift.Optional&lt;PocketSantaTests.FlyerManager&gt;"
+                  moduleName = "PocketSantaTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hajime/Desktop/PocketSanta/iosclient/PocketSantaTests/PocketSantaTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "20">
+               </Location>
+               <Location
+                  uuid = "5127E6B0-58AF-4E2F-B947-585205D162B3 - f0b871c1515ceaa8"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PocketSantaTests.PocketSantaTests.flyerManager.modify : Swift.Optional&lt;PocketSantaTests.FlyerManager&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "PocketSantaTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hajime/Desktop/PocketSanta/iosclient/PocketSantaTests/PocketSantaTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  uuid = "5127E6B0-58AF-4E2F-B947-585205D162B3 - d5728af515c71767"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PocketSantaTests.PocketSantaTests.init(invocation: Swift.Optional&lt;__C.NSInvocation&gt;) -&gt; PocketSantaTests.PocketSantaTests"
+                  moduleName = "PocketSantaTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hajime/Desktop/PocketSanta/iosclient/PocketSantaTests/PocketSantaTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "116">
+               </Location>
+               <Location
+                  uuid = "5127E6B0-58AF-4E2F-B947-585205D162B3 - 854c526690f32187"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PocketSantaTests.PocketSantaTests.init(selector: ObjectiveC.Selector) -&gt; PocketSantaTests.PocketSantaTests"
+                  moduleName = "PocketSantaTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hajime/Desktop/PocketSanta/iosclient/PocketSantaTests/PocketSantaTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "116">
+               </Location>
+               <Location
+                  uuid = "5127E6B0-58AF-4E2F-B947-585205D162B3 - 36ba7cb26da58050"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PocketSantaTests.PocketSantaTests.init() -&gt; PocketSantaTests.PocketSantaTests"
+                  moduleName = "PocketSantaTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hajime/Desktop/PocketSanta/iosclient/PocketSantaTests/PocketSantaTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "68">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

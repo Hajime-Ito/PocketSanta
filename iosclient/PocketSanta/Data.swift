@@ -57,6 +57,10 @@ struct FlyerData: Codable {
     mutating func setfavorite(bool: Bool) {
         self.favorite = bool
     }
+    
+    mutating func setisMine(bool: Bool) {
+        self.isMine = bool
+    }
 }
 
 extension UIImage {
@@ -97,16 +101,12 @@ extension UIImage {
         return UIImage(data: imageData!) ?? UIImage()
     }
     
-    func resized(withPercentage percentage: CGFloat) -> UIImage? {
-        let canvas = CGSize(width: size.width * percentage, height: size.height * percentage)
-        return UIGraphicsImageRenderer(size: canvas, format: imageRendererFormat).image {
-            _ in draw(in: CGRect(origin: .zero, size: canvas))
-        }
-    }
-    func resized(toWidth width: CGFloat) -> UIImage? {
-        let canvas = CGSize(width: width, height: CGFloat(ceil(width/size.width * size.height)))
-        return UIGraphicsImageRenderer(size: canvas, format: imageRendererFormat).image {
-            _ in draw(in: CGRect(origin: .zero, size: canvas))
-        }
-    }
+    func reSizeImage(reSize:CGSize)->UIImage {
+           //UIGraphicsBeginImageContext(reSize);
+           UIGraphicsBeginImageContextWithOptions(reSize,false,UIScreen.main.scale);
+           self.draw(in: CGRect(x: 0, y: 0, width: reSize.width, height: reSize.height));
+           let reSizeImage:UIImage! = UIGraphicsGetImageFromCurrentImageContext();
+           UIGraphicsEndImageContext();
+           return reSizeImage;
+       }
 }

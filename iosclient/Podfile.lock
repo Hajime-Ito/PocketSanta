@@ -1,16 +1,20 @@
 PODS:
+  - FloatingPanel (1.7.1)
   - SwiftGifOrigin (1.7.0)
 
 DEPENDENCIES:
+  - FloatingPanel
   - SwiftGifOrigin
 
 SPEC REPOS:
-  trunk:
+  https://github.com/cocoapods/specs.git:
+    - FloatingPanel
     - SwiftGifOrigin
 
 SPEC CHECKSUMS:
+  FloatingPanel: 2f87246071476cf05d77ba3f50a373ca4b04549e
   SwiftGifOrigin: fbd6cf37afcfcf97a5c3db996ddc0492e5c5c145
 
-PODFILE CHECKSUM: 2097c3ee43d2f150f397d1ff7b9b63b43ab3c4fe
+PODFILE CHECKSUM: 7b5475fa9a2e620dd4414f546f12042bf7d9dc33
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.6.0

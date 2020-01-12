@@ -57,35 +57,6 @@ class FlyerDetailViewController: UIViewController /*UIAdaptivePresentationContro
         performSegue(withIdentifier: "ToFlyerDetailMapView", sender: flyerdata)
     }
     
-    @IBAction func TapAddFolderButton(_ sender: Any) {
-        alert()
-    }
-    
-    
-    private func alert() {
-        let alert: UIAlertController = UIAlertController(title: "お気に入りに追加するよ~", message: "追加しすぎに注意( ˘ω˘ )", preferredStyle:  UIAlertController.Style.alert)
-        // OKボタン
-        let defaultAction: UIAlertAction = UIAlertAction(title: "よろしく！", style: UIAlertAction.Style.default, handler:{
-            // ボタンが押された時の処理を書く（クロージャ実装）
-            (action: UIAlertAction!) -> Void in
-            self.FlyerTableDatasourceDelegate.addFavorite(key: self.flyerdata.FlyerKey)
-        })
-        // キャンセルボタン
-        let cancelAction: UIAlertAction = UIAlertAction(title: "取り消し", style: UIAlertAction.Style.cancel, handler:{
-            // ボタンが押された時の処理を書く（クロージャ実装）
-            (action: UIAlertAction!) -> Void in
-            
-        })
-        
-        // ③ UIAlertControllerにActionを追加
-        alert.addAction(cancelAction)
-        alert.addAction(defaultAction)
-        
-        // ④ Alertを表示
-        present(alert, animated: true, completion: nil)
-    }
-    
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ToFlyerDetailMapView" {
             // ToFlyerDetailMapViewセグエの時

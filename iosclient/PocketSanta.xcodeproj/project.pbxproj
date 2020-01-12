@@ -37,9 +37,12 @@
 		EF0A4EBB23AFC9E100EE167C /* FlyerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0A4EBA23AFC9E100EE167C /* FlyerDetailViewController.swift */; };
 		EF0A4EBE23AFF24800EE167C /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0A4EBD23AFF24800EE167C /* Data.swift */; };
 		EF0A4EBF23AFF24800EE167C /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0A4EBD23AFF24800EE167C /* Data.swift */; };
+		EF48ECD223CA32BC0000003C /* FlyerCreateTimeInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF48ECD123CA32BC0000003C /* FlyerCreateTimeInfoViewController.swift */; };
+		EF48ECD823CA38590000003C /* FlyerCreateLocationInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF48ECD723CA38590000003C /* FlyerCreateLocationInfoViewController.swift */; };
 		EF50CD1723B28BC500A73225 /* FlyerDetailPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF50CD1623B28BC500A73225 /* FlyerDetailPageViewController.swift */; };
 		EF50CD1923B28DEF00A73225 /* FlyerDetailMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF50CD1823B28DEF00A73225 /* FlyerDetailMapViewController.swift */; };
 		EF50CD1B23B45EBD00A73225 /* FlyerViewDatasourceDelegateControroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF50CD1A23B45EBD00A73225 /* FlyerViewDatasourceDelegateControroller.swift */; };
+		EFAFA4DB23CB9B5D00B46C02 /* FlyerSemiModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAFA4DA23CB9B5D00B46C02 /* FlyerSemiModalViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,9 +87,13 @@
 		EF0A4EB023AECD7D00EE167C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		EF0A4EBA23AFC9E100EE167C /* FlyerDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlyerDetailViewController.swift; sourceTree = "<group>"; };
 		EF0A4EBD23AFF24800EE167C /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		EF48ECD123CA32BC0000003C /* FlyerCreateTimeInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlyerCreateTimeInfoViewController.swift; sourceTree = "<group>"; };
+		EF48ECD323CA36830000003C /* SwiftGifOrigin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftGifOrigin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF48ECD723CA38590000003C /* FlyerCreateLocationInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlyerCreateLocationInfoViewController.swift; sourceTree = "<group>"; };
 		EF50CD1623B28BC500A73225 /* FlyerDetailPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlyerDetailPageViewController.swift; sourceTree = "<group>"; };
 		EF50CD1823B28DEF00A73225 /* FlyerDetailMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlyerDetailMapViewController.swift; sourceTree = "<group>"; };
 		EF50CD1A23B45EBD00A73225 /* FlyerViewDatasourceDelegateControroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlyerViewDatasourceDelegateControroller.swift; sourceTree = "<group>"; };
+		EFAFA4DA23CB9B5D00B46C02 /* FlyerSemiModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlyerSemiModalViewController.swift; sourceTree = "<group>"; };
 		FE5421BC60A3036F21672D75 /* Pods_PocketSanta.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PocketSanta.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -154,9 +161,12 @@
 				EF0A4E8623AABD2300EE167C /* MapViewController.swift */,
 				EF0A4EA723ABB9D300EE167C /* FlyerViewController.swift */,
 				EF50CD1A23B45EBD00A73225 /* FlyerViewDatasourceDelegateControroller.swift */,
+				EFAFA4DA23CB9B5D00B46C02 /* FlyerSemiModalViewController.swift */,
 				E1F2118723B5159600BDFA7F /* FlyerCreateTableViewController.swift */,
 				E1B4C2A423B79CAF00EB1782 /* FlyerCreateTitleViewController.swift */,
 				E1B4C2A623B7B53400EB1782 /* FlyerCreateDateViewController.swift */,
+				EF48ECD123CA32BC0000003C /* FlyerCreateTimeInfoViewController.swift */,
+				EF48ECD723CA38590000003C /* FlyerCreateLocationInfoViewController.swift */,
 				EF50CD1623B28BC500A73225 /* FlyerDetailPageViewController.swift */,
 				EF0A4EBA23AFC9E100EE167C /* FlyerDetailViewController.swift */,
 				EF50CD1823B28DEF00A73225 /* FlyerDetailMapViewController.swift */,
@@ -185,6 +195,7 @@
 		EF0A4EAD23AEC5B600EE167C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EF48ECD323CA36830000003C /* SwiftGifOrigin.framework */,
 				EF0A4EB023AECD7D00EE167C /* CoreLocation.framework */,
 				EF0A4EAE23AEC5B600EE167C /* MapKit.framework */,
 				FE5421BC60A3036F21672D75 /* Pods_PocketSanta.framework */,
@@ -303,9 +314,18 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-PocketSanta/Pods-PocketSanta-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PocketSanta/Pods-PocketSanta-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/FloatingPanel/FloatingPanel.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftGifOrigin/SwiftGifOrigin.framework",
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-PocketSanta/Pods-PocketSanta-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FloatingPanel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftGifOrigin.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -368,12 +388,15 @@
 				EF0A4EAB23ABBA4A00EE167C /* TreePotViewController.swift in Sources */,
 				EF50CD1B23B45EBD00A73225 /* FlyerViewDatasourceDelegateControroller.swift in Sources */,
 				EF0A4EA823ABB9D300EE167C /* FlyerViewController.swift in Sources */,
+				EF48ECD223CA32BC0000003C /* FlyerCreateTimeInfoViewController.swift in Sources */,
 				EF0A4E8723AABD2300EE167C /* MapViewController.swift in Sources */,
 				E1F2119623B6CC6000BDFA7F /* LaunchViewController.swift in Sources */,
 				EF0A4E8323AABD2300EE167C /* AppDelegate.swift in Sources */,
 				EF0A4EBB23AFC9E100EE167C /* FlyerDetailViewController.swift in Sources */,
+				EFAFA4DB23CB9B5D00B46C02 /* FlyerSemiModalViewController.swift in Sources */,
 				E1B4C2A723B7B53400EB1782 /* FlyerCreateDateViewController.swift in Sources */,
 				EF0A4E8523AABD2300EE167C /* SceneDelegate.swift in Sources */,
+				EF48ECD823CA38590000003C /* FlyerCreateLocationInfoViewController.swift in Sources */,
 				E1F2118823B5159600BDFA7F /* FlyerCreateTableViewController.swift in Sources */,
 				EF0A4EA523AABF0100EE167C /* WebAPI.swift in Sources */,
 				E1AB41EC23BC2EC400816FEC /* Database.swift in Sources */,

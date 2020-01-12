@@ -26,10 +26,20 @@ class PocketSantaTests: XCTestCase {
     }
     
     
+    func testExample() {
+        testaddFlyer()
+        testgetFlyer()
+        testremoveFlyer()
+        testupdateFlyer()
+    }
+    
+    
     private func testaddFlyer() {
         // FlyerDataの追加(.addFlyer)が成功すべき場合に成功するかどうか
         flyerManager.addFlyer(flyer: flyerdata!)
-        XCTAssertNotNil(flyerManager.getFlyer(), "fatal")
+        if (flyerManager.getFlyer()!.count == 0) {
+         XCTFail("fatal")
+        }
         print("success")
     }
     
@@ -44,9 +54,9 @@ class PocketSantaTests: XCTestCase {
     private func testremoveFlyer() {
         // FlyerDataの削除(Flyerkeyを利用して)(.removeFlyer)が成功すべき場合に成功するかどうか
         flyerManager.removeFlyer(flyerdata.FlyerKey)
-        if (flyerManager.getFlyer()!.isEmpty) {
-            XCTAssertNil (nil, "fatal")
-        }
+        if (flyerManager.getFlyer()!.count == 0) {
+                   XCTAssertNil (nil, "fatal")
+               }
         print("success")
         // テスト用FlyerDataの追加
         flyerManager.addFlyer(flyer: flyerdata!)

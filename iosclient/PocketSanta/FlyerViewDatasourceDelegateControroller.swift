@@ -77,6 +77,9 @@ class FlyerTableDatasourceDelegateController: UITableView, FlyerTableViewDD {
         cell.myImageView?.image = shownflyerdata[indexPath.section].getImage()
         cell.myImageView?.layer.cornerRadius = cell.myImageView.frame.size.width * 0.1
         cell.myImageView?.clipsToBounds = true
+        // ボタンでshownflyerdataを参照するため
+        // 参考：https://teratail.com/questions/58402
+        cell.syosaiButton?.tag = indexPath.section
         // ImageViewのContentModeをAspectFillにしたら横も丸くなった
         // 参考：https://blog.fenrir-inc.com/jp/2011/05/uiviewcontentmode.html
         return cell
@@ -84,7 +87,7 @@ class FlyerTableDatasourceDelegateController: UITableView, FlyerTableViewDD {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         // Cellの高さを決める
-        return 200
+        return 220
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -112,13 +115,13 @@ class FlyerTableDatasourceDelegateController: UITableView, FlyerTableViewDD {
     // Sectionheaderカスタム
     // 参考:https://blog.cheekpouch.com/403/
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "\(shownflyerdata[section].year)年\(shownflyerdata[section].month)月\(shownflyerdata[section].date)日"
+        return "取得日:\(shownflyerdata[section].year)年\(shownflyerdata[section].month)月\(shownflyerdata[section].date)日"
     }
     
     // Section Header Height
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         // ヘッダーViewの高さを返す
-        return 20
+        return 23
     }
     
     //セルの編集許可

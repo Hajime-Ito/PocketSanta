@@ -8,23 +8,74 @@
 
 import UIKit
 
-class FlyerCreateTimeInfoViewController: UIViewController {
-
+class FlyerCreateTimeInfoViewController: UIViewController, UITextFieldDelegate {
+    
+    var flyerTimeInfo: String!
+    @IBOutlet weak var TimeInfoField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        TimeInfoField.delegate = self
+        TimeInfoField.text = flyerTimeInfo
+        // 編集中はクリアーボタンを表示する
+        TimeInfoField.clearButtonMode = UITextField.ViewMode.whileEditing
+        // 入力状態にする
+        TimeInfoField.becomeFirstResponder()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    // 参考：https://pg-happy.jp/swift-uitextfield.html
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        flyerTimeInfo = TimeInfoField.text
+        TimeInfoField.resignFirstResponder()
+        alert()
+        return true
     }
-    */
-
+    
+    @IBAction func TapSaveButton(_ sender: Any) {
+        flyerTimeInfo = TimeInfoField.text
+        alert()
+    }
+    // Alert作成
+    //　参考：https://qiita.com/funafuna/items/b76e62eb82fc8d788da5
+    private func alert() {
+        // ① UIAlertControllerクラスのインスタンスを生成
+        // タイトル, メッセージ, Alertのスタイルを指定する
+        // 第3引数のpreferredStyleでアラートの表示スタイルを指定する
+        let alert: UIAlertController = UIAlertController(title: "保存してもいいですか~", message: "僕もその時間空いてる(・ω・)", preferredStyle:  UIAlertController.Style.alert)
+        // ② Actionの設定
+        // Action初期化時にタイトル, スタイル, 押された時に実行されるハンドラを指定する
+        // 第3引数のUIAlertActionStyleでボタンのスタイルを指定する
+        // OKボタン
+        let defaultAction: UIAlertAction = UIAlertAction(title: "オーケー！", style: UIAlertAction.Style.default, handler:{
+            // ボタンが押された時の処理を書く（クロージャ実装）
+            (action: UIAlertAction!) -> Void in
+            print("OK")
+            // NavigationControllerの値受け渡し
+            // 参考：https://teratail.com/questions/47140
+            //Navigation Controllerを取得
+            let nav = self.navigationController!
+            //呼び出し元のView Controllerを遷移履歴から取得しパラメータを渡す
+            let FlyerCreateTableVC = nav.viewControllers[nav.viewControllers.count-2] as! FlyerCreateTableViewController
+            FlyerCreateTableVC.flyerdata?.timeInfo = self.flyerTimeInfo
+            // １つ前の画面に戻る
+            //　参考：https://capibara1969.com/203/
+            self.navigationController?.popViewController(animated: true)
+        })
+        // キャンセルボタン
+        let cancelAction: UIAlertAction = UIAlertAction(title: "取り消し", style: UIAlertAction.Style.cancel, handler:{
+            // ボタンが押された時の処理を書く（クロージャ実装）
+            (action: UIAlertAction!) -> Void in
+            print("Cancel")
+            // １つ前の画面に戻る
+            //　参考：https://capibara1969.com/203/
+            self.navigationController?.popViewController(animated: true)
+        })
+        
+        // ③ UIAlertControllerにActionを追加
+        alert.addAction(cancelAction)
+        alert.addAction(defaultAction)
+        
+        // ④ Alertを表示
+        present(alert, animated: true, completion: nil)
+    }
 }

@@ -7,19 +7,24 @@
 //
 
 import UIKit
+import FloatingPanel
 
-class FlyerViewController: UIViewController /*FlyerDetailViewControllerDelegate*/ {
+class FlyerViewController: UIViewController, FlyerSemiDelegate /*FlyerDetailViewControllerDelegate*/ {
     
     @IBOutlet weak var myTableview: UITableView!
     @IBOutlet weak var mysegmentControl: UISegmentedControl!
     
+    var floatingPanelController: FloatingPanelController!
+    
     var FlyerTableDatasourceDelegate: FlyerTableDatasourceDelegateController = FlyerTableDatasourceDelegateController()
     var FlyerDetailVC = FlyerDetailViewController()
+    var FlyerSemiVC: FlyerSemiModalViewController!
     fileprivate let refreshCtl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("call View Did Load!")
+        FlyerSemiVC = FlyerSemiModalViewController()
+        FlyerSemiVC.delegate = self
         FlyerTableDatasourceDelegate.getflyerdata()
         FlyerTableDatasourceDelegate.updateshownflyerdata(isMine: false)
         FlyerTableDatasourceDelegate.FlyerViewController = self
@@ -32,10 +37,21 @@ class FlyerViewController: UIViewController /*FlyerDetailViewControllerDelegate*
         // 参考：https://qiita.com/ryo-ta/items/7e2fbedb6e8dc8eb217f
         myTableview.refreshControl = refreshCtl
         refreshCtl.addTarget(self, action: #selector(FlyerViewController.refresh(sender:)), for: .valueChanged)
+        
     }
     
-    @objc func refresh(sender: UIRefreshControl) {
-        // ここが引っ張られるたびに呼び出される
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        // セミモーダルビューを非表示にする
+        floatingPanelController.removePanelFromParent(animated: true)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.reloading()
+    }
+    
+    private func reloading() {
         if(mysegmentControl.selectedSegmentIndex == 0) {
             FlyerTableDatasourceDelegate.updateshownflyerdata(isMine: false)
         } else if(mysegmentControl.selectedSegmentIndex == 1) {
@@ -44,9 +60,29 @@ class FlyerViewController: UIViewController /*FlyerDetailViewControllerDelegate*
             FlyerTableDatasourceDelegate.updateshownflyerdata()
         }
         myTableview.reloadData()
+    }
+    
+    @objc func refresh(sender: UIRefreshControl) {
+        // ここが引っ張られるたびに呼び出される
+        self.reloading()
         // 通信終了後、endRefreshingを実行することでロードインジケーター（くるくる）が終了
         sender.endRefreshing()
     }
+    
+    @IBAction func TouchSyosaiButton(_ sender: UIButton) {
+        // セミモーダルビュー表示設定
+        // 参考：https://qiita.com/dotrikun/items/369f5c0730f444d97cf1
+        //floatingPanelController.delegate = self
+        // セミモーダルビューとなるViewControllerを生成し、contentViewControllerとしてセットする
+        FlyerSemiVC!.flyerdata = FlyerTableDatasourceDelegate.shownflyerdata[sender.tag]
+        floatingPanelController = FloatingPanelController()
+        floatingPanelController.delegate = self
+        floatingPanelController.surfaceView.cornerRadius = 24.0
+        floatingPanelController.set(contentViewController: FlyerSemiVC)
+        // セミモーダルビューを表示する
+        floatingPanelController.addPanel(toParent: self, belowView: nil, animated: true)
+    }
+    
     
     @IBAction func FlyerDataSegmentedControl(sender: UISegmentedControl) {
         //セグメント番号で条件分岐させる
@@ -81,22 +117,26 @@ class FlyerViewController: UIViewController /*FlyerDetailViewControllerDelegate*
         }
     }
     
-    /*func editViewControllerDidCancel(_ editViewController: FlyerDetailViewController) {
-        dismiss(animated: true, completion: nil)
+    func removePanel() {
+        floatingPanelController.removePanelFromParent(animated: true)
+        self.reloading()
+        myTableview.reloadData()
     }
     
-    func editViewControllerDidFinish(_ editViewController: FlyerDetailViewController) {
-        print("FFFF")
-        if(mysegmentControl.selectedSegmentIndex == 0) {
-            FlyerTableDatasourceDelegate.updateshownflyerdata(isMine: false)
-        } else if(mysegmentControl.selectedSegmentIndex == 1) {
-            FlyerTableDatasourceDelegate.updateshownflyerdata(isMine: true)
-        } else if(mysegmentControl.selectedSegmentIndex == 2) {
-            FlyerTableDatasourceDelegate.updateshownflyerdata()
-        }
+    func floatingPanelDidEndDragging(_ vc: FloatingPanelController, withVelocity velocity: CGPoint, targetPosition: FloatingPanelPosition) {
+        //if targetPosition != .tip {
+        floatingPanelController.removePanelFromParent(animated: true)
+        self.reloading()
         myTableview.reloadData()
-        dismiss(animated: true, completion: nil)
-    }*/
+        // }
+    }
+}
+
+// FloatingPanelControllerDelegate を実装してカスタマイズしたレイアウトを返す
+extension FlyerViewController: FloatingPanelControllerDelegate {
+    func floatingPanel(_ vc: FloatingPanelController, layoutFor newCollection: UITraitCollection) -> FloatingPanelLayout? {
+        return FlyerCustomFloatingPanelLayout()
+    }
 }
 
 
@@ -104,6 +144,7 @@ class FlyerCellTableViewCell: UITableViewCell {
     
     @IBOutlet weak var myImageView: UIImageView!
     @IBOutlet weak var myTextLabel: UILabel!
+    @IBOutlet weak var syosaiButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -116,5 +157,4 @@ class FlyerCellTableViewCell: UITableViewCell {
     }
     
 }
-
 

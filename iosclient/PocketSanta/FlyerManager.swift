@@ -106,6 +106,14 @@ struct FlyerManager {
         saveFlyer()
     }
     
+    mutating func updateFlyer(_ key: String, isMine: Bool) {
+        guard let index = indexOfFlyer(key: key) else {
+            return
+        }
+        FlyerArray[index].setisMine(bool: isMine)
+        saveFlyer()
+    }
+    
     mutating func getFlyerFromServer() -> [FlyerData] {
         var flyerArray = [FlyerData]()
         flyerArray.append(FlyerData(title:"クリスマスファンタジー", year: 2019, month: 12, date:24, timeInfo: "10時から20時まで", locationInfo: "金森赤煉瓦倉庫", image: UIImage(named:"test1")!, message: "毎年開催している函館クリスマスファンタジーも今年で35回目！今年は歌手のLamdaさんを呼んで、演奏をしてもらいます！クリスマススープも600円で提供。今年もたくさんの種類のスープが出ていますよ〜！", locationX: 41.7661584, locationY: 140.71655989, isMine: false, FlyerKey: "aaa", favorite: true))
