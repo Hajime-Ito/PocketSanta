@@ -56,7 +56,7 @@ class FlyerCreateLocationInfoViewController: UIViewController, UITextFieldDelega
             let nav = self.navigationController!
             //呼び出し元のView Controllerを遷移履歴から取得しパラメータを渡す
             let FlyerCreateTableVC = nav.viewControllers[nav.viewControllers.count-2] as! FlyerCreateTableViewController
-            FlyerCreateTableVC.flyerdata?.timeInfo = self.flyerLocationInfo
+            FlyerCreateTableVC.flyerdata?.locationInfo = self.flyerLocationInfo
             // １つ前の画面に戻る
             //　参考：https://capibara1969.com/203/
             self.navigationController?.popViewController(animated: true)

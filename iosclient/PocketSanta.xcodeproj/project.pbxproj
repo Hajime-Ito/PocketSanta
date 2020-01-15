@@ -43,6 +43,7 @@
 		EF50CD1923B28DEF00A73225 /* FlyerDetailMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF50CD1823B28DEF00A73225 /* FlyerDetailMapViewController.swift */; };
 		EF50CD1B23B45EBD00A73225 /* FlyerViewDatasourceDelegateControroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF50CD1A23B45EBD00A73225 /* FlyerViewDatasourceDelegateControroller.swift */; };
 		EFAFA4DB23CB9B5D00B46C02 /* FlyerSemiModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAFA4DA23CB9B5D00B46C02 /* FlyerSemiModalViewController.swift */; };
+		EFAFA4DF23CF62F200B46C02 /* test.gif in Resources */ = {isa = PBXBuildFile; fileRef = EFAFA4DE23CF62F200B46C02 /* test.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +95,7 @@
 		EF50CD1823B28DEF00A73225 /* FlyerDetailMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlyerDetailMapViewController.swift; sourceTree = "<group>"; };
 		EF50CD1A23B45EBD00A73225 /* FlyerViewDatasourceDelegateControroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlyerViewDatasourceDelegateControroller.swift; sourceTree = "<group>"; };
 		EFAFA4DA23CB9B5D00B46C02 /* FlyerSemiModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlyerSemiModalViewController.swift; sourceTree = "<group>"; };
+		EFAFA4DE23CF62F200B46C02 /* test.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = test.gif; sourceTree = "<group>"; };
 		FE5421BC60A3036F21672D75 /* Pods_PocketSanta.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PocketSanta.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -158,6 +160,7 @@
 				EF0A4E8823AABD2300EE167C /* Main.storyboard */,
 				E1F2119523B6CC6000BDFA7F /* LaunchViewController.swift */,
 				E1F2119723B6D05C00BDFA7F /* santa_walk.gif */,
+				EFAFA4DE23CF62F200B46C02 /* test.gif */,
 				EF0A4E8623AABD2300EE167C /* MapViewController.swift */,
 				EF0A4EA723ABB9D300EE167C /* FlyerViewController.swift */,
 				EF50CD1A23B45EBD00A73225 /* FlyerViewDatasourceDelegateControroller.swift */,
@@ -290,6 +293,7 @@
 			files = (
 				EF0A4E8F23AABD3600EE167C /* LaunchScreen.storyboard in Resources */,
 				E1F2119823B6D05C00BDFA7F /* santa_walk.gif in Resources */,
+				EFAFA4DF23CF62F200B46C02 /* test.gif in Resources */,
 				EF0A4E8C23AABD3600EE167C /* Assets.xcassets in Resources */,
 				EF0A4E8A23AABD2300EE167C /* Main.storyboard in Resources */,
 			);

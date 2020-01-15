@@ -213,7 +213,7 @@ class FlyerCustomFloatingPanelLayout: FloatingPanelLayout {
         switch position {
         case .full: return 56.0
         case .half: return 262.0
-        case .tip: return 230.0
+        case .tip: return 225.0
         case .hidden:
             return nil
         }

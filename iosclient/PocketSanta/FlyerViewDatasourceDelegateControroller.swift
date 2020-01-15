@@ -159,6 +159,9 @@ class FlyerTableDatasourceDelegateController: UITableView, FlyerTableViewDD {
                     let indexSet = NSMutableIndexSet()
                     indexSet.add(indexPath.section)
                     tableView.deleteSections(indexSet as IndexSet, with: UITableView.RowAnimation.automatic)
+                    tableView.reloadData()
+                    let FVC = self.FlyerViewController
+                    FVC!.updateHeaderView(FVC!.mysegmentControl.selectedSegmentIndex)
                 }
             })
             
