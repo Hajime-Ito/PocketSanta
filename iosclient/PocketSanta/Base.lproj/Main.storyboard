@@ -45,7 +45,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="singleLineEtched" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Ppf-7y-73w">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="insetGrouped" separatorStyle="singleLineEtched" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Ppf-7y-73w">
                                 <rect key="frame" x="0.0" y="44" width="320" height="475"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FlyerCell" rowHeight="214" id="r3C-cd-YWF" customClass="FlyerCellTableViewCell" customModule="PocketSanta" customModuleProvider="target">
@@ -80,11 +80,18 @@
                                                         <action selector="TouchSyosaiButton:" destination="gYw-l0-Uso" eventType="touchUpInside" id="Djd-Je-3Tv"/>
                                                     </connections>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2019年12月12日に取得" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="czU-Wl-LUy">
-                                                    <rect key="frame" x="0.0" y="136" width="275" height="15"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="czU-Wl-LUy">
+                                                    <rect key="frame" x="0.0" y="140" width="287" height="11"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <attributedString key="attributedText">
+                                                        <fragment content="取得日:2019年12月12日">
+                                                            <attributes>
+                                                                <color key="NSColor" red="0.86684342616580312" green="0.86684342616580312" blue="0.86684342616580312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <font key="NSFont" size="11" name="HiraMaruProN-W4"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BKg-IK-9ZH">
@@ -117,10 +124,10 @@
                                                 <constraint firstAttribute="trailing" secondItem="rpn-x6-dNA" secondAttribute="trailing" id="Yu9-Cg-FCp"/>
                                                 <constraint firstItem="BKg-IK-9ZH" firstAttribute="top" secondItem="D08-Dd-PRW" secondAttribute="top" constant="186" id="aCI-eB-mM9"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="mjE-Ec-j3M" secondAttribute="bottom" constant="18" id="cn1-57-quU"/>
+                                                <constraint firstAttribute="trailing" secondItem="czU-Wl-LUy" secondAttribute="trailing" constant="3" id="dS1-T0-9FJ"/>
                                                 <constraint firstAttribute="bottom" secondItem="BKg-IK-9ZH" secondAttribute="bottom" id="h0M-Dc-VBN"/>
                                                 <constraint firstAttribute="trailing" secondItem="g4s-wT-fI7" secondAttribute="trailing" id="hU6-PA-DUf"/>
                                                 <constraint firstAttribute="bottom" secondItem="rpn-x6-dNA" secondAttribute="bottom" constant="64" id="hel-FF-Una"/>
-                                                <constraint firstAttribute="trailing" secondItem="czU-Wl-LUy" secondAttribute="trailing" constant="15" id="jun-cA-Mp0"/>
                                                 <constraint firstItem="mjE-Ec-j3M" firstAttribute="trailing" secondItem="D08-Dd-PRW" secondAttribute="trailingMargin" id="nBF-qe-HJM"/>
                                                 <constraint firstAttribute="trailing" secondItem="g4s-wT-fI7" secondAttribute="trailing" id="uCB-ty-Z2m"/>
                                                 <constraint firstItem="czU-Wl-LUy" firstAttribute="leading" secondItem="D08-Dd-PRW" secondAttribute="leading" id="xrv-6C-mZp"/>

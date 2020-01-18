@@ -44,6 +44,7 @@ class FlyerViewController: UIViewController, FlyerSemiDelegate /*FlyerDetailView
         // 下にスワイプすると更新するリフレッシュを実装
         // 参考：https://qiita.com/ryo-ta/items/7e2fbedb6e8dc8eb217f
         myTableview.refreshControl = refreshCtl
+        refreshCtl.tintColor = UIColor.clear
         refreshCtl.addTarget(self, action: #selector(FlyerViewController.refresh(sender:)), for: .valueChanged)
         
         createHeaderView()
@@ -81,8 +82,10 @@ class FlyerViewController: UIViewController, FlyerSemiDelegate /*FlyerDetailView
         image.loadGif(name: "test")
         myHeaderView.addSubview(image)
         self.reloading()
+        sleep(1)
         // 通信終了後、endRefreshingを実行することでロードインジケーター（くるくる）が終了
         sender.endRefreshing()
+        myTableview.contentInset.top = 30
     }
     
     @IBAction func TouchSyosaiButton(_ sender: UIButton) {

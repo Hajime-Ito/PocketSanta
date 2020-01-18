@@ -132,14 +132,14 @@ class FlyerTableDatasourceDelegateController: UITableView, FlyerTableViewDD {
     
     // Sectionheaderカスタム
     // 参考:https://blog.cheekpouch.com/403/
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    /*func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "取得日:\(shownflyerdata[section].year)年\(shownflyerdata[section].month)月\(shownflyerdata[section].date)日"
-    }
+    }*/
     
     // Section Header Height
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         // ヘッダーViewの高さを返す
-        return 23
+        return 0
     }
     
     //セルの編集許可
