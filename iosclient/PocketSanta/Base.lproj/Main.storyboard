@@ -56,7 +56,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mjE-Ec-j3M">
-                                                    <rect key="frame" x="15" y="11" width="260" height="15"/>
+                                                    <rect key="frame" x="15" y="158" width="260" height="27"/>
                                                     <attributedString key="attributedText">
                                                         <fragment content="タイトル">
                                                             <attributes>
@@ -68,51 +68,62 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="test" translatesAutoresizingMaskIntoConstraints="NO" id="rpn-x6-dNA">
-                                                    <rect key="frame" x="15" y="34" width="260" height="150"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="290" height="150"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="150" id="nXX-tf-Pu9"/>
                                                     </constraints>
                                                 </imageView>
-                                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HC7-ij-hOJ">
-                                                    <rect key="frame" x="15" y="198" width="167" height="10"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BKg-IK-9ZH">
-                                                            <rect key="frame" x="0.0" y="0.0" width="167" height="10"/>
-                                                            <attributedString key="attributedText">
-                                                                <fragment content="何月何日　函館駅前キサラギビル2階">
-                                                                    <attributes>
-                                                                        <color key="NSColor" red="0.29995142487046633" green="0.29995142487046633" blue="0.29995142487046633" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                        <font key="NSFont" size="10" name="HiraMaruProN-W4"/>
-                                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                                    </attributes>
-                                                                </fragment>
-                                                            </attributedString>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                </stackView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g4s-wT-fI7">
-                                                    <rect key="frame" x="239" y="186" width="51" height="28"/>
+                                                    <rect key="frame" x="242" y="186" width="48" height="28"/>
                                                     <state key="normal" image="ellipsis" catalog="system"/>
                                                     <connections>
                                                         <action selector="TouchSyosaiButton:" destination="gYw-l0-Uso" eventType="touchUpInside" id="Djd-Je-3Tv"/>
                                                     </connections>
                                                 </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2019年12月12日に取得" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="czU-Wl-LUy">
+                                                    <rect key="frame" x="0.0" y="136" width="275" height="15"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BKg-IK-9ZH">
+                                                    <rect key="frame" x="15" y="186" width="167" height="28"/>
+                                                    <attributedString key="attributedText">
+                                                        <fragment content="何月何日　函館駅前キサラギビル2階">
+                                                            <attributes>
+                                                                <color key="NSColor" red="0.29995142487046633" green="0.29995142487046633" blue="0.29995142487046633" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <font key="NSFont" size="10" name="HiraMaruProN-W4"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="g4s-wT-fI7" secondAttribute="bottom" id="1B1-lG-tXd"/>
                                                 <constraint firstItem="mjE-Ec-j3M" firstAttribute="leading" secondItem="D08-Dd-PRW" secondAttribute="leadingMargin" id="1T0-E1-qtY"/>
-                                                <constraint firstItem="HC7-ij-hOJ" firstAttribute="leading" secondItem="D08-Dd-PRW" secondAttribute="leadingMargin" id="3hm-iE-lrs"/>
+                                                <constraint firstItem="mjE-Ec-j3M" firstAttribute="top" secondItem="rpn-x6-dNA" secondAttribute="bottom" constant="8" id="4RZ-ok-vTP"/>
                                                 <constraint firstItem="mjE-Ec-j3M" firstAttribute="trailing" secondItem="D08-Dd-PRW" secondAttribute="trailingMargin" id="5l8-wa-HU7"/>
-                                                <constraint firstItem="g4s-wT-fI7" firstAttribute="top" secondItem="rpn-x6-dNA" secondAttribute="bottom" constant="2" id="6bR-Vo-xeO"/>
-                                                <constraint firstItem="rpn-x6-dNA" firstAttribute="leading" secondItem="D08-Dd-PRW" secondAttribute="leading" constant="15" id="ALB-bd-fFJ"/>
-                                                <constraint firstItem="mjE-Ec-j3M" firstAttribute="top" secondItem="D08-Dd-PRW" secondAttribute="topMargin" id="RU9-1L-Pmo"/>
-                                                <constraint firstAttribute="bottom" secondItem="g4s-wT-fI7" secondAttribute="bottom" id="aqN-82-YzZ"/>
-                                                <constraint firstItem="rpn-x6-dNA" firstAttribute="top" secondItem="mjE-Ec-j3M" secondAttribute="bottom" constant="8" id="dgK-7p-Su1"/>
-                                                <constraint firstItem="rpn-x6-dNA" firstAttribute="top" secondItem="mjE-Ec-j3M" secondAttribute="bottom" constant="8" id="eIT-Pg-fax"/>
+                                                <constraint firstItem="rpn-x6-dNA" firstAttribute="top" secondItem="D08-Dd-PRW" secondAttribute="top" id="JUd-pE-Crj"/>
+                                                <constraint firstItem="mjE-Ec-j3M" firstAttribute="top" secondItem="czU-Wl-LUy" secondAttribute="bottom" constant="7" id="L0H-k9-KDX"/>
+                                                <constraint firstAttribute="trailing" secondItem="g4s-wT-fI7" secondAttribute="trailing" id="N4R-ib-xsg"/>
+                                                <constraint firstItem="rpn-x6-dNA" firstAttribute="leading" secondItem="D08-Dd-PRW" secondAttribute="leading" id="ONx-vd-qNG"/>
+                                                <constraint firstItem="mjE-Ec-j3M" firstAttribute="leading" secondItem="D08-Dd-PRW" secondAttribute="leadingMargin" id="QKV-Xp-iGs"/>
+                                                <constraint firstItem="g4s-wT-fI7" firstAttribute="leading" secondItem="BKg-IK-9ZH" secondAttribute="trailing" constant="60" id="TIl-rf-W8V"/>
+                                                <constraint firstItem="BKg-IK-9ZH" firstAttribute="leading" secondItem="D08-Dd-PRW" secondAttribute="leadingMargin" id="Upm-x5-WkJ"/>
+                                                <constraint firstItem="g4s-wT-fI7" firstAttribute="top" secondItem="D08-Dd-PRW" secondAttribute="top" constant="186" id="WlD-XM-woe"/>
+                                                <constraint firstAttribute="trailing" secondItem="rpn-x6-dNA" secondAttribute="trailing" id="Yu9-Cg-FCp"/>
+                                                <constraint firstItem="BKg-IK-9ZH" firstAttribute="top" secondItem="D08-Dd-PRW" secondAttribute="top" constant="186" id="aCI-eB-mM9"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="mjE-Ec-j3M" secondAttribute="bottom" constant="18" id="cn1-57-quU"/>
+                                                <constraint firstAttribute="bottom" secondItem="BKg-IK-9ZH" secondAttribute="bottom" id="h0M-Dc-VBN"/>
                                                 <constraint firstAttribute="trailing" secondItem="g4s-wT-fI7" secondAttribute="trailing" id="hU6-PA-DUf"/>
-                                                <constraint firstItem="g4s-wT-fI7" firstAttribute="leading" secondItem="HC7-ij-hOJ" secondAttribute="trailing" constant="57" id="jhL-C7-l6o"/>
-                                                <constraint firstItem="HC7-ij-hOJ" firstAttribute="top" secondItem="rpn-x6-dNA" secondAttribute="bottom" constant="14" id="nib-cp-gou"/>
-                                                <constraint firstAttribute="trailing" secondItem="rpn-x6-dNA" secondAttribute="trailing" constant="15" id="paO-Xd-hzK"/>
+                                                <constraint firstAttribute="bottom" secondItem="rpn-x6-dNA" secondAttribute="bottom" constant="64" id="hel-FF-Una"/>
+                                                <constraint firstAttribute="trailing" secondItem="czU-Wl-LUy" secondAttribute="trailing" constant="15" id="jun-cA-Mp0"/>
+                                                <constraint firstItem="mjE-Ec-j3M" firstAttribute="trailing" secondItem="D08-Dd-PRW" secondAttribute="trailingMargin" id="nBF-qe-HJM"/>
+                                                <constraint firstAttribute="trailing" secondItem="g4s-wT-fI7" secondAttribute="trailing" id="uCB-ty-Z2m"/>
+                                                <constraint firstItem="czU-Wl-LUy" firstAttribute="leading" secondItem="D08-Dd-PRW" secondAttribute="leading" id="xrv-6C-mZp"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>

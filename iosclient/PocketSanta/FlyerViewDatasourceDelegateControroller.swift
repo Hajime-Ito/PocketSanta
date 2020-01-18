@@ -69,13 +69,31 @@ class FlyerTableDatasourceDelegateController: UITableView, FlyerTableViewDD {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell: FlyerCellTableViewCell = tableView.dequeueReusableCell(withIdentifier: "FlyerCell", for: indexPath) as! FlyerCellTableViewCell
+        /*
+        // 下部にグラデーションをつける
+        // 参考：http://lavandin.hateblo.jp/entry/2016/05/30/211727
+        //まずはグラデーションレイヤーをつくります
+        let gradientLayer = CAGradientLayer()
+        //上は透明、下は黒。
+        let colorTop = UIColor.clear
+        let blackColor = UIColor.black
+        //まっくろくろから始まるとヘンなので、黒にちょびっとアルファをプラスしてあげます。
+        //ま適当に0.7くらいかな。
+        let colorBottom = blackColor.withAlphaComponent(0.2);
+        //そしたら、この二つを最初につくったレイヤーの色にセット。
+        gradientLayer.colors = [colorTop.cgColor, colorBottom.cgColor];
+        //フレームをセット
+        gradientLayer.frame = cell.myImageView!.bounds
+        cell.myImageView?.layer.insertSublayer(gradientLayer, at: 0)
+        */
         // セルに表示する値を設定する
         // 角丸にした
         // 参考：https://i-app-tec.com/ios/corner-radius.html
         // 1つのセクションに1つのセルなので、セクション番目にアクセスすれば良い
         cell.myTextLabel?.text = shownflyerdata[indexPath.section].title
         cell.myImageView?.image = shownflyerdata[indexPath.section].getImage()
-        cell.myImageView?.layer.cornerRadius = cell.myImageView.frame.size.width * 0.1
+        cell.myImageView?.layer.cornerRadius = cell.myImageView.frame.size.width * 0.04
+        cell.myImageView?.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
         cell.myImageView?.clipsToBounds = true
         // ボタンでshownflyerdataを参照するため
         // 参考：https://teratail.com/questions/58402
