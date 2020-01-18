@@ -77,15 +77,16 @@ class FlyerViewController: UIViewController, FlyerSemiDelegate /*FlyerDetailView
     
     @objc func refresh(sender: UIRefreshControl) {
         // ここが引っ張られるたびに呼び出される
-        updateHeaderView(mysegmentControl.selectedSegmentIndex)
-        let image = UIImageView(frame: CGRect(x: (displayWidth-100)/2, y: 100, width: 100, height: 100))
-        image.loadGif(name: "test")
-        myHeaderView.addSubview(image)
+        //updateHeaderView(mysegmentControl.selectedSegmentIndex)
+        /*
+         let image = UIImageView(frame: CGRect(x: (displayWidth-100)/2, y: 100, width: 100, height: 100))
+                image.loadGif(name: "test")
+                myHeaderView.addSubview(image)
+         */
         self.reloading()
-        sleep(1)
         // 通信終了後、endRefreshingを実行することでロードインジケーター（くるくる）が終了
         sender.endRefreshing()
-        myTableview.contentInset.top = 30
+        //sleep(1)
     }
     
     @IBAction func TouchSyosaiButton(_ sender: UIButton) {
@@ -180,14 +181,18 @@ extension FlyerViewController {
         // 上に余裕を持たせている（後々アニメーションなど追加するため）
         myHeaderView = UIView(frame: CGRect(x: 0, y: -230, width: displayHeight, height: 230)) //（★..コンテンツの上にヘッダーを配置）
         //myHeaderView.backgroundColor = UIColor.systemGray4
-        myHeaderView.alpha = 0.5
+        myHeaderView.alpha = 1
         myTableview.addSubview(myHeaderView)
         let myLabel = UILabel(frame: CGRect(x: 0, y: 200, width: displayWidth, height: 30))
         myLabel.text = "受け取ったフライヤー(\(FlyerTableDatasourceDelegate.shownflyerdata.count)枚)"
         myLabel.font = UIFont.systemFont(ofSize: 12)
         myLabel.textAlignment = .center
         myLabel.backgroundColor = UIColor.systemGray4
+        myLabel.alpha = 0.5
         myHeaderView.addSubview(myLabel)
+        let image = UIImageView(frame: CGRect(x: (displayWidth-100)/2, y: 100, width: 100, height: 100))
+        image.loadGif(name: "test")
+        myHeaderView.addSubview(image)
     }
     
     func updateHeaderView(_ selection: Int) {
@@ -203,7 +208,11 @@ extension FlyerViewController {
         myLabel.font = UIFont.systemFont(ofSize: 12)
         myLabel.textAlignment = .center
         myLabel.backgroundColor = UIColor.systemGray4
+        myLabel.alpha = 0.5
         myHeaderView.addSubview(myLabel)
+        let image = UIImageView(frame: CGRect(x: (displayWidth-100)/2, y: 100, width: 100, height: 100))
+        image.loadGif(name: "test")
+        myHeaderView.addSubview(image)
     }
     
     func deleteHeaderView() {

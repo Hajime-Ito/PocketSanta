@@ -139,7 +139,11 @@ class FlyerTableDatasourceDelegateController: UITableView, FlyerTableViewDD {
     // Section Header Height
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         // ヘッダーViewの高さを返す
-        return 0
+        if(section == 0) {
+            return 30
+        } else {
+            return 10
+        }
     }
     
     //セルの編集許可
