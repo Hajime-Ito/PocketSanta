@@ -66,34 +66,35 @@ class FlyerTableDatasourceDelegateController: UITableView, FlyerTableViewDD {
         return shownflyerdata.count
     }
     
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell: FlyerCellTableViewCell = tableView.dequeueReusableCell(withIdentifier: "FlyerCell", for: indexPath) as! FlyerCellTableViewCell
         /*
-        // 下部にグラデーションをつける
-        // 参考：http://lavandin.hateblo.jp/entry/2016/05/30/211727
-        //まずはグラデーションレイヤーをつくります
-        let gradientLayer = CAGradientLayer()
-        //上は透明、下は黒。
-        let colorTop = UIColor.clear
-        let blackColor = UIColor.black
-        //まっくろくろから始まるとヘンなので、黒にちょびっとアルファをプラスしてあげます。
-        //ま適当に0.7くらいかな。
-        let colorBottom = blackColor.withAlphaComponent(0.2);
-        //そしたら、この二つを最初につくったレイヤーの色にセット。
-        gradientLayer.colors = [colorTop.cgColor, colorBottom.cgColor];
-        //フレームをセット
-        gradientLayer.frame = cell.myImageView!.bounds
-        cell.myImageView?.layer.insertSublayer(gradientLayer, at: 0)
-        */
+         // 下部にグラデーションをつける
+         // 参考：http://lavandin.hateblo.jp/entry/2016/05/30/211727
+         //まずはグラデーションレイヤーをつくります
+         let gradientLayer = CAGradientLayer()
+         //上は透明、下は黒。
+         let colorTop = UIColor.clear
+         let blackColor = UIColor.black
+         //まっくろくろから始まるとヘンなので、黒にちょびっとアルファをプラスしてあげます。
+         //ま適当に0.7くらいかな。
+         let colorBottom = blackColor.withAlphaComponent(0.2);
+         //そしたら、この二つを最初につくったレイヤーの色にセット。
+         gradientLayer.colors = [colorTop.cgColor, colorBottom.cgColor];
+         //フレームをセット
+         gradientLayer.frame = cell.myImageView!.bounds
+         cell.myImageView?.layer.insertSublayer(gradientLayer, at: 0)
+         */
         // セルに表示する値を設定する
         // 角丸にした
         // 参考：https://i-app-tec.com/ios/corner-radius.html
         // 1つのセクションに1つのセルなので、セクション番目にアクセスすれば良い
         cell.myTextLabel?.text = shownflyerdata[indexPath.section].title
         cell.myImageView?.image = shownflyerdata[indexPath.section].getImage()
-        cell.myImageView?.layer.cornerRadius = cell.myImageView.frame.size.width * 0.04
-        cell.myImageView?.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
+        /*cell.myImageView?.layer.cornerRadius = cell.myImageView.frame.size.width * 0.04
+         cell.myImageView?.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]*/
         cell.myImageView?.clipsToBounds = true
         // ボタンでshownflyerdataを参照するため
         // 参考：https://teratail.com/questions/58402
@@ -133,16 +134,16 @@ class FlyerTableDatasourceDelegateController: UITableView, FlyerTableViewDD {
     // Sectionheaderカスタム
     // 参考:https://blog.cheekpouch.com/403/
     /*func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "取得日:\(shownflyerdata[section].year)年\(shownflyerdata[section].month)月\(shownflyerdata[section].date)日"
-    }*/
+     return "取得日:\(shownflyerdata[section].year)年\(shownflyerdata[section].month)月\(shownflyerdata[section].date)日"
+     }*/
     
     // Section Header Height
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         // ヘッダーViewの高さを返す
         if(section == 0) {
-            return 30
+            return 25
         } else {
-            return 10
+            return 5
         }
     }
     
@@ -237,5 +238,57 @@ class FlyerTableDatasourceDelegateController: UITableView, FlyerTableViewDD {
         
         // ④ Alertを表示
         FlyerViewController.present(alert, animated: true, completion: nil)
+    }
+    
+    private var sa: CGFloat = 0
+    private var sa1: CGFloat = 0
+    private var lastContentOffset: CGFloat = 0
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        sa += (self.lastContentOffset - scrollView.contentOffset.y)*0.1
+        sa1 += (self.lastContentOffset - scrollView.contentOffset.y)*0.1
+        print("sa1\(sa1)")
+        print("scroll.y\(scrollView.contentOffset.y)")
+        print("lastscroll.y\(self.lastContentOffset)")
+        guard scrollView.contentOffset.y>(-29) else {
+            // 初期位置に設定
+            FlyerViewController.myHeaderView.frame = CGRect(x: 0, y: -230, width: FlyerViewController.view.frame.width, height: 230)
+            print("S\(FlyerViewController.myHeaderView.frame.maxY)")
+            self.lastContentOffset = scrollView.contentOffset.y
+            return
+        }
+        // HeaderViewが隠れた時
+        if (self.lastContentOffset > scrollView.contentOffset.y) {
+            // move up
+            sa1 = 0
+            print("header.y\(FlyerViewController.myHeaderView.frame.maxY)")
+            print("scroll.y\(scrollView.contentOffset.y)")
+            guard FlyerViewController.myHeaderView.frame.minY <= (scrollView.contentOffset.y - 200) else {
+                FlyerViewController.myHeaderView.frame = CGRect(x: 0, y: (scrollView.contentOffset.y - 200), width: FlyerViewController.view.frame.width, height: 230)
+                print("A\(FlyerViewController.myHeaderView.frame.maxY)")
+                self.lastContentOffset = scrollView.contentOffset.y
+                return
+            }
+            
+            FlyerViewController.myHeaderView.frame = CGRect(x: 0, y: scrollView.contentOffset.y - 230 + sa, width: FlyerViewController.view.frame.width, height: 230)
+            print("AA\(FlyerViewController.myHeaderView.frame.maxY)")
+            
+        } else {
+            sa = 0
+            // move down
+            guard FlyerViewController.myHeaderView.frame.minY >= (scrollView.contentOffset.y - 230) else {
+                FlyerViewController.myHeaderView.frame = CGRect(x: 0, y: (scrollView.contentOffset.y - 230), width: FlyerViewController.view.frame.width, height: 230)
+                print("B\(FlyerViewController.myHeaderView.frame.maxY)")
+                self.lastContentOffset = scrollView.contentOffset.y
+                return
+            }
+            
+            FlyerViewController.myHeaderView.frame = CGRect(x: 0, y: scrollView.contentOffset.y - 200 + sa1, width: FlyerViewController.view.frame.width, height: 230)
+            print("BB\(FlyerViewController.myHeaderView.frame.maxY)")
+        }
+        
+        self.lastContentOffset = scrollView.contentOffset.y
+        
     }
 }

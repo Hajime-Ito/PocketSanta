@@ -30,6 +30,7 @@ class FlyerViewController: UIViewController, FlyerSemiDelegate /*FlyerDetailView
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        createHeaderView()
         FlyerSemiVC = FlyerSemiModalViewController()
         FlyerSemiVC.delegate = self
         FlyerTableDatasourceDelegate.getflyerdata()
@@ -46,9 +47,8 @@ class FlyerViewController: UIViewController, FlyerSemiDelegate /*FlyerDetailView
         myTableview.refreshControl = refreshCtl
         refreshCtl.tintColor = UIColor.clear
         refreshCtl.addTarget(self, action: #selector(FlyerViewController.refresh(sender:)), for: .valueChanged)
-        
-        createHeaderView()
     }
+    
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
@@ -62,6 +62,7 @@ class FlyerViewController: UIViewController, FlyerSemiDelegate /*FlyerDetailView
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.reloading()
+        updateHeaderView(mysegmentControl.selectedSegmentIndex)
     }
     
     private func reloading() {
@@ -80,8 +81,8 @@ class FlyerViewController: UIViewController, FlyerSemiDelegate /*FlyerDetailView
         //updateHeaderView(mysegmentControl.selectedSegmentIndex)
         /*
          let image = UIImageView(frame: CGRect(x: (displayWidth-100)/2, y: 100, width: 100, height: 100))
-                image.loadGif(name: "test")
-                myHeaderView.addSubview(image)
+         image.loadGif(name: "test")
+         myHeaderView.addSubview(image)
          */
         self.reloading()
         // 通信終了後、endRefreshingを実行することでロードインジケーター（くるくる）が終了
@@ -168,18 +169,11 @@ extension FlyerViewController: FloatingPanelControllerDelegate {
 // 参考：https://qiita.com/mochizukikotaro/items/f48559630a639e7d467b
 extension FlyerViewController {
     
-    func scrollViewDidScroll(scrollView: UIScrollView) {
-        // 下に引っ張ったときは、ヘッダー位置を計算して動かないようにする（★ここがポイント..）
-        if scrollView.contentOffset.y < -30 {
-            self.myHeaderView.frame = CGRect(x: 0, y: scrollView.contentOffset.y, width: self.displayWidth, height: 30)
-        }
-    }
-    
     private func createHeaderView() {
         displayWidth = self.view.frame.width
         displayHeight = self.view.frame.height
         // 上に余裕を持たせている（後々アニメーションなど追加するため）
-        myHeaderView = UIView(frame: CGRect(x: 0, y: -230, width: displayHeight, height: 230)) //（★..コンテンツの上にヘッダーを配置）
+        myHeaderView = UIView(frame: CGRect(x: 0, y: -230, width: displayWidth, height: 230)) //（★..コンテンツの上にヘッダーを配置）
         //myHeaderView.backgroundColor = UIColor.systemGray4
         myHeaderView.alpha = 1
         myTableview.addSubview(myHeaderView)
@@ -188,7 +182,7 @@ extension FlyerViewController {
         myLabel.font = UIFont.systemFont(ofSize: 12)
         myLabel.textAlignment = .center
         myLabel.backgroundColor = UIColor.systemGray4
-        myLabel.alpha = 0.5
+        myLabel.alpha = 1
         myHeaderView.addSubview(myLabel)
         let image = UIImageView(frame: CGRect(x: (displayWidth-100)/2, y: 100, width: 100, height: 100))
         image.loadGif(name: "test")
@@ -207,8 +201,8 @@ extension FlyerViewController {
         }
         myLabel.font = UIFont.systemFont(ofSize: 12)
         myLabel.textAlignment = .center
-        myLabel.backgroundColor = UIColor.systemGray4
-        myLabel.alpha = 0.5
+        myLabel.backgroundColor = UIColor.systemGray5
+        myLabel.alpha = 1
         myHeaderView.addSubview(myLabel)
         let image = UIImageView(frame: CGRect(x: (displayWidth-100)/2, y: 100, width: 100, height: 100))
         image.loadGif(name: "test")

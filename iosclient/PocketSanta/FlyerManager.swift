@@ -12,6 +12,7 @@ struct FlyerManager {
     var FlyerArray: [FlyerData] = [FlyerData]()
     
     init () {
+        //この関数はWebAPIクライアントの方で呼び出した方がいいかも
         mergeFlyer(Flyer: getFlyerFromServer())
     }
     
