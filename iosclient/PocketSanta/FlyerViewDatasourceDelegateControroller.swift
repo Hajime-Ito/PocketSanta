@@ -240,55 +240,120 @@ class FlyerTableDatasourceDelegateController: UITableView, FlyerTableViewDD {
         FlyerViewController.present(alert, animated: true, completion: nil)
     }
     
-    private var sa: CGFloat = 0
-    private var sa1: CGFloat = 0
     private var lastContentOffset: CGFloat = 0
+    private var subSet: [String:CGFloat] = ["up": 0, "down": 0]
+    
+    enum headerViewStatus {
+        case start(_ headerView_frame: CGRect)
+        case move_up(_ sub: CGFloat, _ scrollView_y: CGFloat, _ headerView_frame: CGRect)
+        case stop_up(_ scrollView_y: CGFloat, _ headerView_frame: CGRect)
+        case move_down(_ sub: CGFloat, _ scrollView_y: CGFloat, _ headerView_frame: CGRect)
+        case stop_down(_ scrollView_y: CGFloat, _ headerView_frame: CGRect)
+    }
+    
+    private func getHeaderViewStatus(_ sub: inout[String:CGFloat], _ scrollView_y: CGFloat, _ headerView_frame: CGRect, _ lastScrollView_y: CGFloat) -> headerViewStatus {
+        if (scrollView_y < (-29)) {
+            return headerViewStatus.start(headerView_frame)
+        } else if (lastScrollView_y > scrollView_y) {
+            //sub["up"]! += sub["down"]!
+            sub["down"] = 0
+            if(headerView_frame.origin.y >= scrollView_y - 200) { return headerViewStatus.stop_up(scrollView_y, headerView_frame)}
+            else { return headerViewStatus.move_up(sub["up"]!, scrollView_y, headerView_frame)}
+        } else {
+            //sub["down"]! += sub["up"]!
+            sub["up"] = 0
+            if(headerView_frame.origin.y <= scrollView_y - 230) { return headerViewStatus.stop_down(scrollView_y, headerView_frame)}
+            else { return headerViewStatus.move_down(sub["down"]!, scrollView_y, headerView_frame)}
+        }
+    }
+    
+    
+    private func scrolling(status: headerViewStatus) {
+        
+        func start(_ headerView_frame: CGRect) {
+            print("Start")
+            FlyerViewController.myHeaderView.frame = CGRect(x: headerView_frame.origin.x, y: -230, width: headerView_frame.width, height:  headerView_frame.height)
+        }
+        
+        func move_up(_ sub: CGFloat, _ scrollView_y: CGFloat, _ headerView_frame: CGRect) {
+            print("Move_up")
+            FlyerViewController.myHeaderView.frame = CGRect(x: headerView_frame.origin.x, y: headerView_frame.origin.y + sub, width: headerView_frame.width, height: headerView_frame.height)
+        }
+        
+        func stop_up(_ scrollView_y: CGFloat, _ headerView_frame: CGRect) {
+            print("Stop_up")
+            FlyerViewController.myHeaderView.frame = CGRect(x: headerView_frame.origin.x, y: (scrollView_y - 200), width:  headerView_frame.width, height:  headerView_frame.height)
+        }
+        
+        func move_down(_ sub: CGFloat, _ scrollView_y: CGFloat, _ headerView_frame: CGRect) {
+            print("Move_down")
+            print(sub)
+            FlyerViewController.myHeaderView.frame = CGRect(x: headerView_frame.origin.x, y: scrollView_y - (200 - sub), width: headerView_frame.width, height: headerView_frame.height)
+        }
+        
+        func stop_down(_ scrollView_y: CGFloat, _ headerView_frame: CGRect) {
+            print("Stop_down")
+            FlyerViewController.myHeaderView.frame = CGRect(x: headerView_frame.origin.x, y: (scrollView_y - 230), width: headerView_frame.width, height: headerView_frame.height)
+        }
+        
+        switch status {
+        case let .start(headerView_frame): start(headerView_frame)
+        case let .move_up(sub, scrollView_y, headerView_frame): move_up(sub, scrollView_y, headerView_frame)
+        case let .stop_up(scrollView_y, headerView_frame): stop_up(scrollView_y, headerView_frame)
+        case let .move_down(sub, scrollView_y, headerView_frame): move_down(sub, scrollView_y, headerView_frame)
+        case let .stop_down(scrollView_y, headerView_frame): stop_down(scrollView_y, headerView_frame)
+        }
+    }
+    
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        
-        sa += (self.lastContentOffset - scrollView.contentOffset.y)*0.1
-        sa1 += (self.lastContentOffset - scrollView.contentOffset.y)*0.1
-        print("sa1\(sa1)")
-        print("scroll.y\(scrollView.contentOffset.y)")
-        print("lastscroll.y\(self.lastContentOffset)")
-        guard scrollView.contentOffset.y>(-29) else {
-            // 初期位置に設定
-            FlyerViewController.myHeaderView.frame = CGRect(x: 0, y: -230, width: FlyerViewController.view.frame.width, height: 230)
-            print("S\(FlyerViewController.myHeaderView.frame.maxY)")
-            self.lastContentOffset = scrollView.contentOffset.y
-            return
-        }
-        // HeaderViewが隠れた時
-        if (self.lastContentOffset > scrollView.contentOffset.y) {
-            // move up
-            sa1 = 0
-            print("header.y\(FlyerViewController.myHeaderView.frame.maxY)")
-            print("scroll.y\(scrollView.contentOffset.y)")
-            guard FlyerViewController.myHeaderView.frame.minY <= (scrollView.contentOffset.y - 200) else {
-                FlyerViewController.myHeaderView.frame = CGRect(x: 0, y: (scrollView.contentOffset.y - 200), width: FlyerViewController.view.frame.width, height: 230)
-                print("A\(FlyerViewController.myHeaderView.frame.maxY)")
-                self.lastContentOffset = scrollView.contentOffset.y
-                return
-            }
-            
-            FlyerViewController.myHeaderView.frame = CGRect(x: 0, y: scrollView.contentOffset.y - 230 + sa, width: FlyerViewController.view.frame.width, height: 230)
-            print("AA\(FlyerViewController.myHeaderView.frame.maxY)")
-            
-        } else {
-            sa = 0
-            // move down
-            guard FlyerViewController.myHeaderView.frame.minY >= (scrollView.contentOffset.y - 230) else {
-                FlyerViewController.myHeaderView.frame = CGRect(x: 0, y: (scrollView.contentOffset.y - 230), width: FlyerViewController.view.frame.width, height: 230)
-                print("B\(FlyerViewController.myHeaderView.frame.maxY)")
-                self.lastContentOffset = scrollView.contentOffset.y
-                return
-            }
-            
-            FlyerViewController.myHeaderView.frame = CGRect(x: 0, y: scrollView.contentOffset.y - 200 + sa1, width: FlyerViewController.view.frame.width, height: 230)
-            print("BB\(FlyerViewController.myHeaderView.frame.maxY)")
-        }
-        
+        subSet["up"]! += (self.lastContentOffset - scrollView.contentOffset.y)*0.1
+        subSet["down"]! += (self.lastContentOffset - scrollView.contentOffset.y)*0.1
+        //sa += (self.lastContentOffset - scrollView.contentOffset.y)*0.1
+        //sa1 += (self.lastContentOffset - scrollView.contentOffset.y)*0.1
+        let status = self.getHeaderViewStatus(&subSet, scrollView.contentOffset.y, FlyerViewController.myHeaderView.frame, self.lastContentOffset)
+        self.scrolling(status: status)
         self.lastContentOffset = scrollView.contentOffset.y
         
+        
+        
+        /*
+         guard scrollView.contentOffset.y>(-29) else {
+         // 初期位置に設定
+         FlyerViewController.myHeaderView.frame = CGRect(x: 0, y: -230, width: FlyerViewController.view.frame.width, height: 230)
+         self.lastContentOffset = scrollView.contentOffset.y
+         return
+         }
+         // HeaderViewが隠れた時
+         if (self.lastContentOffset > scrollView.contentOffset.y) {
+         // move up
+         sa1 = 0
+         
+         guard FlyerViewController.myHeaderView.frame.minY <= (scrollView.contentOffset.y - 200) else {
+         FlyerViewController.myHeaderView.frame = CGRect(x: 0, y: (scrollView.contentOffset.y - 200), width: FlyerViewController.view.frame.width, height: 230)
+         
+         self.lastContentOffset = scrollView.contentOffset.y
+         return
+         }
+         
+         FlyerViewController.myHeaderView.frame = CGRect(x: 0, y: scrollView.contentOffset.y - 230 + sa, width: FlyerViewController.view.frame.width, height: 230)
+         
+         
+         } else {
+         sa = 0
+         // move down
+         guard FlyerViewController.myHeaderView.frame.minY >= (scrollView.contentOffset.y - 230) else {
+         FlyerViewController.myHeaderView.frame = CGRect(x: 0, y: (scrollView.contentOffset.y - 230), width: FlyerViewController.view.frame.width, height: 230)
+         
+         self.lastContentOffset = scrollView.contentOffset.y
+         return
+         }
+         
+         FlyerViewController.myHeaderView.frame = CGRect(x: 0, y: scrollView.contentOffset.y - 200 + sa1, width: FlyerViewController.view.frame.width, height: 230)
+         
+         }
+         
+         self.lastContentOffset = scrollView.contentOffset.y
+         */
     }
 }
