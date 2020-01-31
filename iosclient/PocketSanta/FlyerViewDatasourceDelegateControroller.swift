@@ -255,12 +255,10 @@ class FlyerTableDatasourceDelegateController: UITableView, FlyerTableViewDD {
         if (scrollView_y < (-29)) {
             return headerViewStatus.start(headerView_frame)
         } else if (lastScrollView_y > scrollView_y) {
-            //sub["up"]! += sub["down"]!
             sub["down"] = 0
             if(headerView_frame.origin.y >= scrollView_y - 200) { return headerViewStatus.stop_up(scrollView_y, headerView_frame)}
             else { return headerViewStatus.move_up(sub["up"]!, scrollView_y, headerView_frame)}
         } else {
-            //sub["down"]! += sub["up"]!
             sub["up"] = 0
             if(headerView_frame.origin.y <= scrollView_y - 230) { return headerViewStatus.stop_down(scrollView_y, headerView_frame)}
             else { return headerViewStatus.move_down(sub["down"]!, scrollView_y, headerView_frame)}
@@ -287,8 +285,7 @@ class FlyerTableDatasourceDelegateController: UITableView, FlyerTableViewDD {
         
         func move_down(_ sub: CGFloat, _ scrollView_y: CGFloat, _ headerView_frame: CGRect) {
             print("Move_down")
-            print(sub)
-            FlyerViewController.myHeaderView.frame = CGRect(x: headerView_frame.origin.x, y: scrollView_y - (200 - sub), width: headerView_frame.width, height: headerView_frame.height)
+            FlyerViewController.myHeaderView.frame = CGRect(x: headerView_frame.origin.x, y: headerView_frame.origin.y + sub, width: headerView_frame.width, height: headerView_frame.height)
         }
         
         func stop_down(_ scrollView_y: CGFloat, _ headerView_frame: CGRect) {
