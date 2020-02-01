@@ -243,23 +243,23 @@ class FlyerTableDatasourceDelegateController: UITableView, FlyerTableViewDD {
     
     
     enum headerViewStatus {
-        case start(_ headerView_frame: CGRect, _ initHeaderFrame_maxY: CGFloat)
+        case start(_ headerView_frame: CGRect, _ initHeaderFrame_minY: CGFloat)
         case move_up(_ sub: CGFloat, _ scrollView_y: CGFloat, _ headerView_frame: CGRect)
-        case stop_up(_ scrollView_y: CGFloat, _ headerView_frame: CGRect, _ initHeaderFrame_minY: CGFloat)
+        case stop_up(_ scrollView_y: CGFloat, _ headerView_frame: CGRect, _ initHeaderFrame_maxY: CGFloat)
         case move_down(_ sub: CGFloat, _ scrollView_y: CGFloat, _ headerView_frame: CGRect)
-        case stop_down(_ scrollView_y: CGFloat, _ headerView_frame: CGRect, _ initHeaderFrame_maxY: CGFloat)
+        case stop_down(_ scrollView_y: CGFloat, _ headerView_frame: CGRect, _ initHeaderFrame_minY: CGFloat)
     }
     
     private func getHeaderViewStatus(_ sub: inout[String:CGFloat], _ scrollView_y: CGFloat, _ headerView_frame: CGRect, _ lastScrollView_y: CGFloat, _ initHeader_frame: [String:CGFloat]) -> headerViewStatus {
         if (scrollView_y <= (0 - initHeader_frame["height"]!)) {
-            return headerViewStatus.start(headerView_frame, initHeader_frame["maxY"]!)
+            return headerViewStatus.start(headerView_frame, initHeader_frame["minY"]!)
         } else if (lastScrollView_y > scrollView_y) {
             sub["down"] = 0
-            if(headerView_frame.origin.y >= scrollView_y + initHeader_frame["minY"]!) { return headerViewStatus.stop_up(scrollView_y, headerView_frame, initHeader_frame["minY"]!)}
+            if(headerView_frame.origin.y >= scrollView_y + initHeader_frame["maxY"]!) { return headerViewStatus.stop_up(scrollView_y, headerView_frame, initHeader_frame["maxY"]!)}
             else { return headerViewStatus.move_up(sub["up"]!, scrollView_y, headerView_frame)}
         } else {
             sub["up"] = 0
-            if(headerView_frame.origin.y <= scrollView_y + initHeader_frame["maxY"]!) { return headerViewStatus.stop_down(scrollView_y, headerView_frame, initHeader_frame["maxY"]!)}
+            if(headerView_frame.origin.y <= scrollView_y + initHeader_frame["minY"]!) { return headerViewStatus.stop_down(scrollView_y, headerView_frame, initHeader_frame["minY"]!)}
             else { return headerViewStatus.move_down(sub["down"]!, scrollView_y, headerView_frame)}
         }
     }
@@ -277,9 +277,9 @@ class FlyerTableDatasourceDelegateController: UITableView, FlyerTableViewDD {
             FlyerViewController.myHeaderView.frame = CGRect(x: headerView_frame.origin.x, y: headerView_frame.origin.y + sub, width: headerView_frame.width, height: headerView_frame.height)
         }
         
-        func stop_up(_ scrollView_y: CGFloat, _ headerView_frame: CGRect, _ initHeaderFrame_minY: CGFloat) {
+        func stop_up(_ scrollView_y: CGFloat, _ headerView_frame: CGRect, _ initHeaderFrame_maxY: CGFloat) {
             print("Stop_up")
-            FlyerViewController.myHeaderView.frame = CGRect(x: headerView_frame.origin.x, y: (scrollView_y + initHeaderFrame_minY), width:  headerView_frame.width, height:  headerView_frame.height)
+            FlyerViewController.myHeaderView.frame = CGRect(x: headerView_frame.origin.x, y: (scrollView_y + initHeaderFrame_maxY), width:  headerView_frame.width, height:  headerView_frame.height)
         }
         
         func move_down(_ sub: CGFloat, _ scrollView_y: CGFloat, _ headerView_frame: CGRect) {
@@ -287,17 +287,17 @@ class FlyerTableDatasourceDelegateController: UITableView, FlyerTableViewDD {
             FlyerViewController.myHeaderView.frame = CGRect(x: headerView_frame.origin.x, y: headerView_frame.origin.y + sub, width: headerView_frame.width, height: headerView_frame.height)
         }
         
-        func stop_down(_ scrollView_y: CGFloat, _ headerView_frame: CGRect, _ initHeaderFrame_maxY: CGFloat) {
+        func stop_down(_ scrollView_y: CGFloat, _ headerView_frame: CGRect, _ initHeaderFrame_minY: CGFloat) {
             print("Stop_down")
-            FlyerViewController.myHeaderView.frame = CGRect(x: headerView_frame.origin.x, y: (scrollView_y + initHeaderFrame_maxY), width: headerView_frame.width, height: headerView_frame.height)
+            FlyerViewController.myHeaderView.frame = CGRect(x: headerView_frame.origin.x, y: (scrollView_y + initHeaderFrame_minY), width: headerView_frame.width, height: headerView_frame.height)
         }
         
         switch status {
-        case let .start(headerView_frame, initHeaderFrame_maxY): start(headerView_frame, initHeaderFrame_maxY)
+        case let .start(headerView_frame, initHeaderFrame_minY): start(headerView_frame, initHeaderFrame_minY)
         case let .move_up(sub, scrollView_y, headerView_frame): move_up(sub, scrollView_y, headerView_frame)
-        case let .stop_up(scrollView_y, headerView_frame, initHeaderFrame_minY): stop_up(scrollView_y, headerView_frame, initHeaderFrame_minY)
+        case let .stop_up(scrollView_y, headerView_frame, initHeaderFrame_maxY): stop_up(scrollView_y, headerView_frame, initHeaderFrame_maxY)
         case let .move_down(sub, scrollView_y, headerView_frame): move_down(sub, scrollView_y, headerView_frame)
-        case let .stop_down(scrollView_y, headerView_frame, initHeaderFrame_maxY): stop_down(scrollView_y, headerView_frame, initHeaderFrame_maxY)
+        case let .stop_down(scrollView_y, headerView_frame, initHeaderFrame_minY): stop_down(scrollView_y, headerView_frame, initHeaderFrame_minY)
         }
     }
     
@@ -305,7 +305,7 @@ class FlyerTableDatasourceDelegateController: UITableView, FlyerTableViewDD {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         var subSet: [String:CGFloat] = ["up": 0, "down": 0]
-        let initialHeaderFrame: [String:CGFloat] = ["minY": -200, "maxY": -230, "height": 30]
+        let initialHeaderFrame: [String:CGFloat] = ["maxY": -200, "minY": -230, "height": 30]
         
         subSet["up"]! += (lastContentOffset - scrollView.contentOffset.y)*0.1
         subSet["down"]! += (lastContentOffset - scrollView.contentOffset.y)*0.1
