@@ -78,16 +78,17 @@ class FlyerViewController: UIViewController, FlyerSemiDelegate /*FlyerDetailView
     
     @objc func refresh(sender: UIRefreshControl) {
         // ここが引っ張られるたびに呼び出される
-        //updateHeaderView(mysegmentControl.selectedSegmentIndex)
-        /*
-         let image = UIImageView(frame: CGRect(x: (displayWidth-100)/2, y: 100, width: 100, height: 100))
-         image.loadGif(name: "test")
-         myHeaderView.addSubview(image)
-         */
+        self.addHeaderViewGif()
+        myTableview.contentInset.top = 130 //ヘッダーの分下げる
         self.reloading()
         // 通信終了後、endRefreshingを実行することでロードインジケーター（くるくる）が終了
         sender.endRefreshing()
-        //sleep(1)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            UIView.animate(withDuration: 0.5, delay: 0.0, options: [],animations: {
+                self.myTableview.contentInset.top = 30
+            }, completion: nil)
+            self.updateHeaderView(self.mysegmentControl.selectedSegmentIndex)
+        }
     }
     
     @IBAction func TouchSyosaiButton(_ sender: UIButton) {
@@ -173,25 +174,25 @@ extension FlyerViewController {
         displayWidth = self.view.frame.width
         displayHeight = self.view.frame.height
         // 上に余裕を持たせている（後々アニメーションなど追加するため）
-        myHeaderView = UIView(frame: CGRect(x: 0, y: -230, width: displayWidth, height: 230)) //（★..コンテンツの上にヘッダーを配置）
+        myHeaderView = UIView(frame: CGRect(x: 0, y: -130, width: displayWidth, height: 130)) //（★..コンテンツの上にヘッダーを配置）
         //myHeaderView.backgroundColor = UIColor.systemGray4
         myHeaderView.alpha = 1
         myTableview.addSubview(myHeaderView)
-        let myLabel = UILabel(frame: CGRect(x: 0, y: 200, width: displayWidth, height: 30))
+        let myLabel = UILabel(frame: CGRect(x: 0, y: 100, width: displayWidth, height: 30))
         myLabel.text = "受け取ったフライヤー(\(FlyerTableDatasourceDelegate.shownflyerdata.count)枚)"
         myLabel.font = UIFont.systemFont(ofSize: 12)
         myLabel.textAlignment = .center
         myLabel.backgroundColor = UIColor.systemGray4
         myLabel.alpha = 1
         myHeaderView.addSubview(myLabel)
-        let image = UIImageView(frame: CGRect(x: (displayWidth-100)/2, y: 100, width: 100, height: 100))
+        let image = UIImageView(frame: CGRect(x: (displayWidth-100)/2, y: 0, width: 100, height: 100))
         image.loadGif(name: "test")
         myHeaderView.addSubview(image)
     }
     
     func updateHeaderView(_ selection: Int) {
         deleteHeaderView()
-        let myLabel = UILabel(frame: CGRect(x: 0, y: 200, width: displayWidth, height: 30))
+        let myLabel = UILabel(frame: CGRect(x: 0, y: 100, width: displayWidth, height: 30))
         if(selection == 0) {
             myLabel.text = "受け取ったフライヤー(\(FlyerTableDatasourceDelegate.shownflyerdata.count)枚)"
         } else if(selection == 1) {
@@ -204,10 +205,21 @@ extension FlyerViewController {
         myLabel.backgroundColor = UIColor.systemGray5
         myLabel.alpha = 1
         myHeaderView.addSubview(myLabel)
-        let image = UIImageView(frame: CGRect(x: (displayWidth-100)/2, y: 100, width: 100, height: 100))
+        
+        let image = UIImageView(frame: CGRect(x: (displayWidth-100)/2, y: 0, width: 100, height: 100))
+        image.image = UIImage(named: "testbili")
+        myHeaderView.addSubview(image)
+        
+    }
+    
+    func addHeaderViewGif() {
+        myHeaderView.subviews[1].removeFromSuperview()
+        let image = UIImageView(frame: CGRect(x: (displayWidth-100)/2, y: 0, width: 100, height: 100))
         image.loadGif(name: "test")
         myHeaderView.addSubview(image)
     }
+    
+    
     
     func deleteHeaderView() {
         let subviews = myHeaderView.subviews
