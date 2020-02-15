@@ -209,14 +209,15 @@ extension FlyerViewController {
         let image = UIImageView(frame: CGRect(x: (displayWidth-100)/2, y: 0, width: 100, height: 100))
         image.image = UIImage(named: "testbili")
         myHeaderView.addSubview(image)
-        
     }
     
     func addHeaderViewGif() {
-        myHeaderView.subviews[1].removeFromSuperview()
         let image = UIImageView(frame: CGRect(x: (displayWidth-100)/2, y: 0, width: 100, height: 100))
         image.loadGif(name: "test")
         myHeaderView.addSubview(image)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            self.myHeaderView.subviews[1].removeFromSuperview()
+        }
     }
     
     

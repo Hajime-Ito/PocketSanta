@@ -162,70 +162,72 @@ class FlyerTableDatasourceDelegateController: UITableView, FlyerTableViewDD {
     //スワイプしたセル(セクション)を削除
     // 参考：https://kichie-com.hatenablog.com/entry/table-section-delete
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == UITableViewCell.EditingStyle.delete {
-            // クロージャ（結構めんどくさい実装だったけど他にも使えそう）
-            alert( Closure: { isOK in
-                if(isOK) {
-                    if(self.FlyerViewController.mysegmentControl.selectedSegmentIndex != 2) {
-                        self.appDelegate.flyerManager.removeFlyer(self.shownflyerdata[indexPath.section].FlyerKey)
-                    } else {
-                        self.appDelegate.flyerManager.updateFlyer(self.shownflyerdata[indexPath.section].FlyerKey, favorite: false)
-                    }
-                    
-                    for i in 0..<self.flyerdata.count {
-                        if(self.flyerdata[i].FlyerKey == self.shownflyerdata[indexPath.section].FlyerKey) {
-                            self.flyerdata.remove(at: i)
-                            break // ここでbreakを呼び出さないと、flyerdataが1つ減った状態で、削除前の数だけアクセスされるのでOut of Indexになってしまう。
-                        }
-                    }
-                    self.shownflyerdata.remove(at: indexPath.section)
-                    let indexSet = NSMutableIndexSet()
-                    indexSet.add(indexPath.section)
-                    tableView.deleteSections(indexSet as IndexSet, with: UITableView.RowAnimation.automatic)
-                    tableView.reloadData()
-                    let FVC = self.FlyerViewController
-                    FVC!.updateHeaderView(FVC!.mysegmentControl.selectedSegmentIndex)
+        
+        func update(_ isOK: Bool) {
+            if(isOK) {
+                if(self.FlyerViewController.mysegmentControl.selectedSegmentIndex != 2) {
+                    self.appDelegate.flyerManager.removeFlyer(self.shownflyerdata[indexPath.section].FlyerKey)
+                } else {
+                    self.appDelegate.flyerManager.updateFlyer(self.shownflyerdata[indexPath.section].FlyerKey, favorite: false)
                 }
-            })
+                
+                for i in 0..<self.flyerdata.count {
+                    if(self.flyerdata[i].FlyerKey == self.shownflyerdata[indexPath.section].FlyerKey) {
+                        self.flyerdata.remove(at: i)
+                        break // ここでbreakを呼び出さないと、flyerdataが1つ減った状態で、削除前の数だけアクセスされるのでOut of Indexになってしまう。
+                    }
+                }
+                self.shownflyerdata.remove(at: indexPath.section)
+                let indexSet = NSMutableIndexSet()
+                indexSet.add(indexPath.section)
+                tableView.deleteSections(indexSet as IndexSet, with: UITableView.RowAnimation.automatic)
+                tableView.reloadData()
+                let FVC = self.FlyerViewController
+                FVC!.updateHeaderView(FVC!.mysegmentControl.selectedSegmentIndex)
+            }
+        }
+        
+        if editingStyle == UITableViewCell.EditingStyle.delete {
+            switch self.FlyerViewController.mysegmentControl.selectedSegmentIndex {
+            case 0:
+                alert( alertTitle: "本当にフライヤーを削除しますか？",
+                       alertMessage: "復元はできないぜ(；ω；)",
+                       okTitle: "します！",
+                       cancelTitle: "しません",
+                       Closure: { isOK in update(isOK) })
+            case 1:
+                alert( alertTitle: "本当にフライヤーを削除しますか？",
+                       alertMessage: "今後このフライヤーは配信されなくなるぜ(；ω；)",
+                       okTitle: "します！",
+                       cancelTitle: "しません",
+                       Closure: { isOK in update(isOK) })
+            case 2:
+                alert( alertTitle: "フライヤーをお気に入りリストから外しますか？",
+                       alertMessage: "データは残るから安心しな( ˘ω˘ )",
+                       okTitle: "オーケー！",
+                       cancelTitle: "取り消し",
+                       Closure: { isOK in update(isOK) })
+            default: break
+            }
+            
             
         } else if editingStyle == UITableViewCell.EditingStyle.insert {}
     }
     
-    private func alert(Closure: @escaping ((Bool) -> Void)) {
+    
+    private func alert(alertTitle: String, alertMessage: String, okTitle: String, cancelTitle: String, Closure: @escaping ((Bool) -> Void)) {
         var isOK = false
         
-        var alerttitle = ""
-        var alertmessage = ""
-        var Oktitle = ""
-        var CancelTitle = ""
-        
-        if(self.FlyerViewController.mysegmentControl.selectedSegmentIndex == 0) {
-            alerttitle = "本当にフライヤーを削除しますか？"
-            alertmessage = "復元はできないぜ(；ω；)"
-            Oktitle = "します！"
-            CancelTitle =  "しません"
-        } else if(self.FlyerViewController.mysegmentControl.selectedSegmentIndex == 1) {
-            alerttitle = "本当にフライヤーを削除しますか？"
-            alertmessage = "今後このフライヤーは配信されなくなるぜ(；ω；)"
-            Oktitle = "します！"
-            CancelTitle =  "しません"
-        } else if(self.FlyerViewController.mysegmentControl.selectedSegmentIndex == 2) {
-            alerttitle = "フライヤーをお気に入りリストから外しますか？"
-            alertmessage = "データは残るから安心しな( ˘ω˘ )"
-            Oktitle = "オーケー！"
-            CancelTitle =  "取り消し"
-        }
-        
-        let alert: UIAlertController = UIAlertController(title: alerttitle, message: alertmessage, preferredStyle:  UIAlertController.Style.alert)
+        let alert: UIAlertController = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle:  UIAlertController.Style.alert)
         // OKボタン
-        let defaultAction: UIAlertAction = UIAlertAction(title: Oktitle, style: UIAlertAction.Style.default, handler:{
+        let defaultAction: UIAlertAction = UIAlertAction(title: okTitle, style: UIAlertAction.Style.default, handler:{
             // ボタンが押された時の処理を書く（クロージャ実装）
             (action: UIAlertAction!) -> Void in
             isOK = true
             Closure(isOK)
         })
         // キャンセルボタン
-        let cancelAction: UIAlertAction = UIAlertAction(title: CancelTitle, style: UIAlertAction.Style.cancel, handler:{
+        let cancelAction: UIAlertAction = UIAlertAction(title: cancelTitle, style: UIAlertAction.Style.cancel, handler:{
             // ボタンが押された時の処理を書く（クロージャ実装）
             (action: UIAlertAction!) -> Void in
             isOK = false
@@ -258,12 +260,12 @@ class FlyerTableDatasourceDelegateController: UITableView, FlyerTableViewDD {
         } else if (lastScrollView_y > scrollView_y) {
             sub["down"] = 0
             if(headerView_frame.origin.y >= scrollView_y + initHeader_frame["maxY"]!) {
-
+                
                 print(scrollView_y)
                 return headerViewStatus.stop_up(scrollView_y, headerView_frame, initHeader_frame["maxY"]!)}
             else { return headerViewStatus.move_up(sub["up"]!, scrollView_y, headerView_frame)}
         } else {
-              print(scrollView_y)
+            print(scrollView_y)
             sub["up"] = 0
             if(headerView_frame.origin.y <= scrollView_y + initHeader_frame["minY"]!) { return headerViewStatus.stop_down(scrollView_y, headerView_frame, initHeader_frame["minY"]!)}
             else { return headerViewStatus.move_down(sub["down"]!, scrollView_y, headerView_frame)}
